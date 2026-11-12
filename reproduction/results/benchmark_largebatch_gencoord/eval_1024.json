@@ -1,0 +1,20 @@
+{
+  "status": "passed",
+  "preparation_only": true,
+  "task": "SuperMimic-GenCoord-G1",
+  "cuda_visible_devices": "7",
+  "num_envs": 1024,
+  "steps": 200,
+  "warmup_steps": 20,
+  "measured_seconds": 31.077680376998615,
+  "transitions_per_second": 5930.944580291775,
+  "failures_of_untrained_smoke_policy": 4746,
+  "max_abs_action": 2.135005474090576,
+  "finite_actions_and_state": true,
+  "headless_render": false,
+  "checkpoint_sha256": {
+    "world_model.pt": "2142eddac1dbc0ef993830d8a7c3dbc43429a74b300e349d031b773183f7b200",
+    "actor.pt": "6bc45a0248fa2a53e6a21b76a336c12d6212cca9e5cad906de033225ae08d5a4"
+  },
+  "caveat": "Short integration probe only, with existing unrelated GPU jobs; not benchmark accuracy or exclusive GPU throughput."
+}

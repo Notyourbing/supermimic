@@ -1,0 +1,69 @@
+{
+  "utc": "2026-11-12T07:37:28.925685+00:00",
+  "gpus": [
+    {
+      "index": 0,
+      "uuid": "GPU-3395f12f-d4cc-965f-7bd9-6fd3f2c66bc0",
+      "name": "NVIDIA A100-SXM4-80GB",
+      "memory_total": 85899345920,
+      "existing_other_jobs_memory_bytes": 33815592960,
+      "gpu_util": 100
+    },
+    {
+      "index": 1,
+      "uuid": "GPU-ab6f4330-ba3a-a2d5-b4ca-0b9f351fc23d",
+      "name": "NVIDIA A100-SXM4-80GB",
+      "memory_total": 85899345920,
+      "existing_other_jobs_memory_bytes": 33788329984,
+      "gpu_util": 100
+    },
+    {
+      "index": 2,
+      "uuid": "GPU-266f599b-4626-3601-fe08-ab874083c417",
+      "name": "NVIDIA A100-SXM4-80GB",
+      "memory_total": 85899345920,
+      "existing_other_jobs_memory_bytes": 33912061952,
+      "gpu_util": 100
+    },
+    {
+      "index": 3,
+      "uuid": "GPU-5a54e1bb-0fbf-a63b-2ea1-492fca2ac115",
+      "name": "NVIDIA A100-SXM4-80GB",
+      "memory_total": 85899345920,
+      "existing_other_jobs_memory_bytes": 33853341696,
+      "gpu_util": 100
+    },
+    {
+      "index": 4,
+      "uuid": "GPU-2f4725fa-950c-1e7f-cba5-f94a078aee03",
+      "name": "NVIDIA A100-SXM4-80GB",
+      "memory_total": 85899345920,
+      "existing_other_jobs_memory_bytes": 33811398656,
+      "gpu_util": 100
+    },
+    {
+      "index": 5,
+      "uuid": "GPU-a81fc145-79d0-ac88-2205-a72f01e05336",
+      "name": "NVIDIA A100-SXM4-80GB",
+      "memory_total": 85899345920,
+      "existing_other_jobs_memory_bytes": 33813495808,
+      "gpu_util": 100
+    },
+    {
+      "index": 6,
+      "uuid": "GPU-118d76dd-dae7-6071-1b1f-ed93a50410ed",
+      "name": "NVIDIA A100-SXM4-80GB",
+      "memory_total": 85899345920,
+      "existing_other_jobs_memory_bytes": 33813495808,
+      "gpu_util": 100
+    },
+    {
+      "index": 7,
+      "uuid": "GPU-252359e3-0dd9-4f03-ee21-fada1870fcb9",
+      "name": "NVIDIA A100-SXM4-80GB",
+      "memory_total": 85899345920,
+      "existing_other_jobs_memory_bytes": 33811398656,
+      "gpu_util": 100
+    }
+  ]
+}

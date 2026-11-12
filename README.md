@@ -4,6 +4,10 @@
 
 SuperMimic trains a humanoid whole-body motion tracker with one differentiable world model, built on [mjlab](https://github.com/mujocolab/mjlab).
 
+## 本 fork 的复现与迁移
+
+环境安装、完整数据准备、原服务器测试记录和下一步计划见 [reproduction/README.md](reproduction/README.md)。正式训练尚未启动。迁移时优先使用该入口，避免旧锁文件与当前配套 mjlab 的依赖差异。
+
 ## Setup
 
 Install [uv](https://docs.astral.sh/uv/):

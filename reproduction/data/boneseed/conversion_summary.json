@@ -1,0 +1,13 @@
+{
+  "status": "passed",
+  "filtered": false,
+  "conversion_version": "bones-cm-deg-extrinsic-xyz-v1",
+  "archive": "/home/zhuobing/projects/supermimic/official_reproduction/data/boneseed/raw/g1.tar.gz",
+  "count": 142220,
+  "frames": 51915358,
+  "seconds": 1035462.76,
+  "elapsed_seconds": 419.2919429950125,
+  "errors": [],
+  "source_convention": "https://github.com/NVlabs/ProtoMotions/blob/main/docs/source/getting_started/seed_g1_csv_preparation.rst",
+  "resampling_and_velocities": "official mjlab.scripts.csv_to_npz.MotionLoader"
+}

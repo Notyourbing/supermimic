@@ -1,0 +1,12 @@
+{
+  "checked_utc": "2026-11-12T10:45:25.743628+00:00",
+  "scope": "Portable repository bundle on existing Python 3.13 environment; fresh remote-server creation remains to be checked on target host.",
+  "bash_syntax": "passed",
+  "ruff": "passed",
+  "existing_environment_offline_bootstrap": "passed",
+  "dependency_check": "154 packages compatible",
+  "portable_runtime_import": "torch 2.14.1+cu130 / mujoco 3.16.0",
+  "upstream_tests_passed_after_bootstrap": 217,
+  "data_and_checkpoints_in_git": false,
+  "formal_training_started": false
+}

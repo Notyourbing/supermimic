@@ -1,0 +1,19 @@
+{
+  "rank": 7,
+  "name": "NVIDIA A100-SXM4-80GB",
+  "compute_capability": [
+    8,
+    0
+  ],
+  "allreduce_sum": 36.0,
+  "bf16_matmul_finite": true,
+  "torch": "2.14.1+cu130",
+  "cuda_runtime": "13.0",
+  "nccl": [
+    2,
+    30,
+    7
+  ],
+  "free_bytes": 50871926784,
+  "status": "passed"
+}

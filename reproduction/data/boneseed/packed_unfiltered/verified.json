@@ -1,0 +1,67 @@
+{
+  "status": "verified",
+  "filtered": false,
+  "count": 142220,
+  "frames": 51915358,
+  "seconds": 1035462.76,
+  "hours": 287.62854444444446,
+  "resident_float32_bytes": 14743961672,
+  "pack_and_verify_seconds": 491.320909690985,
+  "files": {
+    "joint_pos.npy": {
+      "shape": [
+        51915358,
+        29
+      ],
+      "dtype": "float32",
+      "bytes": 6022181656,
+      "sha256": "a0409b6fa133ffdbcb7c7401b62613c36846af7beae9b76b700e7eec9f4d206b"
+    },
+    "joint_vel.npy": {
+      "shape": [
+        51915358,
+        29
+      ],
+      "dtype": "float32",
+      "bytes": 6022181656,
+      "sha256": "a76b4e793e72475b4cfae5f1b9e3e287083362f43eaac6c1a15aa1d76d260318"
+    },
+    "root_pos_w.npy": {
+      "shape": [
+        51915358,
+        3
+      ],
+      "dtype": "float32",
+      "bytes": 622984424,
+      "sha256": "adec3a7e9d4599fed7cdadaceb727cd09d19fcf040ce2b374895f101c927e8e3"
+    },
+    "root_quat_w.npy": {
+      "shape": [
+        51915358,
+        4
+      ],
+      "dtype": "float32",
+      "bytes": 830645856,
+      "sha256": "d7a795b5cd31aa7273ddc26cd98d3081004dec415d886b42431b42d3f1846db4"
+    },
+    "root_lin_vel_w.npy": {
+      "shape": [
+        51915358,
+        3
+      ],
+      "dtype": "float32",
+      "bytes": 622984424,
+      "sha256": "d88c79dda9c8fc9b60ef55af80c0f748e3925d44ec41a2629d8874969525ee79"
+    },
+    "root_ang_vel_w.npy": {
+      "shape": [
+        51915358,
+        3
+      ],
+      "dtype": "float32",
+      "bytes": 622984424,
+      "sha256": "22b9ca838436d594764606f32031d53193ab05dca979109ec17cdc2272086e2a"
+    }
+  },
+  "note": "Full raw release converted with the official resampler. This is not the paper's 129514-clip filtered benchmark."
+}

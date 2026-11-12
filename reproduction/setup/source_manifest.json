@@ -1,0 +1,28 @@
+{
+  "retrieved_utc": "2026-11-12T06:43:30.191817+00:00",
+  "system": "Linux-6.8.0-149-generic-x86_64-with-glibc2.39",
+  "repositories": {
+    "supermimic": {
+      "url": "https://github.com/HybridRobotics/supermimic.git",
+      "commit": "abc124c1bd5976341034668af3d12c087f2f1f55",
+      "clean": true
+    },
+    "mjlab_research": {
+      "url": "https://github.com/HybridRobotics/mjlab_research.git",
+      "commit": "dd51a9fcc98791a2f0b018b3c7f71a3eefd5ecdd",
+      "clean": true
+    }
+  },
+  "preparation_constraints": {
+    "formal_training_started": false,
+    "existing_other_user_gpu_jobs_preserved": true,
+    "fixed_training_seed": 42,
+    "full_bones_access_pending": false,
+    "default_official_train_has_no_distributed_entrypoint": true,
+    "paper_vs_current_source": [
+      "Paper specifies Adam; current source uses Muon for hidden linear weights and fused Adam elsewhere.",
+      "Paper specifies cosine LR schedule and 320000 iterations; current source has constant LR and default 1000000 collection iterations.",
+      "Current default observation uses representation state with history 1; paper sensor observation needs actor_obs=proprio and history_length=10."
+    ]
+  }
+}

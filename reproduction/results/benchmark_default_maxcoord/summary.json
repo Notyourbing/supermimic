@@ -1,0 +1,125 @@
+{
+  "status": "passed",
+  "preparation_only": true,
+  "task": "SuperMimic-MaxCoord-G1",
+  "seed": 42,
+  "cuda_visible_devices": "5",
+  "init_seconds": 13.191358048992697,
+  "loop_seconds_including_compile": 496.954726224998,
+  "learner_updates": 45,
+  "warmup_last_step": 18,
+  "steady_steps": 101,
+  "steady_seconds_per_iteration": 0.5922753861880548,
+  "steady_median_seconds": 0.47222714399686083,
+  "parameters_changed": {
+    "wm": true,
+    "actor": true
+  },
+  "wm_graph": true,
+  "policy_graph": true,
+  "torch_peak_allocated_bytes": 20748208640,
+  "torch_peak_reserved_bytes": 22504538112,
+  "parameters": {
+    "wm": 9144404,
+    "actor": 11603037
+  },
+  "checkpoint_sha256": {
+    "actor.pt": "e1f27126b0391d615c50a4a962e364d015f0d411cd86d34d521ab469b6e0a7b1",
+    "world_model.pt": "a24063aa02b308c166d0791d4360e5b88cdf58a800bacd17b28cdb7ed518fcda",
+    "critic.pt": "eb91536495d0708edbbf2f4d79b691c4ba0ea4930a52292c63d28e6fca66dbc3"
+  },
+  "config": {
+    "wandb_project": "supermimic",
+    "run_name": "PREPARATION_ONLY_benchmark_default_maxcoord",
+    "wandb_run_path": null,
+    "headless": true,
+    "buffer_size": 1000,
+    "representation": "maxcoord",
+    "actor_obs": "proprio",
+    "log_interval": 4,
+    "save_interval": 121,
+    "history_length": 10,
+    "termination_softness": 0.05,
+    "dynamics_hidden_dims": [
+      2048,
+      2048,
+      2048
+    ],
+    "wm": {
+      "lr": 0.0002,
+      "num_batches": 10,
+      "batch_size": 2048,
+      "horizon": 8,
+      "nominal_error_root_pose_pos": 0.01,
+      "nominal_error_root_pose_ori": 0.02,
+      "nominal_error_joint_pos": 0.1,
+      "nominal_error_joint_vel": 3.14,
+      "nominal_error_body_pos": 0.05,
+      "nominal_error_body_rot": 0.1,
+      "nominal_error_body_vel": 1.0,
+      "nominal_error_body_avel": 3.14
+    },
+    "max_iterations": 120,
+    "replay_ratio": 16,
+    "latent_dim": 32,
+    "actor_hidden_dims": [
+      2048,
+      1024,
+      512,
+      256
+    ],
+    "critic_hidden_dims": [
+      256,
+      128
+    ],
+    "latent_bc_weight": 0.1,
+    "tasks": {
+      "velocity": {
+        "lin_vel_x_range": [
+          -1.5,
+          1.5
+        ],
+        "lin_vel_y_range": [
+          -0.5,
+          0.5
+        ],
+        "ang_vel_z_range": [
+          -3.14,
+          3.14
+        ],
+        "window_frames": 25,
+        "command_noise": [
+          0.5,
+          0.5,
+          0.785
+        ]
+      }
+    },
+    "slot_mix": {
+      "motion": 1.0,
+      "velocity": 0.0
+    },
+    "policy": {
+      "lr": 0.0002,
+      "num_batches": 1,
+      "batch_size": 4096,
+      "noise": 0.1,
+      "horizon": 32,
+      "gamma": 0.99,
+      "survival_masking": true,
+      "beta2": 0.95,
+      "grad_clip_value": 0.1,
+      "lam": 0.95
+    },
+    "sampling_mode": "return",
+    "return_sampler": {
+      "gamma": 0.99,
+      "horizon": 20,
+      "memory": 256,
+      "steepness": 25.0,
+      "explore": 0.5,
+      "keep": 0.1
+    }
+  },
+  "performance_caveat": "GPU shared with pre-existing unrelated jobs; global GPU utilization is not attributable to this probe."
+}

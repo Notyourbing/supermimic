@@ -1,0 +1,65 @@
+{
+  "completed_utc": "2026-11-12T08:04:37.464701+00:00",
+  "formal_training_started": false,
+  "active_training_or_evaluation_probes": [],
+  "source_worktrees_clean": true,
+  "upstream_tests": {
+    "passed": 217,
+    "failed": 0
+  },
+  "hardware_gpus_passed": 8,
+  "bounded_learning_probes": {
+    "benchmark_bones_gencoord": {
+      "status": "passed",
+      "iterations": 120,
+      "learner_updates": 45
+    },
+    "benchmark_cached_gencoord": {
+      "status": "passed",
+      "iterations": 40,
+      "learner_updates": 13
+    },
+    "benchmark_default_gencoord": {
+      "status": "passed",
+      "iterations": 120,
+      "learner_updates": 45
+    },
+    "benchmark_default_maxcoord": {
+      "status": "passed",
+      "iterations": 120,
+      "learner_updates": 45
+    },
+    "benchmark_largebatch_gencoord": {
+      "status": "passed",
+      "iterations": 120,
+      "learner_updates": 22
+    },
+    "benchmark_samegpu_largebatch": {
+      "status": "passed",
+      "iterations": 80,
+      "learner_updates": 14
+    },
+    "smoke_gencoord": {
+      "status": "passed",
+      "iterations": 48,
+      "learner_updates": 20
+    },
+    "smoke_maxcoord": {
+      "status": "passed",
+      "iterations": 48,
+      "learner_updates": 20
+    }
+  },
+  "evaluation_checks": {
+    "results/benchmark_default_gencoord/eval_1024.json": "passed",
+    "results/benchmark_default_maxcoord/eval_1024.json": "passed",
+    "results/benchmark_largebatch_gencoord/eval_1024.json": "passed",
+    "results/smoke_gencoord/eval_64.json": "passed",
+    "results/smoke_gencoord/eval_bones_format_64.json": "passed",
+    "results/smoke_gencoord/eval_bones_full_64.json": "passed",
+    "results/smoke_maxcoord/eval_64.json": "passed"
+  },
+  "bones_raw_converted_clips": 142220,
+  "bones_is_paper_filtered_set": false,
+  "report": "PREPARATION_REPORT.md"
+}
