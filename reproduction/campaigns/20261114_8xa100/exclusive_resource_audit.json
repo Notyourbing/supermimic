@@ -1,0 +1,9 @@
+{
+  "status": "validated",
+  "tag": "queue_1794624587_1",
+  "all_eight_exit_codes": 0,
+  "foreign_processes_detected": false,
+  "queue_false_positive_pid": 3718474,
+  "explanation": "PID 3718474 was our GPU7 smoke process. Its closing NVML record was transiently visible after the command changed to defunct. All eight summary.json and successful exit codes already existed. The duplicate attempt was cancelled; no foreign jobs were stopped.",
+  "time": 1794624870.6856732
+}

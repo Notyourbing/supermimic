@@ -1,18 +1,22 @@
 # 本次 smoke test 实测
 
-独占结果已确认：False。全八组通过：False。
+独占结果已确认：True。全八组通过：True。
 
 如果独占未确认，下表仅用于集成验证及共享负载观察，不能据此声称本项目达到 80% GPU 使用率或据此作准确独占工时预测。
 
-| GPU | Run | 秒/循环 | transitions/s | Torch reserved GiB | 预算估时 GPU-h |
-|---|---|---:|---:|---:|---:|
-| 0 | exclusive_20261114_lafan1_gencoord_x1 | 0.225 | 18239 | 18.60 | 20.0 |
-| 1 | exclusive_20261114_lafan1_maxcoord_x1 | 0.283 | 14449 | 21.07 | 25.2 |
-| 2 | exclusive_20261114_boneseed_gencoord_x1 | 0.219 | 18722 | 32.42 | 19.4 |
-| 3 | exclusive_20261114_boneseed_maxcoord_x1 | 0.506 | 8101 | 34.62 | 44.9 |
-| 4 | exclusive_20261114_lafan1_gencoord_x2 | 0.359 | 22809 | 36.54 | 16.0 |
-| 5 | exclusive_20261114_lafan1_maxcoord_x2 | failed/cancelled | | | |
-| 6 | exclusive_20261114_boneseed_gencoord_x2 | failed/cancelled | | | |
-| 7 | exclusive_20261114_boneseed_maxcoord_x2 | failed/cancelled | | | |
+| GPU | Run | 秒/循环 | transitions/s | GPU-Util 均值 | Torch reserved GiB | NVML 显存采样峰值 GiB | 估时 GPU-h |
+|---|---|---:|---:|---:|---:|---:|---:|
+| 0 | allocated_20261114_queue_1794624587_1_lafan1_gencoord_x1 | 0.210 | 19484 | 94.7% | 18.60 | 20.63 | 18.7 |
+| 1 | allocated_20261114_queue_1794624587_1_lafan1_maxcoord_x1 | 0.215 | 19045 | 92.9% | 21.07 | 23.11 | 19.1 |
+| 2 | allocated_20261114_queue_1794624587_1_boneseed_gencoord_x1 | 0.213 | 19223 | 93.7% | 32.42 | 34.45 | 18.9 |
+| 3 | allocated_20261114_queue_1794624587_1_boneseed_maxcoord_x1 | 0.220 | 18603 | 93.8% | 34.78 | 36.81 | 19.6 |
+| 4 | allocated_20261114_queue_1794624587_1_lafan1_gencoord_x2 | 0.333 | 24612 | 95.8% | 36.54 | 39.10 | 14.8 |
+| 5 | allocated_20261114_queue_1794624587_1_lafan1_maxcoord_x2 | 0.339 | 24162 | 95.1% | 41.56 | 44.13 | 15.1 |
+| 6 | allocated_20261114_queue_1794624587_1_boneseed_gencoord_x2 | 0.336 | 24382 | 95.3% | 50.14 | 52.70 | 14.9 |
+| 7 | allocated_20261114_queue_1794624587_1_boneseed_maxcoord_x2 | 0.347 | 23615 | 95.3% | 55.03 | 57.59 | 15.4 |
 
 编译预热和末尾保存已剔除。预计值还需增加约 20% 运行余量；未收敛阶段的吞吐可能随训练状态变化。BONES 为未筛选数据，不等同于论文集合。
+
+八组总工时约 136.5 GPU-h，墙钟约 19.6 h；加 20% 余量后约 163.8 GPU-h / 23.5 h。
+
+默认规模约 18600–19500 transitions/s，放大规模约 23600–24600 transitions/s；提升约 26%–28%，最终效果仍需比较。这里 GPU-Util 是稳定阶段 NVML 时间占用率，不是理论峰值 FLOPS 的百分比。

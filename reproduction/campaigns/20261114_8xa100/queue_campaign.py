@@ -43,16 +43,26 @@ while True:
             stderr=subprocess.STDOUT,
         )
         contended = False
+        known_probe_pids = set()
         while process.poll() is None:
             resources = snapshot()
             foreign = []
             for app in resources["processes"]:
+                if app["pid"] in known_probe_pids:
+                    continue
                 lookup = subprocess.run(
-                    ["ps", "-p", str(app["pid"]), "-o", "args="],
+                    ["ps", "-p", str(app["pid"]), "-o", "stat=,args="],
                     text=True,
                     capture_output=True,
                 )
                 command = lookup.stdout.strip()
+                # NVML may briefly retain an exiting process. Do not treat its
+                # transient '[python] <defunct>' command as a competing job.
+                if command.startswith("Z"):
+                    continue
+                if str(root / "reproduction/scripts/preflight.py") in command:
+                    known_probe_pids.add(app["pid"])
+                    continue
                 if (
                     command
                     and str(root / "reproduction/scripts/preflight.py") not in command

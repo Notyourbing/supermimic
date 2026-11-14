@@ -1,0 +1,3314 @@
+[
+  {
+    "elapsed": 13.086212306981906,
+    "step": 0,
+    "gpus": [
+      {
+        "index": 0,
+        "gpu_util": 0,
+        "used_bytes": 6499991552
+      },
+      {
+        "index": 1,
+        "gpu_util": 12,
+        "used_bytes": 8506900480
+      },
+      {
+        "index": 2,
+        "gpu_util": 0,
+        "used_bytes": 16585129984
+      },
+      {
+        "index": 3,
+        "gpu_util": 0,
+        "used_bytes": 16585129984
+      },
+      {
+        "index": 4,
+        "gpu_util": 1,
+        "used_bytes": 2473394176
+      },
+      {
+        "index": 5,
+        "gpu_util": 0,
+        "used_bytes": 15089860608
+      },
+      {
+        "index": 6,
+        "gpu_util": 0,
+        "used_bytes": 17042309120
+      },
+      {
+        "index": 7,
+        "gpu_util": 0,
+        "used_bytes": 17042309120
+      }
+    ]
+  },
+  {
+    "elapsed": 14.202220915001817,
+    "step": 0,
+    "gpus": [
+      {
+        "index": 0,
+        "gpu_util": 0,
+        "used_bytes": 6669860864
+      },
+      {
+        "index": 1,
+        "gpu_util": 0,
+        "used_bytes": 8506900480
+      },
+      {
+        "index": 2,
+        "gpu_util": 0,
+        "used_bytes": 16585129984
+      },
+      {
+        "index": 3,
+        "gpu_util": 0,
+        "used_bytes": 16585129984
+      },
+      {
+        "index": 4,
+        "gpu_util": 2,
+        "used_bytes": 11329667072
+      },
+      {
+        "index": 5,
+        "gpu_util": 0,
+        "used_bytes": 15370878976
+      },
+      {
+        "index": 6,
+        "gpu_util": 0,
+        "used_bytes": 17042309120
+      },
+      {
+        "index": 7,
+        "gpu_util": 0,
+        "used_bytes": 17042309120
+      }
+    ]
+  },
+  {
+    "elapsed": 15.226464851002675,
+    "step": 0,
+    "gpus": [
+      {
+        "index": 0,
+        "gpu_util": 0,
+        "used_bytes": 6669860864
+      },
+      {
+        "index": 1,
+        "gpu_util": 0,
+        "used_bytes": 8506900480
+      },
+      {
+        "index": 2,
+        "gpu_util": 0,
+        "used_bytes": 16585129984
+      },
+      {
+        "index": 3,
+        "gpu_util": 0,
+        "used_bytes": 16585129984
+      },
+      {
+        "index": 4,
+        "gpu_util": 0,
+        "used_bytes": 11711348736
+      },
+      {
+        "index": 5,
+        "gpu_util": 0,
+        "used_bytes": 15370878976
+      },
+      {
+        "index": 6,
+        "gpu_util": 0,
+        "used_bytes": 17042309120
+      },
+      {
+        "index": 7,
+        "gpu_util": 0,
+        "used_bytes": 17042309120
+      }
+    ]
+  },
+  {
+    "elapsed": 16.250150238978676,
+    "step": 0,
+    "gpus": [
+      {
+        "index": 0,
+        "gpu_util": 0,
+        "used_bytes": 6669860864
+      },
+      {
+        "index": 1,
+        "gpu_util": 0,
+        "used_bytes": 8506900480
+      },
+      {
+        "index": 2,
+        "gpu_util": 0,
+        "used_bytes": 16585129984
+      },
+      {
+        "index": 3,
+        "gpu_util": 0,
+        "used_bytes": 16585129984
+      },
+      {
+        "index": 4,
+        "gpu_util": 0,
+        "used_bytes": 11711348736
+      },
+      {
+        "index": 5,
+        "gpu_util": 0,
+        "used_bytes": 15370878976
+      },
+      {
+        "index": 6,
+        "gpu_util": 0,
+        "used_bytes": 17042309120
+      },
+      {
+        "index": 7,
+        "gpu_util": 0,
+        "used_bytes": 17042309120
+      }
+    ]
+  },
+  {
+    "elapsed": 17.280554503959138,
+    "step": 0,
+    "gpus": [
+      {
+        "index": 0,
+        "gpu_util": 0,
+        "used_bytes": 6669860864
+      },
+      {
+        "index": 1,
+        "gpu_util": 0,
+        "used_bytes": 8506900480
+      },
+      {
+        "index": 2,
+        "gpu_util": 0,
+        "used_bytes": 16585129984
+      },
+      {
+        "index": 3,
+        "gpu_util": 0,
+        "used_bytes": 16585129984
+      },
+      {
+        "index": 4,
+        "gpu_util": 0,
+        "used_bytes": 11711348736
+      },
+      {
+        "index": 5,
+        "gpu_util": 0,
+        "used_bytes": 15370878976
+      },
+      {
+        "index": 6,
+        "gpu_util": 0,
+        "used_bytes": 17111515136
+      },
+      {
+        "index": 7,
+        "gpu_util": 0,
+        "used_bytes": 17042309120
+      }
+    ]
+  },
+  {
+    "elapsed": 18.306417540996335,
+    "step": 0,
+    "gpus": [
+      {
+        "index": 0,
+        "gpu_util": 0,
+        "used_bytes": 6669860864
+      },
+      {
+        "index": 1,
+        "gpu_util": 0,
+        "used_bytes": 8506900480
+      },
+      {
+        "index": 2,
+        "gpu_util": 1,
+        "used_bytes": 16704667648
+      },
+      {
+        "index": 3,
+        "gpu_util": 1,
+        "used_bytes": 16683696128
+      },
+      {
+        "index": 4,
+        "gpu_util": 0,
+        "used_bytes": 11711348736
+      },
+      {
+        "index": 5,
+        "gpu_util": 0,
+        "used_bytes": 15370878976
+      },
+      {
+        "index": 6,
+        "gpu_util": 0,
+        "used_bytes": 17189109760
+      },
+      {
+        "index": 7,
+        "gpu_util": 0,
+        "used_bytes": 17042309120
+      }
+    ]
+  },
+  {
+    "elapsed": 19.333149918995332,
+    "step": 0,
+    "gpus": [
+      {
+        "index": 0,
+        "gpu_util": 0,
+        "used_bytes": 6669860864
+      },
+      {
+        "index": 1,
+        "gpu_util": 0,
+        "used_bytes": 8506900480
+      },
+      {
+        "index": 2,
+        "gpu_util": 6,
+        "used_bytes": 21104492544
+      },
+      {
+        "index": 3,
+        "gpu_util": 6,
+        "used_bytes": 16910188544
+      },
+      {
+        "index": 4,
+        "gpu_util": 0,
+        "used_bytes": 11711348736
+      },
+      {
+        "index": 5,
+        "gpu_util": 0,
+        "used_bytes": 15370878976
+      },
+      {
+        "index": 6,
+        "gpu_util": 6,
+        "used_bytes": 26083131392
+      },
+      {
+        "index": 7,
+        "gpu_util": 1,
+        "used_bytes": 17163943936
+      }
+    ]
+  },
+  {
+    "elapsed": 20.354055234987754,
+    "step": 0,
+    "gpus": [
+      {
+        "index": 0,
+        "gpu_util": 0,
+        "used_bytes": 6669860864
+      },
+      {
+        "index": 1,
+        "gpu_util": 0,
+        "used_bytes": 8506900480
+      },
+      {
+        "index": 2,
+        "gpu_util": 0,
+        "used_bytes": 21297430528
+      },
+      {
+        "index": 3,
+        "gpu_util": 0,
+        "used_bytes": 23115661312
+      },
+      {
+        "index": 4,
+        "gpu_util": 0,
+        "used_bytes": 11711348736
+      },
+      {
+        "index": 5,
+        "gpu_util": 0,
+        "used_bytes": 15370878976
+      },
+      {
+        "index": 6,
+        "gpu_util": 0,
+        "used_bytes": 26485784576
+      },
+      {
+        "index": 7,
+        "gpu_util": 10,
+        "used_bytes": 29740564480
+      }
+    ]
+  },
+  {
+    "elapsed": 21.381569124991074,
+    "step": 0,
+    "gpus": [
+      {
+        "index": 0,
+        "gpu_util": 0,
+        "used_bytes": 6669860864
+      },
+      {
+        "index": 1,
+        "gpu_util": 0,
+        "used_bytes": 8506900480
+      },
+      {
+        "index": 2,
+        "gpu_util": 0,
+        "used_bytes": 21444231168
+      },
+      {
+        "index": 3,
+        "gpu_util": 0,
+        "used_bytes": 23262461952
+      },
+      {
+        "index": 4,
+        "gpu_util": 0,
+        "used_bytes": 11711348736
+      },
+      {
+        "index": 5,
+        "gpu_util": 0,
+        "used_bytes": 15370878976
+      },
+      {
+        "index": 6,
+        "gpu_util": 0,
+        "used_bytes": 26485784576
+      },
+      {
+        "index": 7,
+        "gpu_util": 22,
+        "used_bytes": 30143217664
+      }
+    ]
+  },
+  {
+    "elapsed": 22.41684428998269,
+    "step": 0,
+    "gpus": [
+      {
+        "index": 0,
+        "gpu_util": 0,
+        "used_bytes": 6669860864
+      },
+      {
+        "index": 1,
+        "gpu_util": 0,
+        "used_bytes": 8506900480
+      },
+      {
+        "index": 2,
+        "gpu_util": 0,
+        "used_bytes": 21444231168
+      },
+      {
+        "index": 3,
+        "gpu_util": 0,
+        "used_bytes": 23262461952
+      },
+      {
+        "index": 4,
+        "gpu_util": 0,
+        "used_bytes": 11711348736
+      },
+      {
+        "index": 5,
+        "gpu_util": 0,
+        "used_bytes": 15370878976
+      },
+      {
+        "index": 6,
+        "gpu_util": 0,
+        "used_bytes": 26485784576
+      },
+      {
+        "index": 7,
+        "gpu_util": 0,
+        "used_bytes": 30143217664
+      }
+    ]
+  },
+  {
+    "elapsed": 23.442070631950628,
+    "step": 0,
+    "gpus": [
+      {
+        "index": 0,
+        "gpu_util": 0,
+        "used_bytes": 6669860864
+      },
+      {
+        "index": 1,
+        "gpu_util": 0,
+        "used_bytes": 8506900480
+      },
+      {
+        "index": 2,
+        "gpu_util": 0,
+        "used_bytes": 21444231168
+      },
+      {
+        "index": 3,
+        "gpu_util": 0,
+        "used_bytes": 23262461952
+      },
+      {
+        "index": 4,
+        "gpu_util": 0,
+        "used_bytes": 11711348736
+      },
+      {
+        "index": 5,
+        "gpu_util": 0,
+        "used_bytes": 15370878976
+      },
+      {
+        "index": 6,
+        "gpu_util": 0,
+        "used_bytes": 26485784576
+      },
+      {
+        "index": 7,
+        "gpu_util": 0,
+        "used_bytes": 30143217664
+      }
+    ]
+  },
+  {
+    "elapsed": 24.468483254953753,
+    "step": 0,
+    "gpus": [
+      {
+        "index": 0,
+        "gpu_util": 0,
+        "used_bytes": 6669860864
+      },
+      {
+        "index": 1,
+        "gpu_util": 0,
+        "used_bytes": 8506900480
+      },
+      {
+        "index": 2,
+        "gpu_util": 0,
+        "used_bytes": 21444231168
+      },
+      {
+        "index": 3,
+        "gpu_util": 0,
+        "used_bytes": 23262461952
+      },
+      {
+        "index": 4,
+        "gpu_util": 0,
+        "used_bytes": 11711348736
+      },
+      {
+        "index": 5,
+        "gpu_util": 0,
+        "used_bytes": 15370878976
+      },
+      {
+        "index": 6,
+        "gpu_util": 0,
+        "used_bytes": 26485784576
+      },
+      {
+        "index": 7,
+        "gpu_util": 0,
+        "used_bytes": 30143217664
+      }
+    ]
+  },
+  {
+    "elapsed": 25.48907963000238,
+    "step": 2,
+    "gpus": [
+      {
+        "index": 0,
+        "gpu_util": 0,
+        "used_bytes": 6669860864
+      },
+      {
+        "index": 1,
+        "gpu_util": 31,
+        "used_bytes": 8594980864
+      },
+      {
+        "index": 2,
+        "gpu_util": 0,
+        "used_bytes": 21444231168
+      },
+      {
+        "index": 3,
+        "gpu_util": 0,
+        "used_bytes": 23262461952
+      },
+      {
+        "index": 4,
+        "gpu_util": 0,
+        "used_bytes": 11711348736
+      },
+      {
+        "index": 5,
+        "gpu_util": 0,
+        "used_bytes": 15370878976
+      },
+      {
+        "index": 6,
+        "gpu_util": 0,
+        "used_bytes": 26485784576
+      },
+      {
+        "index": 7,
+        "gpu_util": 0,
+        "used_bytes": 30143217664
+      }
+    ]
+  },
+  {
+    "elapsed": 26.563487059960607,
+    "step": 2,
+    "gpus": [
+      {
+        "index": 0,
+        "gpu_util": 0,
+        "used_bytes": 6669860864
+      },
+      {
+        "index": 1,
+        "gpu_util": 0,
+        "used_bytes": 8594980864
+      },
+      {
+        "index": 2,
+        "gpu_util": 0,
+        "used_bytes": 21444231168
+      },
+      {
+        "index": 3,
+        "gpu_util": 0,
+        "used_bytes": 23262461952
+      },
+      {
+        "index": 4,
+        "gpu_util": 0,
+        "used_bytes": 11711348736
+      },
+      {
+        "index": 5,
+        "gpu_util": 0,
+        "used_bytes": 15544942592
+      },
+      {
+        "index": 6,
+        "gpu_util": 0,
+        "used_bytes": 26485784576
+      },
+      {
+        "index": 7,
+        "gpu_util": 0,
+        "used_bytes": 30143217664
+      }
+    ]
+  },
+  {
+    "elapsed": 27.579561972990632,
+    "step": 2,
+    "gpus": [
+      {
+        "index": 0,
+        "gpu_util": 0,
+        "used_bytes": 6757941248
+      },
+      {
+        "index": 1,
+        "gpu_util": 0,
+        "used_bytes": 8594980864
+      },
+      {
+        "index": 2,
+        "gpu_util": 0,
+        "used_bytes": 21444231168
+      },
+      {
+        "index": 3,
+        "gpu_util": 3,
+        "used_bytes": 23262461952
+      },
+      {
+        "index": 4,
+        "gpu_util": 3,
+        "used_bytes": 11887509504
+      },
+      {
+        "index": 5,
+        "gpu_util": 0,
+        "used_bytes": 15544942592
+      },
+      {
+        "index": 6,
+        "gpu_util": 0,
+        "used_bytes": 26485784576
+      },
+      {
+        "index": 7,
+        "gpu_util": 0,
+        "used_bytes": 30143217664
+      }
+    ]
+  },
+  {
+    "elapsed": 28.60205984598724,
+    "step": 2,
+    "gpus": [
+      {
+        "index": 0,
+        "gpu_util": 0,
+        "used_bytes": 6757941248
+      },
+      {
+        "index": 1,
+        "gpu_util": 0,
+        "used_bytes": 8594980864
+      },
+      {
+        "index": 2,
+        "gpu_util": 0,
+        "used_bytes": 21444231168
+      },
+      {
+        "index": 3,
+        "gpu_util": 0,
+        "used_bytes": 23262461952
+      },
+      {
+        "index": 4,
+        "gpu_util": 0,
+        "used_bytes": 11887509504
+      },
+      {
+        "index": 5,
+        "gpu_util": 0,
+        "used_bytes": 15544942592
+      },
+      {
+        "index": 6,
+        "gpu_util": 0,
+        "used_bytes": 26485784576
+      },
+      {
+        "index": 7,
+        "gpu_util": 0,
+        "used_bytes": 30143217664
+      }
+    ]
+  },
+  {
+    "elapsed": 29.628409961005673,
+    "step": 2,
+    "gpus": [
+      {
+        "index": 0,
+        "gpu_util": 0,
+        "used_bytes": 6757941248
+      },
+      {
+        "index": 1,
+        "gpu_util": 0,
+        "used_bytes": 8594980864
+      },
+      {
+        "index": 2,
+        "gpu_util": 0,
+        "used_bytes": 21444231168
+      },
+      {
+        "index": 3,
+        "gpu_util": 0,
+        "used_bytes": 23262461952
+      },
+      {
+        "index": 4,
+        "gpu_util": 0,
+        "used_bytes": 11887509504
+      },
+      {
+        "index": 5,
+        "gpu_util": 0,
+        "used_bytes": 15544942592
+      },
+      {
+        "index": 6,
+        "gpu_util": 0,
+        "used_bytes": 26485784576
+      },
+      {
+        "index": 7,
+        "gpu_util": 0,
+        "used_bytes": 30143217664
+      }
+    ]
+  },
+  {
+    "elapsed": 30.69843824399868,
+    "step": 5,
+    "gpus": [
+      {
+        "index": 0,
+        "gpu_util": 0,
+        "used_bytes": 6757941248
+      },
+      {
+        "index": 1,
+        "gpu_util": 1,
+        "used_bytes": 8594980864
+      },
+      {
+        "index": 2,
+        "gpu_util": 0,
+        "used_bytes": 21444231168
+      },
+      {
+        "index": 3,
+        "gpu_util": 0,
+        "used_bytes": 23262461952
+      },
+      {
+        "index": 4,
+        "gpu_util": 0,
+        "used_bytes": 11887509504
+      },
+      {
+        "index": 5,
+        "gpu_util": 0,
+        "used_bytes": 15544942592
+      },
+      {
+        "index": 6,
+        "gpu_util": 0,
+        "used_bytes": 26485784576
+      },
+      {
+        "index": 7,
+        "gpu_util": 0,
+        "used_bytes": 30143217664
+      }
+    ]
+  },
+  {
+    "elapsed": 31.703370103961788,
+    "step": 8,
+    "gpus": [
+      {
+        "index": 0,
+        "gpu_util": 0,
+        "used_bytes": 6757941248
+      },
+      {
+        "index": 1,
+        "gpu_util": 0,
+        "used_bytes": 8980856832
+      },
+      {
+        "index": 2,
+        "gpu_util": 0,
+        "used_bytes": 21444231168
+      },
+      {
+        "index": 3,
+        "gpu_util": 0,
+        "used_bytes": 23262461952
+      },
+      {
+        "index": 4,
+        "gpu_util": 0,
+        "used_bytes": 11887509504
+      },
+      {
+        "index": 5,
+        "gpu_util": 43,
+        "used_bytes": 15544942592
+      },
+      {
+        "index": 6,
+        "gpu_util": 0,
+        "used_bytes": 26485784576
+      },
+      {
+        "index": 7,
+        "gpu_util": 0,
+        "used_bytes": 30143217664
+      }
+    ]
+  },
+  {
+    "elapsed": 32.72663371398812,
+    "step": 8,
+    "gpus": [
+      {
+        "index": 0,
+        "gpu_util": 39,
+        "used_bytes": 6757941248
+      },
+      {
+        "index": 1,
+        "gpu_util": 0,
+        "used_bytes": 8980856832
+      },
+      {
+        "index": 2,
+        "gpu_util": 0,
+        "used_bytes": 21444231168
+      },
+      {
+        "index": 3,
+        "gpu_util": 0,
+        "used_bytes": 23262461952
+      },
+      {
+        "index": 4,
+        "gpu_util": 0,
+        "used_bytes": 11887509504
+      },
+      {
+        "index": 5,
+        "gpu_util": 0,
+        "used_bytes": 16268460032
+      },
+      {
+        "index": 6,
+        "gpu_util": 7,
+        "used_bytes": 26657751040
+      },
+      {
+        "index": 7,
+        "gpu_util": 0,
+        "used_bytes": 30143217664
+      }
+    ]
+  },
+  {
+    "elapsed": 34.03446674300358,
+    "step": 8,
+    "gpus": [
+      {
+        "index": 0,
+        "gpu_util": 0,
+        "used_bytes": 6848118784
+      },
+      {
+        "index": 1,
+        "gpu_util": 0,
+        "used_bytes": 8982953984
+      },
+      {
+        "index": 2,
+        "gpu_util": 49,
+        "used_bytes": 21624586240
+      },
+      {
+        "index": 3,
+        "gpu_util": 41,
+        "used_bytes": 23350542336
+      },
+      {
+        "index": 4,
+        "gpu_util": 0,
+        "used_bytes": 12023824384
+      },
+      {
+        "index": 5,
+        "gpu_util": 0,
+        "used_bytes": 16268460032
+      },
+      {
+        "index": 6,
+        "gpu_util": 0,
+        "used_bytes": 26796163072
+      },
+      {
+        "index": 7,
+        "gpu_util": 49,
+        "used_bytes": 30315184128
+      }
+    ]
+  },
+  {
+    "elapsed": 35.037236718984786,
+    "step": 8,
+    "gpus": [
+      {
+        "index": 0,
+        "gpu_util": 0,
+        "used_bytes": 6848118784
+      },
+      {
+        "index": 1,
+        "gpu_util": 17,
+        "used_bytes": 9888923648
+      },
+      {
+        "index": 2,
+        "gpu_util": 0,
+        "used_bytes": 21624586240
+      },
+      {
+        "index": 3,
+        "gpu_util": 0,
+        "used_bytes": 23738515456
+      },
+      {
+        "index": 4,
+        "gpu_util": 0,
+        "used_bytes": 12023824384
+      },
+      {
+        "index": 5,
+        "gpu_util": 0,
+        "used_bytes": 17822449664
+      },
+      {
+        "index": 6,
+        "gpu_util": 0,
+        "used_bytes": 26796163072
+      },
+      {
+        "index": 7,
+        "gpu_util": 0,
+        "used_bytes": 31040798720
+      }
+    ]
+  },
+  {
+    "elapsed": 36.06161924498156,
+    "step": 8,
+    "gpus": [
+      {
+        "index": 0,
+        "gpu_util": 19,
+        "used_bytes": 7697465344
+      },
+      {
+        "index": 1,
+        "gpu_util": 0,
+        "used_bytes": 9888923648
+      },
+      {
+        "index": 2,
+        "gpu_util": 3,
+        "used_bytes": 22348103680
+      },
+      {
+        "index": 3,
+        "gpu_util": 0,
+        "used_bytes": 23738515456
+      },
+      {
+        "index": 4,
+        "gpu_util": 0,
+        "used_bytes": 13491830784
+      },
+      {
+        "index": 5,
+        "gpu_util": 36,
+        "used_bytes": 18051039232
+      },
+      {
+        "index": 6,
+        "gpu_util": 51,
+        "used_bytes": 28404678656
+      },
+      {
+        "index": 7,
+        "gpu_util": 0,
+        "used_bytes": 31040798720
+      }
+    ]
+  },
+  {
+    "elapsed": 37.0674818539992,
+    "step": 8,
+    "gpus": [
+      {
+        "index": 0,
+        "gpu_util": 0,
+        "used_bytes": 7697465344
+      },
+      {
+        "index": 1,
+        "gpu_util": 0,
+        "used_bytes": 9888923648
+      },
+      {
+        "index": 2,
+        "gpu_util": 0,
+        "used_bytes": 22473932800
+      },
+      {
+        "index": 3,
+        "gpu_util": 0,
+        "used_bytes": 24506073088
+      },
+      {
+        "index": 4,
+        "gpu_util": 0,
+        "used_bytes": 13634437120
+      },
+      {
+        "index": 5,
+        "gpu_util": 0,
+        "used_bytes": 18051039232
+      },
+      {
+        "index": 6,
+        "gpu_util": 0,
+        "used_bytes": 28404678656
+      },
+      {
+        "index": 7,
+        "gpu_util": 0,
+        "used_bytes": 31042895872
+      }
+    ]
+  },
+  {
+    "elapsed": 38.07945147296414,
+    "step": 8,
+    "gpus": [
+      {
+        "index": 0,
+        "gpu_util": 0,
+        "used_bytes": 7697465344
+      },
+      {
+        "index": 1,
+        "gpu_util": 0,
+        "used_bytes": 9888923648
+      },
+      {
+        "index": 2,
+        "gpu_util": 0,
+        "used_bytes": 22473932800
+      },
+      {
+        "index": 3,
+        "gpu_util": 0,
+        "used_bytes": 24646582272
+      },
+      {
+        "index": 4,
+        "gpu_util": 0,
+        "used_bytes": 13634437120
+      },
+      {
+        "index": 5,
+        "gpu_util": 0,
+        "used_bytes": 18051039232
+      },
+      {
+        "index": 6,
+        "gpu_util": 0,
+        "used_bytes": 28404678656
+      },
+      {
+        "index": 7,
+        "gpu_util": 29,
+        "used_bytes": 32823377920
+      }
+    ]
+  },
+  {
+    "elapsed": 39.09649097395595,
+    "step": 8,
+    "gpus": [
+      {
+        "index": 0,
+        "gpu_util": 0,
+        "used_bytes": 7697465344
+      },
+      {
+        "index": 1,
+        "gpu_util": 0,
+        "used_bytes": 10023141376
+      },
+      {
+        "index": 2,
+        "gpu_util": 0,
+        "used_bytes": 22473932800
+      },
+      {
+        "index": 3,
+        "gpu_util": 0,
+        "used_bytes": 24646582272
+      },
+      {
+        "index": 4,
+        "gpu_util": 0,
+        "used_bytes": 13634437120
+      },
+      {
+        "index": 5,
+        "gpu_util": 0,
+        "used_bytes": 18051039232
+      },
+      {
+        "index": 6,
+        "gpu_util": 0,
+        "used_bytes": 28442427392
+      },
+      {
+        "index": 7,
+        "gpu_util": 0,
+        "used_bytes": 32823377920
+      }
+    ]
+  },
+  {
+    "elapsed": 40.11953884200193,
+    "step": 8,
+    "gpus": [
+      {
+        "index": 0,
+        "gpu_util": 0,
+        "used_bytes": 7846363136
+      },
+      {
+        "index": 1,
+        "gpu_util": 0,
+        "used_bytes": 10023141376
+      },
+      {
+        "index": 2,
+        "gpu_util": 0,
+        "used_bytes": 22488612864
+      },
+      {
+        "index": 3,
+        "gpu_util": 0,
+        "used_bytes": 24646582272
+      },
+      {
+        "index": 4,
+        "gpu_util": 0,
+        "used_bytes": 13938524160
+      },
+      {
+        "index": 5,
+        "gpu_util": 1,
+        "used_bytes": 18319474688
+      },
+      {
+        "index": 6,
+        "gpu_util": 0,
+        "used_bytes": 28710862848
+      },
+      {
+        "index": 7,
+        "gpu_util": 0,
+        "used_bytes": 32823377920
+      }
+    ]
+  },
+  {
+    "elapsed": 41.13823344599223,
+    "step": 8,
+    "gpus": [
+      {
+        "index": 0,
+        "gpu_util": 0,
+        "used_bytes": 7846363136
+      },
+      {
+        "index": 1,
+        "gpu_util": 0,
+        "used_bytes": 10023141376
+      },
+      {
+        "index": 2,
+        "gpu_util": 0,
+        "used_bytes": 22622830592
+      },
+      {
+        "index": 3,
+        "gpu_util": 0,
+        "used_bytes": 24646582272
+      },
+      {
+        "index": 4,
+        "gpu_util": 0,
+        "used_bytes": 13938524160
+      },
+      {
+        "index": 5,
+        "gpu_util": 0,
+        "used_bytes": 18319474688
+      },
+      {
+        "index": 6,
+        "gpu_util": 0,
+        "used_bytes": 28710862848
+      },
+      {
+        "index": 7,
+        "gpu_util": 0,
+        "used_bytes": 32823377920
+      }
+    ]
+  },
+  {
+    "elapsed": 42.15563180897152,
+    "step": 8,
+    "gpus": [
+      {
+        "index": 0,
+        "gpu_util": 0,
+        "used_bytes": 7846363136
+      },
+      {
+        "index": 1,
+        "gpu_util": 0,
+        "used_bytes": 10023141376
+      },
+      {
+        "index": 2,
+        "gpu_util": 0,
+        "used_bytes": 22622830592
+      },
+      {
+        "index": 3,
+        "gpu_util": 1,
+        "used_bytes": 24780800000
+      },
+      {
+        "index": 4,
+        "gpu_util": 0,
+        "used_bytes": 13938524160
+      },
+      {
+        "index": 5,
+        "gpu_util": 0,
+        "used_bytes": 18319474688
+      },
+      {
+        "index": 6,
+        "gpu_util": 0,
+        "used_bytes": 28710862848
+      },
+      {
+        "index": 7,
+        "gpu_util": 0,
+        "used_bytes": 32823377920
+      }
+    ]
+  },
+  {
+    "elapsed": 43.17036042595282,
+    "step": 8,
+    "gpus": [
+      {
+        "index": 0,
+        "gpu_util": 0,
+        "used_bytes": 7846363136
+      },
+      {
+        "index": 1,
+        "gpu_util": 0,
+        "used_bytes": 10025238528
+      },
+      {
+        "index": 2,
+        "gpu_util": 0,
+        "used_bytes": 22622830592
+      },
+      {
+        "index": 3,
+        "gpu_util": 0,
+        "used_bytes": 24780800000
+      },
+      {
+        "index": 4,
+        "gpu_util": 0,
+        "used_bytes": 13938524160
+      },
+      {
+        "index": 5,
+        "gpu_util": 0,
+        "used_bytes": 18319474688
+      },
+      {
+        "index": 6,
+        "gpu_util": 0,
+        "used_bytes": 28710862848
+      },
+      {
+        "index": 7,
+        "gpu_util": 0,
+        "used_bytes": 33091813376
+      }
+    ]
+  },
+  {
+    "elapsed": 44.17602987395367,
+    "step": 8,
+    "gpus": [
+      {
+        "index": 0,
+        "gpu_util": 0,
+        "used_bytes": 7846363136
+      },
+      {
+        "index": 1,
+        "gpu_util": 0,
+        "used_bytes": 10260119552
+      },
+      {
+        "index": 2,
+        "gpu_util": 0,
+        "used_bytes": 22622830592
+      },
+      {
+        "index": 3,
+        "gpu_util": 0,
+        "used_bytes": 24780800000
+      },
+      {
+        "index": 4,
+        "gpu_util": 0,
+        "used_bytes": 13938524160
+      },
+      {
+        "index": 5,
+        "gpu_util": 0,
+        "used_bytes": 18319474688
+      },
+      {
+        "index": 6,
+        "gpu_util": 0,
+        "used_bytes": 28710862848
+      },
+      {
+        "index": 7,
+        "gpu_util": 0,
+        "used_bytes": 33091813376
+      }
+    ]
+  },
+  {
+    "elapsed": 45.20241688500391,
+    "step": 8,
+    "gpus": [
+      {
+        "index": 0,
+        "gpu_util": 0,
+        "used_bytes": 7846363136
+      },
+      {
+        "index": 1,
+        "gpu_util": 0,
+        "used_bytes": 10260119552
+      },
+      {
+        "index": 2,
+        "gpu_util": 0,
+        "used_bytes": 22622830592
+      },
+      {
+        "index": 3,
+        "gpu_util": 0,
+        "used_bytes": 24780800000
+      },
+      {
+        "index": 4,
+        "gpu_util": 0,
+        "used_bytes": 13938524160
+      },
+      {
+        "index": 5,
+        "gpu_util": 0,
+        "used_bytes": 18791333888
+      },
+      {
+        "index": 6,
+        "gpu_util": 0,
+        "used_bytes": 28710862848
+      },
+      {
+        "index": 7,
+        "gpu_util": 0,
+        "used_bytes": 33091813376
+      }
+    ]
+  },
+  {
+    "elapsed": 46.2212895329576,
+    "step": 8,
+    "gpus": [
+      {
+        "index": 0,
+        "gpu_util": 0,
+        "used_bytes": 7846363136
+      },
+      {
+        "index": 1,
+        "gpu_util": 0,
+        "used_bytes": 10260119552
+      },
+      {
+        "index": 2,
+        "gpu_util": 0,
+        "used_bytes": 22622830592
+      },
+      {
+        "index": 3,
+        "gpu_util": 0,
+        "used_bytes": 24782897152
+      },
+      {
+        "index": 4,
+        "gpu_util": 0,
+        "used_bytes": 13938524160
+      },
+      {
+        "index": 5,
+        "gpu_util": 0,
+        "used_bytes": 18791333888
+      },
+      {
+        "index": 6,
+        "gpu_util": 0,
+        "used_bytes": 28710862848
+      },
+      {
+        "index": 7,
+        "gpu_util": 0,
+        "used_bytes": 33091813376
+      }
+    ]
+  },
+  {
+    "elapsed": 47.254434030968696,
+    "step": 8,
+    "gpus": [
+      {
+        "index": 0,
+        "gpu_util": 0,
+        "used_bytes": 8083341312
+      },
+      {
+        "index": 1,
+        "gpu_util": 0,
+        "used_bytes": 10260119552
+      },
+      {
+        "index": 2,
+        "gpu_util": 0,
+        "used_bytes": 22857711616
+      },
+      {
+        "index": 3,
+        "gpu_util": 0,
+        "used_bytes": 25017778176
+      },
+      {
+        "index": 4,
+        "gpu_util": 0,
+        "used_bytes": 14410383360
+      },
+      {
+        "index": 5,
+        "gpu_util": 0,
+        "used_bytes": 18791333888
+      },
+      {
+        "index": 6,
+        "gpu_util": 0,
+        "used_bytes": 28710862848
+      },
+      {
+        "index": 7,
+        "gpu_util": 0,
+        "used_bytes": 33091813376
+      }
+    ]
+  },
+  {
+    "elapsed": 48.82620854798006,
+    "step": 8,
+    "gpus": [
+      {
+        "index": 0,
+        "gpu_util": 0,
+        "used_bytes": 8083341312
+      },
+      {
+        "index": 1,
+        "gpu_util": 0,
+        "used_bytes": 10505486336
+      },
+      {
+        "index": 2,
+        "gpu_util": 0,
+        "used_bytes": 22857711616
+      },
+      {
+        "index": 3,
+        "gpu_util": 0,
+        "used_bytes": 25017778176
+      },
+      {
+        "index": 4,
+        "gpu_util": 0,
+        "used_bytes": 14410383360
+      },
+      {
+        "index": 5,
+        "gpu_util": 0,
+        "used_bytes": 18791333888
+      },
+      {
+        "index": 6,
+        "gpu_util": 0,
+        "used_bytes": 28710862848
+      },
+      {
+        "index": 7,
+        "gpu_util": 0,
+        "used_bytes": 33091813376
+      }
+    ]
+  },
+  {
+    "elapsed": 49.84344719996443,
+    "step": 8,
+    "gpus": [
+      {
+        "index": 0,
+        "gpu_util": 0,
+        "used_bytes": 8083341312
+      },
+      {
+        "index": 1,
+        "gpu_util": 0,
+        "used_bytes": 10505486336
+      },
+      {
+        "index": 2,
+        "gpu_util": 0,
+        "used_bytes": 22857711616
+      },
+      {
+        "index": 3,
+        "gpu_util": 0,
+        "used_bytes": 25017778176
+      },
+      {
+        "index": 4,
+        "gpu_util": 0,
+        "used_bytes": 14410383360
+      },
+      {
+        "index": 5,
+        "gpu_util": 0,
+        "used_bytes": 19263193088
+      },
+      {
+        "index": 6,
+        "gpu_util": 0,
+        "used_bytes": 28710862848
+      },
+      {
+        "index": 7,
+        "gpu_util": 0,
+        "used_bytes": 33091813376
+      }
+    ]
+  },
+  {
+    "elapsed": 50.86337279697182,
+    "step": 8,
+    "gpus": [
+      {
+        "index": 0,
+        "gpu_util": 0,
+        "used_bytes": 8083341312
+      },
+      {
+        "index": 1,
+        "gpu_util": 0,
+        "used_bytes": 10505486336
+      },
+      {
+        "index": 2,
+        "gpu_util": 0,
+        "used_bytes": 22857711616
+      },
+      {
+        "index": 3,
+        "gpu_util": 2,
+        "used_bytes": 25263144960
+      },
+      {
+        "index": 4,
+        "gpu_util": 0,
+        "used_bytes": 14410383360
+      },
+      {
+        "index": 5,
+        "gpu_util": 0,
+        "used_bytes": 19263193088
+      },
+      {
+        "index": 6,
+        "gpu_util": 0,
+        "used_bytes": 28710862848
+      },
+      {
+        "index": 7,
+        "gpu_util": 0,
+        "used_bytes": 33091813376
+      }
+    ]
+  },
+  {
+    "elapsed": 51.88417903200025,
+    "step": 8,
+    "gpus": [
+      {
+        "index": 0,
+        "gpu_util": 0,
+        "used_bytes": 8083341312
+      },
+      {
+        "index": 1,
+        "gpu_util": 0,
+        "used_bytes": 10507583488
+      },
+      {
+        "index": 2,
+        "gpu_util": 0,
+        "used_bytes": 22857711616
+      },
+      {
+        "index": 3,
+        "gpu_util": 0,
+        "used_bytes": 25263144960
+      },
+      {
+        "index": 4,
+        "gpu_util": 0,
+        "used_bytes": 14410383360
+      },
+      {
+        "index": 5,
+        "gpu_util": 0,
+        "used_bytes": 19263193088
+      },
+      {
+        "index": 6,
+        "gpu_util": 0,
+        "used_bytes": 28710862848
+      },
+      {
+        "index": 7,
+        "gpu_util": 0,
+        "used_bytes": 33091813376
+      }
+    ]
+  },
+  {
+    "elapsed": 52.89107601798605,
+    "step": 10,
+    "gpus": [
+      {
+        "index": 0,
+        "gpu_util": 0,
+        "used_bytes": 8083341312
+      },
+      {
+        "index": 1,
+        "gpu_util": 68,
+        "used_bytes": 24109711360
+      },
+      {
+        "index": 2,
+        "gpu_util": 0,
+        "used_bytes": 22859808768
+      },
+      {
+        "index": 3,
+        "gpu_util": 0,
+        "used_bytes": 25263144960
+      },
+      {
+        "index": 4,
+        "gpu_util": 0,
+        "used_bytes": 14410383360
+      },
+      {
+        "index": 5,
+        "gpu_util": 0,
+        "used_bytes": 19263193088
+      },
+      {
+        "index": 6,
+        "gpu_util": 0,
+        "used_bytes": 28710862848
+      },
+      {
+        "index": 7,
+        "gpu_util": 0,
+        "used_bytes": 33091813376
+      }
+    ]
+  },
+  {
+    "elapsed": 53.891855703957845,
+    "step": 14,
+    "gpus": [
+      {
+        "index": 0,
+        "gpu_util": 0,
+        "used_bytes": 8328708096
+      },
+      {
+        "index": 1,
+        "gpu_util": 87,
+        "used_bytes": 24250220544
+      },
+      {
+        "index": 2,
+        "gpu_util": 0,
+        "used_bytes": 23105175552
+      },
+      {
+        "index": 3,
+        "gpu_util": 0,
+        "used_bytes": 25263144960
+      },
+      {
+        "index": 4,
+        "gpu_util": 3,
+        "used_bytes": 14890631168
+      },
+      {
+        "index": 5,
+        "gpu_util": 85,
+        "used_bytes": 46127710208
+      },
+      {
+        "index": 6,
+        "gpu_util": 0,
+        "used_bytes": 28710862848
+      },
+      {
+        "index": 7,
+        "gpu_util": 0,
+        "used_bytes": 33091813376
+      }
+    ]
+  },
+  {
+    "elapsed": 54.89249321696116,
+    "step": 15,
+    "gpus": [
+      {
+        "index": 0,
+        "gpu_util": 0,
+        "used_bytes": 8328708096
+      },
+      {
+        "index": 1,
+        "gpu_util": 40,
+        "used_bytes": 24384438272
+      },
+      {
+        "index": 2,
+        "gpu_util": 0,
+        "used_bytes": 23105175552
+      },
+      {
+        "index": 3,
+        "gpu_util": 0,
+        "used_bytes": 25263144960
+      },
+      {
+        "index": 4,
+        "gpu_util": 0,
+        "used_bytes": 14890631168
+      },
+      {
+        "index": 5,
+        "gpu_util": 100,
+        "used_bytes": 46375174144
+      },
+      {
+        "index": 6,
+        "gpu_util": 0,
+        "used_bytes": 28710862848
+      },
+      {
+        "index": 7,
+        "gpu_util": 0,
+        "used_bytes": 33091813376
+      }
+    ]
+  },
+  {
+    "elapsed": 55.89330504095415,
+    "step": 19,
+    "gpus": [
+      {
+        "index": 0,
+        "gpu_util": 0,
+        "used_bytes": 8328708096
+      },
+      {
+        "index": 1,
+        "gpu_util": 99,
+        "used_bytes": 24805965824
+      },
+      {
+        "index": 2,
+        "gpu_util": 0,
+        "used_bytes": 23105175552
+      },
+      {
+        "index": 3,
+        "gpu_util": 71,
+        "used_bytes": 38817038336
+      },
+      {
+        "index": 4,
+        "gpu_util": 0,
+        "used_bytes": 14890631168
+      },
+      {
+        "index": 5,
+        "gpu_util": 100,
+        "used_bytes": 30703157248
+      },
+      {
+        "index": 6,
+        "gpu_util": 0,
+        "used_bytes": 28710862848
+      },
+      {
+        "index": 7,
+        "gpu_util": 0,
+        "used_bytes": 33561575424
+      }
+    ]
+  },
+  {
+    "elapsed": 56.89396902394947,
+    "step": 23,
+    "gpus": [
+      {
+        "index": 0,
+        "gpu_util": 0,
+        "used_bytes": 8328708096
+      },
+      {
+        "index": 1,
+        "gpu_util": 90,
+        "used_bytes": 24808062976
+      },
+      {
+        "index": 2,
+        "gpu_util": 0,
+        "used_bytes": 23105175552
+      },
+      {
+        "index": 3,
+        "gpu_util": 82,
+        "used_bytes": 38955450368
+      },
+      {
+        "index": 4,
+        "gpu_util": 0,
+        "used_bytes": 14890631168
+      },
+      {
+        "index": 5,
+        "gpu_util": 80,
+        "used_bytes": 45089619968
+      },
+      {
+        "index": 6,
+        "gpu_util": 0,
+        "used_bytes": 28710862848
+      },
+      {
+        "index": 7,
+        "gpu_util": 0,
+        "used_bytes": 33561575424
+      }
+    ]
+  },
+  {
+    "elapsed": 57.89450457500061,
+    "step": 28,
+    "gpus": [
+      {
+        "index": 0,
+        "gpu_util": 0,
+        "used_bytes": 8328708096
+      },
+      {
+        "index": 1,
+        "gpu_util": 79,
+        "used_bytes": 24808062976
+      },
+      {
+        "index": 2,
+        "gpu_util": 0,
+        "used_bytes": 23105175552
+      },
+      {
+        "index": 3,
+        "gpu_util": 58,
+        "used_bytes": 27385462784
+      },
+      {
+        "index": 4,
+        "gpu_util": 0,
+        "used_bytes": 14890631168
+      },
+      {
+        "index": 5,
+        "gpu_util": 78,
+        "used_bytes": 47379709952
+      },
+      {
+        "index": 6,
+        "gpu_util": 0,
+        "used_bytes": 28710862848
+      },
+      {
+        "index": 7,
+        "gpu_util": 0,
+        "used_bytes": 33561575424
+      }
+    ]
+  },
+  {
+    "elapsed": 58.89508179400582,
+    "step": 33,
+    "gpus": [
+      {
+        "index": 0,
+        "gpu_util": 0,
+        "used_bytes": 8328708096
+      },
+      {
+        "index": 1,
+        "gpu_util": 76,
+        "used_bytes": 24808062976
+      },
+      {
+        "index": 2,
+        "gpu_util": 0,
+        "used_bytes": 23105175552
+      },
+      {
+        "index": 3,
+        "gpu_util": 0,
+        "used_bytes": 39207108608
+      },
+      {
+        "index": 4,
+        "gpu_util": 0,
+        "used_bytes": 14890631168
+      },
+      {
+        "index": 5,
+        "gpu_util": 87,
+        "used_bytes": 47379709952
+      },
+      {
+        "index": 6,
+        "gpu_util": 0,
+        "used_bytes": 28710862848
+      },
+      {
+        "index": 7,
+        "gpu_util": 0,
+        "used_bytes": 33561575424
+      }
+    ]
+  },
+  {
+    "elapsed": 59.895630026003346,
+    "step": 38,
+    "gpus": [
+      {
+        "index": 0,
+        "gpu_util": 60,
+        "used_bytes": 21307981824
+      },
+      {
+        "index": 1,
+        "gpu_util": 85,
+        "used_bytes": 24808062976
+      },
+      {
+        "index": 2,
+        "gpu_util": 1,
+        "used_bytes": 25862930432
+      },
+      {
+        "index": 3,
+        "gpu_util": 62,
+        "used_bytes": 39519584256
+      },
+      {
+        "index": 4,
+        "gpu_util": 0,
+        "used_bytes": 15735783424
+      },
+      {
+        "index": 5,
+        "gpu_util": 99,
+        "used_bytes": 47379709952
+      },
+      {
+        "index": 6,
+        "gpu_util": 0,
+        "used_bytes": 28710862848
+      },
+      {
+        "index": 7,
+        "gpu_util": 0,
+        "used_bytes": 33561575424
+      }
+    ]
+  },
+  {
+    "elapsed": 60.896607568953186,
+    "step": 43,
+    "gpus": [
+      {
+        "index": 0,
+        "gpu_util": 60,
+        "used_bytes": 21563834368
+      },
+      {
+        "index": 1,
+        "gpu_util": 96,
+        "used_bytes": 24810160128
+      },
+      {
+        "index": 2,
+        "gpu_util": 78,
+        "used_bytes": 36174626816
+      },
+      {
+        "index": 3,
+        "gpu_util": 100,
+        "used_bytes": 39519584256
+      },
+      {
+        "index": 4,
+        "gpu_util": 84,
+        "used_bytes": 40840790016
+      },
+      {
+        "index": 5,
+        "gpu_util": 99,
+        "used_bytes": 47379709952
+      },
+      {
+        "index": 6,
+        "gpu_util": 0,
+        "used_bytes": 29180624896
+      },
+      {
+        "index": 7,
+        "gpu_util": 0,
+        "used_bytes": 33561575424
+      }
+    ]
+  },
+  {
+    "elapsed": 61.89711921894923,
+    "step": 48,
+    "gpus": [
+      {
+        "index": 0,
+        "gpu_util": 100,
+        "used_bytes": 8479703040
+      },
+      {
+        "index": 1,
+        "gpu_util": 100,
+        "used_bytes": 24810160128
+      },
+      {
+        "index": 2,
+        "gpu_util": 63,
+        "used_bytes": 36308844544
+      },
+      {
+        "index": 3,
+        "gpu_util": 98,
+        "used_bytes": 39519584256
+      },
+      {
+        "index": 4,
+        "gpu_util": 98,
+        "used_bytes": 40847081472
+      },
+      {
+        "index": 5,
+        "gpu_util": 100,
+        "used_bytes": 47379709952
+      },
+      {
+        "index": 6,
+        "gpu_util": 0,
+        "used_bytes": 29180624896
+      },
+      {
+        "index": 7,
+        "gpu_util": 0,
+        "used_bytes": 33561575424
+      }
+    ]
+  },
+  {
+    "elapsed": 62.89781988499453,
+    "step": 51,
+    "gpus": [
+      {
+        "index": 0,
+        "gpu_util": 83,
+        "used_bytes": 22144745472
+      },
+      {
+        "index": 1,
+        "gpu_util": 98,
+        "used_bytes": 24810160128
+      },
+      {
+        "index": 2,
+        "gpu_util": 1,
+        "used_bytes": 35998466048
+      },
+      {
+        "index": 3,
+        "gpu_util": 77,
+        "used_bytes": 39519584256
+      },
+      {
+        "index": 4,
+        "gpu_util": 100,
+        "used_bytes": 14909505536
+      },
+      {
+        "index": 5,
+        "gpu_util": 90,
+        "used_bytes": 47379709952
+      },
+      {
+        "index": 6,
+        "gpu_util": 0,
+        "used_bytes": 29180624896
+      },
+      {
+        "index": 7,
+        "gpu_util": 0,
+        "used_bytes": 33561575424
+      }
+    ]
+  },
+  {
+    "elapsed": 63.898456433962565,
+    "step": 55,
+    "gpus": [
+      {
+        "index": 0,
+        "gpu_util": 99,
+        "used_bytes": 22146842624
+      },
+      {
+        "index": 1,
+        "gpu_util": 99,
+        "used_bytes": 24810160128
+      },
+      {
+        "index": 2,
+        "gpu_util": 66,
+        "used_bytes": 36904435712
+      },
+      {
+        "index": 3,
+        "gpu_util": 78,
+        "used_bytes": 39519584256
+      },
+      {
+        "index": 4,
+        "gpu_util": 100,
+        "used_bytes": 41604153344
+      },
+      {
+        "index": 5,
+        "gpu_util": 87,
+        "used_bytes": 47379709952
+      },
+      {
+        "index": 6,
+        "gpu_util": 0,
+        "used_bytes": 29180624896
+      },
+      {
+        "index": 7,
+        "gpu_util": 0,
+        "used_bytes": 33561575424
+      }
+    ]
+  },
+  {
+    "elapsed": 64.89898846298456,
+    "step": 60,
+    "gpus": [
+      {
+        "index": 0,
+        "gpu_util": 99,
+        "used_bytes": 22146842624
+      },
+      {
+        "index": 1,
+        "gpu_util": 98,
+        "used_bytes": 24810160128
+      },
+      {
+        "index": 2,
+        "gpu_util": 85,
+        "used_bytes": 36990418944
+      },
+      {
+        "index": 3,
+        "gpu_util": 90,
+        "used_bytes": 39519584256
+      },
+      {
+        "index": 4,
+        "gpu_util": 100,
+        "used_bytes": 41981640704
+      },
+      {
+        "index": 5,
+        "gpu_util": 100,
+        "used_bytes": 47379709952
+      },
+      {
+        "index": 6,
+        "gpu_util": 0,
+        "used_bytes": 29180624896
+      },
+      {
+        "index": 7,
+        "gpu_util": 0,
+        "used_bytes": 33561575424
+      }
+    ]
+  },
+  {
+    "elapsed": 65.90030397096416,
+    "step": 65,
+    "gpus": [
+      {
+        "index": 0,
+        "gpu_util": 95,
+        "used_bytes": 22146842624
+      },
+      {
+        "index": 1,
+        "gpu_util": 93,
+        "used_bytes": 24810160128
+      },
+      {
+        "index": 2,
+        "gpu_util": 100,
+        "used_bytes": 36990418944
+      },
+      {
+        "index": 3,
+        "gpu_util": 100,
+        "used_bytes": 39519584256
+      },
+      {
+        "index": 4,
+        "gpu_util": 91,
+        "used_bytes": 41983737856
+      },
+      {
+        "index": 5,
+        "gpu_util": 99,
+        "used_bytes": 47379709952
+      },
+      {
+        "index": 6,
+        "gpu_util": 0,
+        "used_bytes": 29180624896
+      },
+      {
+        "index": 7,
+        "gpu_util": 0,
+        "used_bytes": 33561575424
+      }
+    ]
+  },
+  {
+    "elapsed": 66.90082989295479,
+    "step": 70,
+    "gpus": [
+      {
+        "index": 0,
+        "gpu_util": 93,
+        "used_bytes": 22146842624
+      },
+      {
+        "index": 1,
+        "gpu_util": 100,
+        "used_bytes": 24810160128
+      },
+      {
+        "index": 2,
+        "gpu_util": 98,
+        "used_bytes": 36990418944
+      },
+      {
+        "index": 3,
+        "gpu_util": 99,
+        "used_bytes": 39519584256
+      },
+      {
+        "index": 4,
+        "gpu_util": 76,
+        "used_bytes": 41983737856
+      },
+      {
+        "index": 5,
+        "gpu_util": 100,
+        "used_bytes": 47379709952
+      },
+      {
+        "index": 6,
+        "gpu_util": 3,
+        "used_bytes": 29665067008
+      },
+      {
+        "index": 7,
+        "gpu_util": 0,
+        "used_bytes": 33561575424
+      }
+    ]
+  },
+  {
+    "elapsed": 67.90133646898903,
+    "step": 75,
+    "gpus": [
+      {
+        "index": 0,
+        "gpu_util": 88,
+        "used_bytes": 22146842624
+      },
+      {
+        "index": 1,
+        "gpu_util": 99,
+        "used_bytes": 24810160128
+      },
+      {
+        "index": 2,
+        "gpu_util": 99,
+        "used_bytes": 36990418944
+      },
+      {
+        "index": 3,
+        "gpu_util": 99,
+        "used_bytes": 39519584256
+      },
+      {
+        "index": 4,
+        "gpu_util": 99,
+        "used_bytes": 41983737856
+      },
+      {
+        "index": 5,
+        "gpu_util": 100,
+        "used_bytes": 47379709952
+      },
+      {
+        "index": 6,
+        "gpu_util": 0,
+        "used_bytes": 29665067008
+      },
+      {
+        "index": 7,
+        "gpu_util": 0,
+        "used_bytes": 34033434624
+      }
+    ]
+  },
+  {
+    "elapsed": 68.90184268995654,
+    "step": 80,
+    "gpus": [
+      {
+        "index": 0,
+        "gpu_util": 83,
+        "used_bytes": 22146842624
+      },
+      {
+        "index": 1,
+        "gpu_util": 99,
+        "used_bytes": 24810160128
+      },
+      {
+        "index": 2,
+        "gpu_util": 92,
+        "used_bytes": 36990418944
+      },
+      {
+        "index": 3,
+        "gpu_util": 94,
+        "used_bytes": 39519584256
+      },
+      {
+        "index": 4,
+        "gpu_util": 100,
+        "used_bytes": 41983737856
+      },
+      {
+        "index": 5,
+        "gpu_util": 87,
+        "used_bytes": 47379709952
+      },
+      {
+        "index": 6,
+        "gpu_util": 0,
+        "used_bytes": 29665067008
+      },
+      {
+        "index": 7,
+        "gpu_util": 0,
+        "used_bytes": 34033434624
+      }
+    ]
+  },
+  {
+    "elapsed": 69.90215211396571,
+    "step": 85,
+    "gpus": [
+      {
+        "index": 0,
+        "gpu_util": 83,
+        "used_bytes": 22146842624
+      },
+      {
+        "index": 1,
+        "gpu_util": 99,
+        "used_bytes": 24810160128
+      },
+      {
+        "index": 2,
+        "gpu_util": 85,
+        "used_bytes": 36990418944
+      },
+      {
+        "index": 3,
+        "gpu_util": 84,
+        "used_bytes": 39519584256
+      },
+      {
+        "index": 4,
+        "gpu_util": 99,
+        "used_bytes": 41983737856
+      },
+      {
+        "index": 5,
+        "gpu_util": 78,
+        "used_bytes": 47379709952
+      },
+      {
+        "index": 6,
+        "gpu_util": 0,
+        "used_bytes": 29665067008
+      },
+      {
+        "index": 7,
+        "gpu_util": 0,
+        "used_bytes": 34033434624
+      }
+    ]
+  },
+  {
+    "elapsed": 70.90245471597882,
+    "step": 88,
+    "gpus": [
+      {
+        "index": 0,
+        "gpu_util": 86,
+        "used_bytes": 22146842624
+      },
+      {
+        "index": 1,
+        "gpu_util": 93,
+        "used_bytes": 24810160128
+      },
+      {
+        "index": 2,
+        "gpu_util": 84,
+        "used_bytes": 36990418944
+      },
+      {
+        "index": 3,
+        "gpu_util": 98,
+        "used_bytes": 39519584256
+      },
+      {
+        "index": 4,
+        "gpu_util": 100,
+        "used_bytes": 41983737856
+      },
+      {
+        "index": 5,
+        "gpu_util": 99,
+        "used_bytes": 47379709952
+      },
+      {
+        "index": 6,
+        "gpu_util": 0,
+        "used_bytes": 29665067008
+      },
+      {
+        "index": 7,
+        "gpu_util": 0,
+        "used_bytes": 34033434624
+      }
+    ]
+  },
+  {
+    "elapsed": 71.90298334596446,
+    "step": 93,
+    "gpus": [
+      {
+        "index": 0,
+        "gpu_util": 80,
+        "used_bytes": 22146842624
+      },
+      {
+        "index": 1,
+        "gpu_util": 82,
+        "used_bytes": 24810160128
+      },
+      {
+        "index": 2,
+        "gpu_util": 87,
+        "used_bytes": 36990418944
+      },
+      {
+        "index": 3,
+        "gpu_util": 99,
+        "used_bytes": 39519584256
+      },
+      {
+        "index": 4,
+        "gpu_util": 89,
+        "used_bytes": 41983737856
+      },
+      {
+        "index": 5,
+        "gpu_util": 100,
+        "used_bytes": 47379709952
+      },
+      {
+        "index": 6,
+        "gpu_util": 0,
+        "used_bytes": 29665067008
+      },
+      {
+        "index": 7,
+        "gpu_util": 0,
+        "used_bytes": 34033434624
+      }
+    ]
+  },
+  {
+    "elapsed": 72.90352946298663,
+    "step": 98,
+    "gpus": [
+      {
+        "index": 0,
+        "gpu_util": 98,
+        "used_bytes": 22146842624
+      },
+      {
+        "index": 1,
+        "gpu_util": 67,
+        "used_bytes": 24810160128
+      },
+      {
+        "index": 2,
+        "gpu_util": 92,
+        "used_bytes": 36990418944
+      },
+      {
+        "index": 3,
+        "gpu_util": 100,
+        "used_bytes": 39519584256
+      },
+      {
+        "index": 4,
+        "gpu_util": 93,
+        "used_bytes": 41983737856
+      },
+      {
+        "index": 5,
+        "gpu_util": 100,
+        "used_bytes": 47379709952
+      },
+      {
+        "index": 6,
+        "gpu_util": 0,
+        "used_bytes": 29665067008
+      },
+      {
+        "index": 7,
+        "gpu_util": 0,
+        "used_bytes": 34033434624
+      }
+    ]
+  },
+  {
+    "elapsed": 73.90401997795561,
+    "step": 103,
+    "gpus": [
+      {
+        "index": 0,
+        "gpu_util": 98,
+        "used_bytes": 22146842624
+      },
+      {
+        "index": 1,
+        "gpu_util": 84,
+        "used_bytes": 24810160128
+      },
+      {
+        "index": 2,
+        "gpu_util": 99,
+        "used_bytes": 36990418944
+      },
+      {
+        "index": 3,
+        "gpu_util": 99,
+        "used_bytes": 39519584256
+      },
+      {
+        "index": 4,
+        "gpu_util": 99,
+        "used_bytes": 41983737856
+      },
+      {
+        "index": 5,
+        "gpu_util": 100,
+        "used_bytes": 47379709952
+      },
+      {
+        "index": 6,
+        "gpu_util": 60,
+        "used_bytes": 54013001728
+      },
+      {
+        "index": 7,
+        "gpu_util": 0,
+        "used_bytes": 34033434624
+      }
+    ]
+  },
+  {
+    "elapsed": 74.90451309498167,
+    "step": 108,
+    "gpus": [
+      {
+        "index": 0,
+        "gpu_util": 99,
+        "used_bytes": 22146842624
+      },
+      {
+        "index": 1,
+        "gpu_util": 96,
+        "used_bytes": 24810160128
+      },
+      {
+        "index": 2,
+        "gpu_util": 100,
+        "used_bytes": 36990418944
+      },
+      {
+        "index": 3,
+        "gpu_util": 81,
+        "used_bytes": 39519584256
+      },
+      {
+        "index": 4,
+        "gpu_util": 100,
+        "used_bytes": 41983737856
+      },
+      {
+        "index": 5,
+        "gpu_util": 78,
+        "used_bytes": 47379709952
+      },
+      {
+        "index": 6,
+        "gpu_util": 0,
+        "used_bytes": 54013001728
+      },
+      {
+        "index": 7,
+        "gpu_util": 0,
+        "used_bytes": 34033434624
+      }
+    ]
+  },
+  {
+    "elapsed": 75.90500599896768,
+    "step": 113,
+    "gpus": [
+      {
+        "index": 0,
+        "gpu_util": 99,
+        "used_bytes": 22146842624
+      },
+      {
+        "index": 1,
+        "gpu_util": 100,
+        "used_bytes": 24810160128
+      },
+      {
+        "index": 2,
+        "gpu_util": 87,
+        "used_bytes": 36990418944
+      },
+      {
+        "index": 3,
+        "gpu_util": 88,
+        "used_bytes": 39519584256
+      },
+      {
+        "index": 4,
+        "gpu_util": 99,
+        "used_bytes": 41983737856
+      },
+      {
+        "index": 5,
+        "gpu_util": 99,
+        "used_bytes": 47379709952
+      },
+      {
+        "index": 6,
+        "gpu_util": 40,
+        "used_bytes": 55529242624
+      },
+      {
+        "index": 7,
+        "gpu_util": 0,
+        "used_bytes": 34033434624
+      }
+    ]
+  },
+  {
+    "elapsed": 76.90550809598062,
+    "step": 118,
+    "gpus": [
+      {
+        "index": 0,
+        "gpu_util": 99,
+        "used_bytes": 22146842624
+      },
+      {
+        "index": 1,
+        "gpu_util": 99,
+        "used_bytes": 24810160128
+      },
+      {
+        "index": 2,
+        "gpu_util": 81,
+        "used_bytes": 36990418944
+      },
+      {
+        "index": 3,
+        "gpu_util": 99,
+        "used_bytes": 39519584256
+      },
+      {
+        "index": 4,
+        "gpu_util": 87,
+        "used_bytes": 41983737856
+      },
+      {
+        "index": 5,
+        "gpu_util": 99,
+        "used_bytes": 47379709952
+      },
+      {
+        "index": 6,
+        "gpu_util": 88,
+        "used_bytes": 55533436928
+      },
+      {
+        "index": 7,
+        "gpu_util": 0,
+        "used_bytes": 34033434624
+      }
+    ]
+  },
+  {
+    "elapsed": 77.90600225899834,
+    "step": 121,
+    "gpus": [
+      {
+        "index": 0,
+        "gpu_util": 99,
+        "used_bytes": 22146842624
+      },
+      {
+        "index": 1,
+        "gpu_util": 99,
+        "used_bytes": 24810160128
+      },
+      {
+        "index": 2,
+        "gpu_util": 79,
+        "used_bytes": 36990418944
+      },
+      {
+        "index": 3,
+        "gpu_util": 99,
+        "used_bytes": 39519584256
+      },
+      {
+        "index": 4,
+        "gpu_util": 99,
+        "used_bytes": 41983737856
+      },
+      {
+        "index": 5,
+        "gpu_util": 100,
+        "used_bytes": 47379709952
+      },
+      {
+        "index": 6,
+        "gpu_util": 88,
+        "used_bytes": 29539237888
+      },
+      {
+        "index": 7,
+        "gpu_util": 0,
+        "used_bytes": 34033434624
+      }
+    ]
+  },
+  {
+    "elapsed": 78.9066419529845,
+    "step": 125,
+    "gpus": [
+      {
+        "index": 0,
+        "gpu_util": 98,
+        "used_bytes": 22146842624
+      },
+      {
+        "index": 1,
+        "gpu_util": 99,
+        "used_bytes": 24810160128
+      },
+      {
+        "index": 2,
+        "gpu_util": 83,
+        "used_bytes": 36990418944
+      },
+      {
+        "index": 3,
+        "gpu_util": 99,
+        "used_bytes": 39519584256
+      },
+      {
+        "index": 4,
+        "gpu_util": 99,
+        "used_bytes": 41983737856
+      },
+      {
+        "index": 5,
+        "gpu_util": 100,
+        "used_bytes": 47379709952
+      },
+      {
+        "index": 6,
+        "gpu_util": 0,
+        "used_bytes": 56141611008
+      },
+      {
+        "index": 7,
+        "gpu_util": 0,
+        "used_bytes": 34033434624
+      }
+    ]
+  },
+  {
+    "elapsed": 79.90717355097877,
+    "step": 130,
+    "gpus": [
+      {
+        "index": 0,
+        "gpu_util": 92,
+        "used_bytes": 22146842624
+      },
+      {
+        "index": 1,
+        "gpu_util": 93,
+        "used_bytes": 24810160128
+      },
+      {
+        "index": 2,
+        "gpu_util": 89,
+        "used_bytes": 36990418944
+      },
+      {
+        "index": 3,
+        "gpu_util": 98,
+        "used_bytes": 39519584256
+      },
+      {
+        "index": 4,
+        "gpu_util": 100,
+        "used_bytes": 41983737856
+      },
+      {
+        "index": 5,
+        "gpu_util": 84,
+        "used_bytes": 47379709952
+      },
+      {
+        "index": 6,
+        "gpu_util": 82,
+        "used_bytes": 56519098368
+      },
+      {
+        "index": 7,
+        "gpu_util": 0,
+        "used_bytes": 34033434624
+      }
+    ]
+  },
+  {
+    "elapsed": 80.90771897195373,
+    "step": 135,
+    "gpus": [
+      {
+        "index": 0,
+        "gpu_util": 89,
+        "used_bytes": 22146842624
+      },
+      {
+        "index": 1,
+        "gpu_util": 85,
+        "used_bytes": 24810160128
+      },
+      {
+        "index": 2,
+        "gpu_util": 96,
+        "used_bytes": 36990418944
+      },
+      {
+        "index": 3,
+        "gpu_util": 87,
+        "used_bytes": 39519584256
+      },
+      {
+        "index": 4,
+        "gpu_util": 95,
+        "used_bytes": 41983737856
+      },
+      {
+        "index": 5,
+        "gpu_util": 88,
+        "used_bytes": 47379709952
+      },
+      {
+        "index": 6,
+        "gpu_util": 100,
+        "used_bytes": 56519098368
+      },
+      {
+        "index": 7,
+        "gpu_util": 16,
+        "used_bytes": 59192967168
+      }
+    ]
+  },
+  {
+    "elapsed": 81.9082186659798,
+    "step": 140,
+    "gpus": [
+      {
+        "index": 0,
+        "gpu_util": 85,
+        "used_bytes": 22146842624
+      },
+      {
+        "index": 1,
+        "gpu_util": 85,
+        "used_bytes": 24810160128
+      },
+      {
+        "index": 2,
+        "gpu_util": 100,
+        "used_bytes": 36990418944
+      },
+      {
+        "index": 3,
+        "gpu_util": 86,
+        "used_bytes": 39519584256
+      },
+      {
+        "index": 4,
+        "gpu_util": 86,
+        "used_bytes": 41983737856
+      },
+      {
+        "index": 5,
+        "gpu_util": 99,
+        "used_bytes": 47379709952
+      },
+      {
+        "index": 6,
+        "gpu_util": 99,
+        "used_bytes": 56521195520
+      },
+      {
+        "index": 7,
+        "gpu_util": 1,
+        "used_bytes": 59329282048
+      }
+    ]
+  },
+  {
+    "elapsed": 82.9087450899533,
+    "step": 145,
+    "gpus": [
+      {
+        "index": 0,
+        "gpu_util": 78,
+        "used_bytes": 22146842624
+      },
+      {
+        "index": 1,
+        "gpu_util": 88,
+        "used_bytes": 24810160128
+      },
+      {
+        "index": 2,
+        "gpu_util": 99,
+        "used_bytes": 36990418944
+      },
+      {
+        "index": 3,
+        "gpu_util": 91,
+        "used_bytes": 39519584256
+      },
+      {
+        "index": 4,
+        "gpu_util": 100,
+        "used_bytes": 41983737856
+      },
+      {
+        "index": 5,
+        "gpu_util": 100,
+        "used_bytes": 47379709952
+      },
+      {
+        "index": 6,
+        "gpu_util": 100,
+        "used_bytes": 56521195520
+      },
+      {
+        "index": 7,
+        "gpu_util": 0,
+        "used_bytes": 59329282048
+      }
+    ]
+  },
+  {
+    "elapsed": 83.90924754895968,
+    "step": 150,
+    "gpus": [
+      {
+        "index": 0,
+        "gpu_util": 77,
+        "used_bytes": 22146842624
+      },
+      {
+        "index": 1,
+        "gpu_util": 97,
+        "used_bytes": 24810160128
+      },
+      {
+        "index": 2,
+        "gpu_util": 99,
+        "used_bytes": 36990418944
+      },
+      {
+        "index": 3,
+        "gpu_util": 100,
+        "used_bytes": 39519584256
+      },
+      {
+        "index": 4,
+        "gpu_util": 99,
+        "used_bytes": 41983737856
+      },
+      {
+        "index": 5,
+        "gpu_util": 100,
+        "used_bytes": 47379709952
+      },
+      {
+        "index": 6,
+        "gpu_util": 97,
+        "used_bytes": 56521195520
+      },
+      {
+        "index": 7,
+        "gpu_util": 0,
+        "used_bytes": 60828745728
+      }
+    ]
+  },
+  {
+    "elapsed": 84.90980246796971,
+    "step": 154,
+    "gpus": [
+      {
+        "index": 0,
+        "gpu_util": 99,
+        "used_bytes": 22146842624
+      },
+      {
+        "index": 1,
+        "gpu_util": 100,
+        "used_bytes": 24810160128
+      },
+      {
+        "index": 2,
+        "gpu_util": 99,
+        "used_bytes": 36990418944
+      },
+      {
+        "index": 3,
+        "gpu_util": 99,
+        "used_bytes": 39519584256
+      },
+      {
+        "index": 4,
+        "gpu_util": 100,
+        "used_bytes": 41983737856
+      },
+      {
+        "index": 5,
+        "gpu_util": 100,
+        "used_bytes": 47379709952
+      },
+      {
+        "index": 6,
+        "gpu_util": 81,
+        "used_bytes": 56521195520
+      },
+      {
+        "index": 7,
+        "gpu_util": 100,
+        "used_bytes": 61076209664
+      }
+    ]
+  },
+  {
+    "elapsed": 85.92602935998002,
+    "step": 158,
+    "gpus": [
+      {
+        "index": 0,
+        "gpu_util": 99,
+        "used_bytes": 22146842624
+      },
+      {
+        "index": 1,
+        "gpu_util": 99,
+        "used_bytes": 24810160128
+      },
+      {
+        "index": 2,
+        "gpu_util": 97,
+        "used_bytes": 36990418944
+      },
+      {
+        "index": 3,
+        "gpu_util": 99,
+        "used_bytes": 39519584256
+      },
+      {
+        "index": 4,
+        "gpu_util": 86,
+        "used_bytes": 41983737856
+      },
+      {
+        "index": 5,
+        "gpu_util": 96,
+        "used_bytes": 47381807104
+      },
+      {
+        "index": 6,
+        "gpu_util": 100,
+        "used_bytes": 56521195520
+      },
+      {
+        "index": 7,
+        "gpu_util": 96,
+        "used_bytes": 31799967744
+      }
+    ]
+  }
+]

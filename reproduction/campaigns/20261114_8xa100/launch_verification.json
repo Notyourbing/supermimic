@@ -1,0 +1,144 @@
+{
+  "time": 1794625061.8109443,
+  "jobs": [
+    {
+      "name": "lafan1_gencoord_x1",
+      "gpu": 0,
+      "iteration": 500,
+      "updates": 197,
+      "seconds_per_iteration": 0.2059418053762056,
+      "eta_hours": 18.277335227138245,
+      "reward": 4.222570179253816,
+      "torch_reserved_gib": 18.587890625
+    },
+    {
+      "name": "lafan1_maxcoord_x1",
+      "gpu": 1,
+      "iteration": 500,
+      "updates": 197,
+      "seconds_per_iteration": 0.2129538665554719,
+      "eta_hours": 18.89965565679813,
+      "reward": 5.235930277556181,
+      "torch_reserved_gib": 21.06640625
+    },
+    {
+      "name": "boneseed_gencoord_x1",
+      "gpu": 2,
+      "iteration": 450,
+      "updates": 177,
+      "seconds_per_iteration": 0.20940344316302797,
+      "eta_hours": 18.587463961873777,
+      "reward": 1.7216673400998115,
+      "torch_reserved_gib": 32.23828125
+    },
+    {
+      "name": "boneseed_maxcoord_x1",
+      "gpu": 3,
+      "iteration": 450,
+      "updates": 177,
+      "seconds_per_iteration": 0.2178380675430526,
+      "eta_hours": 19.336154023161793,
+      "reward": 3.535310071706772,
+      "torch_reserved_gib": 34.751953125
+    },
+    {
+      "name": "lafan1_gencoord_x2",
+      "gpu": 4,
+      "iteration": 300,
+      "updates": 117,
+      "seconds_per_iteration": 0.3305105981178349,
+      "eta_hours": 14.661817366505064,
+      "reward": 1.4207874467968942,
+      "torch_reserved_gib": 36.53515625
+    },
+    {
+      "name": "lafan1_maxcoord_x2",
+      "gpu": 5,
+      "iteration": 300,
+      "updates": 117,
+      "seconds_per_iteration": 0.33567411012307274,
+      "eta_hours": 14.890876496292977,
+      "reward": 1.4220295530557632,
+      "torch_reserved_gib": 41.5703125
+    },
+    {
+      "name": "boneseed_gencoord_x2",
+      "gpu": 6,
+      "iteration": 300,
+      "updates": 117,
+      "seconds_per_iteration": 0.3334346927356091,
+      "eta_hours": 14.791533452743547,
+      "reward": 2.605605052411556,
+      "torch_reserved_gib": 50.162109375
+    },
+    {
+      "name": "boneseed_maxcoord_x2",
+      "gpu": 7,
+      "iteration": 300,
+      "updates": 117,
+      "seconds_per_iteration": 0.3432137433483149,
+      "eta_hours": 15.225343003534968,
+      "reward": 2.752987932264805,
+      "torch_reserved_gib": 55.0625
+    }
+  ],
+  "last30s_gpus": [
+    {
+      "gpu": 0,
+      "util_mean": 94.26666666666667,
+      "used_gib": 20.61798095703125,
+      "foreign_process_count_max": 0,
+      "campaign_sm_utilization": 93.0
+    },
+    {
+      "gpu": 1,
+      "util_mean": 91.13333333333334,
+      "used_gib": 23.0985107421875,
+      "foreign_process_count_max": 0,
+      "campaign_sm_utilization": 92.0
+    },
+    {
+      "gpu": 2,
+      "util_mean": 92.73333333333333,
+      "used_gib": 34.26641845703125,
+      "foreign_process_count_max": 0,
+      "campaign_sm_utilization": 95.0
+    },
+    {
+      "gpu": 3,
+      "util_mean": 93.53333333333333,
+      "used_gib": 36.7821044921875,
+      "foreign_process_count_max": 0,
+      "campaign_sm_utilization": 93.0
+    },
+    {
+      "gpu": 4,
+      "util_mean": 94.66666666666667,
+      "used_gib": 39.0985107421875,
+      "foreign_process_count_max": 0,
+      "campaign_sm_utilization": 97.0
+    },
+    {
+      "gpu": 5,
+      "util_mean": 97.13333333333334,
+      "used_gib": 44.13555908203125,
+      "foreign_process_count_max": 0,
+      "campaign_sm_utilization": 95.0
+    },
+    {
+      "gpu": 6,
+      "util_mean": 95.93333333333334,
+      "used_gib": 52.7254638671875,
+      "foreign_process_count_max": 0,
+      "campaign_sm_utilization": 97.0
+    },
+    {
+      "gpu": 7,
+      "util_mean": 96,
+      "used_gib": 57.6258544921875,
+      "foreign_process_count_max": 0,
+      "campaign_sm_utilization": 97.0
+    }
+  ],
+  "tensorboard_all_eight_runs": true
+}

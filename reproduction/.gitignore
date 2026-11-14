@@ -30,3 +30,6 @@ campaigns/**/queue_status.json
 campaigns/**/queue_status.tmp
 campaigns/**/probe_jobs.json
 campaigns/**/probe_completion.json
+campaigns/**/status.json
+# Cancelled duplicate of the successful exclusive benchmark; retained locally.
+results/allocated_20261114_queue_1794624829_2_*/

@@ -1,0 +1,50 @@
+[
+  {
+    "gpu": 0,
+    "name": "allocated_20261114_queue_1794624587_1_lafan1_gencoord_x1",
+    "pid": 3718444,
+    "exit_code": 0
+  },
+  {
+    "gpu": 1,
+    "name": "allocated_20261114_queue_1794624587_1_lafan1_maxcoord_x1",
+    "pid": 3718445,
+    "exit_code": 0
+  },
+  {
+    "gpu": 2,
+    "name": "allocated_20261114_queue_1794624587_1_boneseed_gencoord_x1",
+    "pid": 3718446,
+    "exit_code": 0
+  },
+  {
+    "gpu": 3,
+    "name": "allocated_20261114_queue_1794624587_1_boneseed_maxcoord_x1",
+    "pid": 3718447,
+    "exit_code": 0
+  },
+  {
+    "gpu": 4,
+    "name": "allocated_20261114_queue_1794624587_1_lafan1_gencoord_x2",
+    "pid": 3718448,
+    "exit_code": 0
+  },
+  {
+    "gpu": 5,
+    "name": "allocated_20261114_queue_1794624587_1_lafan1_maxcoord_x2",
+    "pid": 3718449,
+    "exit_code": 0
+  },
+  {
+    "gpu": 6,
+    "name": "allocated_20261114_queue_1794624587_1_boneseed_gencoord_x2",
+    "pid": 3718450,
+    "exit_code": 0
+  },
+  {
+    "gpu": 7,
+    "name": "allocated_20261114_queue_1794624587_1_boneseed_maxcoord_x2",
+    "pid": 3718451,
+    "exit_code": 0
+  }
+]

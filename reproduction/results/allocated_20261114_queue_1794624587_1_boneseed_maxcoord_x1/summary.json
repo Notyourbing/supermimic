@@ -1,0 +1,125 @@
+{
+  "status": "passed",
+  "preparation_only": true,
+  "task": "SuperMimic-MaxCoord-G1",
+  "seed": 42,
+  "cuda_visible_devices": "3",
+  "init_seconds": 19.24295067304047,
+  "loop_seconds_including_compile": 70.82732166198548,
+  "learner_updates": 61,
+  "warmup_last_step": 18,
+  "steady_steps": 141,
+  "steady_seconds_per_iteration": 0.21901884717009765,
+  "steady_median_seconds": 0.049667473998852074,
+  "parameters_changed": {
+    "wm": true,
+    "actor": true
+  },
+  "wm_graph": true,
+  "policy_graph": true,
+  "torch_peak_allocated_bytes": 35559050240,
+  "torch_peak_reserved_bytes": 37339791360,
+  "parameters": {
+    "wm": 9144404,
+    "actor": 11603037
+  },
+  "checkpoint_sha256": {
+    "actor.pt": "bbdc884cc084a27cc126b5c29d37888cacc6592cd0455d2bc5f09d2d3c4c175e",
+    "world_model.pt": "09888efe3481e0720b90452d45de5f0ee9e82be31d476937ea2609584b6dc23d",
+    "critic.pt": "3b3fb4778d87288dc467601488bda6d9ac611b250f02155378cd711832877fd2"
+  },
+  "config": {
+    "wandb_project": "supermimic",
+    "run_name": "PREPARATION_ONLY_allocated_20261114_queue_1794624587_1_boneseed_maxcoord_x1",
+    "wandb_run_path": null,
+    "headless": true,
+    "buffer_size": 1000,
+    "representation": "maxcoord",
+    "actor_obs": "proprio",
+    "log_interval": 4,
+    "save_interval": 161,
+    "history_length": 10,
+    "termination_softness": 0.05,
+    "dynamics_hidden_dims": [
+      2048,
+      2048,
+      2048
+    ],
+    "wm": {
+      "lr": 0.0002,
+      "num_batches": 10,
+      "batch_size": 2048,
+      "horizon": 8,
+      "nominal_error_root_pose_pos": 0.01,
+      "nominal_error_root_pose_ori": 0.02,
+      "nominal_error_joint_pos": 0.1,
+      "nominal_error_joint_vel": 3.14,
+      "nominal_error_body_pos": 0.05,
+      "nominal_error_body_rot": 0.1,
+      "nominal_error_body_vel": 1.0,
+      "nominal_error_body_avel": 3.14
+    },
+    "max_iterations": 160,
+    "replay_ratio": 16,
+    "latent_dim": 32,
+    "actor_hidden_dims": [
+      2048,
+      1024,
+      512,
+      256
+    ],
+    "critic_hidden_dims": [
+      256,
+      128
+    ],
+    "latent_bc_weight": 0.1,
+    "tasks": {
+      "velocity": {
+        "lin_vel_x_range": [
+          -1.5,
+          1.5
+        ],
+        "lin_vel_y_range": [
+          -0.5,
+          0.5
+        ],
+        "ang_vel_z_range": [
+          -3.14,
+          3.14
+        ],
+        "window_frames": 25,
+        "command_noise": [
+          0.5,
+          0.5,
+          0.785
+        ]
+      }
+    },
+    "slot_mix": {
+      "motion": 1.0,
+      "velocity": 0.0
+    },
+    "policy": {
+      "lr": 0.0002,
+      "num_batches": 1,
+      "batch_size": 4096,
+      "noise": 0.1,
+      "horizon": 32,
+      "gamma": 0.99,
+      "survival_masking": true,
+      "beta2": 0.95,
+      "grad_clip_value": 0.1,
+      "lam": 0.95
+    },
+    "sampling_mode": "return",
+    "return_sampler": {
+      "gamma": 0.99,
+      "horizon": 20,
+      "memory": 256,
+      "steepness": 25.0,
+      "explore": 0.5,
+      "keep": 0.1
+    }
+  },
+  "performance_caveat": "Whole-device NVML samples do not identify process utilization. Verify competing processes throughout the probe using the campaign resource record before attributing utilization or using timings as exclusive measurements."
+}
