@@ -1,0 +1,22 @@
+{
+  "status": "passed",
+  "initial_iteration": 40,
+  "resumed_to": 80,
+  "updates_before": 13,
+  "updates_after": 29,
+  "parameters_changed_after_resume": {
+    "actor": true,
+    "world_model": true
+  },
+  "wm_graph": true,
+  "policy_graph": true,
+  "tensorboard_latest_step": 80,
+  "optimizer_groups": [
+    "wm",
+    "actor",
+    "critic"
+  ],
+  "replay_frames_per_env": 80,
+  "resume_semantics": "optimizer/replay continuation with simulator episode reset",
+  "source_tests": "217 passed"
+}

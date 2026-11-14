@@ -1,0 +1,92 @@
+{
+  "exclusive_confirmed": false,
+  "all_passed": false,
+  "runs": [
+    {
+      "gpu": 0,
+      "name": "exclusive_20261114_lafan1_gencoord_x1",
+      "passed": true,
+      "seconds_per_iteration": 0.22457069906439367,
+      "num_envs": 4096,
+      "transitions_per_second": 18239.24499974731,
+      "iterations_budget": 320000,
+      "predicted_gpu_hours": 19.96183991683499,
+      "torch_peak_reserved_gib": 18.595703125,
+      "global_gpu_util_mean": 91.75,
+      "samples": 140
+    },
+    {
+      "gpu": 1,
+      "name": "exclusive_20261114_lafan1_maxcoord_x1",
+      "passed": true,
+      "seconds_per_iteration": 0.2834887993858761,
+      "num_envs": 4096,
+      "transitions_per_second": 14448.542619225856,
+      "iterations_budget": 320000,
+      "predicted_gpu_hours": 25.199004389855656,
+      "torch_peak_reserved_gib": 21.07421875,
+      "global_gpu_util_mean": 92.9090909090909,
+      "samples": 140
+    },
+    {
+      "gpu": 2,
+      "name": "exclusive_20261114_boneseed_gencoord_x1",
+      "passed": true,
+      "seconds_per_iteration": 0.2187789145570215,
+      "num_envs": 4096,
+      "transitions_per_second": 18722.096726247528,
+      "iterations_budget": 320000,
+      "predicted_gpu_hours": 19.4470146272908,
+      "torch_peak_reserved_gib": 32.421875,
+      "global_gpu_util_mean": 90.18518518518519,
+      "samples": 140
+    },
+    {
+      "gpu": 3,
+      "name": "exclusive_20261114_boneseed_maxcoord_x1",
+      "passed": true,
+      "seconds_per_iteration": 0.5056262945926782,
+      "num_envs": 4096,
+      "transitions_per_second": 8100.844524511232,
+      "iterations_budget": 320000,
+      "predicted_gpu_hours": 44.94455951934917,
+      "torch_peak_reserved_gib": 34.619140625,
+      "global_gpu_util_mean": 96.7,
+      "samples": 140
+    },
+    {
+      "gpu": 4,
+      "name": "exclusive_20261114_lafan1_gencoord_x2",
+      "passed": true,
+      "seconds_per_iteration": 0.35916276517132895,
+      "num_envs": 8192,
+      "transitions_per_second": 22808.60042964706,
+      "iterations_budget": 160000,
+      "predicted_gpu_hours": 15.962789563170176,
+      "torch_peak_reserved_gib": 36.53515625,
+      "global_gpu_util_mean": 94.86363636363636,
+      "samples": 140
+    },
+    {
+      "gpu": 5,
+      "name": "exclusive_20261114_lafan1_maxcoord_x2",
+      "passed": false,
+      "exit_code": 143
+    },
+    {
+      "gpu": 6,
+      "name": "exclusive_20261114_boneseed_gencoord_x2",
+      "passed": false,
+      "exit_code": 1
+    },
+    {
+      "gpu": 7,
+      "name": "exclusive_20261114_boneseed_maxcoord_x2",
+      "passed": false,
+      "exit_code": 1
+    }
+  ],
+  "caveat": "Global GPU use is attributable only when no competing compute processes existed throughout the test. Initial Nov14 probes were contended; two OOMs are resource conflicts, not validated configuration failures.",
+  "predicted_wall_hours": 44.94455951934917,
+  "predicted_total_gpu_hours": null
+}

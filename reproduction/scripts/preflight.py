@@ -85,6 +85,7 @@ def main():
     )
     started = time.perf_counter()
     env_cfg = load_env_cfg(task_id, play=False)
+    env_cfg.seed = 42
     env_cfg.commands["motion"].motion_file = args.motion_file
     env_cfg.commands["motion"].sampling_mode = "external"
     env = create_env(env_cfg, args.num_envs, device)
@@ -234,7 +235,7 @@ def main():
                 for p in final.glob("*.pt")
             },
             "config": dataclasses.asdict(cfg),
-            "performance_caveat": "GPU shared with pre-existing unrelated jobs; global GPU utilization is not attributable to this probe.",
+            "performance_caveat": "Whole-device NVML samples do not identify process utilization. Verify competing processes throughout the probe using the campaign resource record before attributing utilization or using timings as exclusive measurements.",
         }
         atomic_json(out / "summary.json", summary)
         print(json.dumps(summary, indent=2), flush=True)

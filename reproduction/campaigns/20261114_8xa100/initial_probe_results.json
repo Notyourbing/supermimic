@@ -1,0 +1,50 @@
+[
+  {
+    "gpu": 0,
+    "name": "exclusive_20261114_lafan1_gencoord_x1",
+    "pid": 3692101,
+    "exit_code": 0
+  },
+  {
+    "gpu": 1,
+    "name": "exclusive_20261114_lafan1_maxcoord_x1",
+    "pid": 3692102,
+    "exit_code": 0
+  },
+  {
+    "gpu": 2,
+    "name": "exclusive_20261114_boneseed_gencoord_x1",
+    "pid": 3692103,
+    "exit_code": 0
+  },
+  {
+    "gpu": 3,
+    "name": "exclusive_20261114_boneseed_maxcoord_x1",
+    "pid": 3692104,
+    "exit_code": 0
+  },
+  {
+    "gpu": 4,
+    "name": "exclusive_20261114_lafan1_gencoord_x2",
+    "pid": 3692105,
+    "exit_code": 0
+  },
+  {
+    "gpu": 5,
+    "name": "exclusive_20261114_lafan1_maxcoord_x2",
+    "pid": 3692106,
+    "exit_code": 143
+  },
+  {
+    "gpu": 6,
+    "name": "exclusive_20261114_boneseed_gencoord_x2",
+    "pid": 3692107,
+    "exit_code": 1
+  },
+  {
+    "gpu": 7,
+    "name": "exclusive_20261114_boneseed_maxcoord_x2",
+    "pid": 3692108,
+    "exit_code": 1
+  }
+]

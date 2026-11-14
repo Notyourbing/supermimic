@@ -17,3 +17,16 @@ results/**/*.pt
 results/**/*.onnx
 results/**/*.mp4
 results/**/final/
+campaigns/**/checkpoints/
+campaigns/**/resume.pt
+campaigns/**/resume.tmp
+campaigns/**/latest
+campaigns/**/tensorboard/
+campaigns/**/hardware.jsonl
+campaigns/**/metrics.jsonl
+campaigns/**/recovery_test/
+campaigns/**/.checkpoint.lock
+campaigns/**/queue_status.json
+campaigns/**/queue_status.tmp
+campaigns/**/probe_jobs.json
+campaigns/**/probe_completion.json

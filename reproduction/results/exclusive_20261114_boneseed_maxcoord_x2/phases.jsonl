@@ -1,0 +1,1 @@
+{"phase": "wm", "step": 8, "seconds": 103.57953753799666, "stats": {"Loss/state": 4.072427749633789, "Loss/root_pos": 0.0035800759214907885, "Loss/root_ori": 0.003902352647855878, "Loss/body_pos": 0.00950735341757536, "Loss/body_rot": 0.04864150285720825, "Loss/body_vel": 1.5709466934204102, "Loss/body_avel": 14.865739822387695}}
