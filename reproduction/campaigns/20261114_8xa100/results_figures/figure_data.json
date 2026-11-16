@@ -1,0 +1,76 @@
+{
+  "sources": [
+    "../training_results.json",
+    "../*/metrics.jsonl",
+    "../../../data/lafan1/manifest_converted.json"
+  ],
+  "dataset_categories": {
+    "dance": {
+      "clips": 8,
+      "minutes": 25.377999999999997
+    },
+    "fallAndGetUp": {
+      "clips": 6,
+      "minutes": 15.576
+    },
+    "fight": {
+      "clips": 3,
+      "minutes": 12.243000000000002
+    },
+    "fightAndSports": {
+      "clips": 2,
+      "minutes": 8.170666666666667
+    },
+    "jumps": {
+      "clips": 3,
+      "minutes": 12.220999999999998
+    },
+    "run": {
+      "clips": 4,
+      "minutes": 16.086666666666666
+    },
+    "sprint": {
+      "clips": 2,
+      "minutes": 9.103333333333333
+    },
+    "walk": {
+      "clips": 12,
+      "minutes": 48.254666666666665
+    }
+  },
+  "bones_paper_filter_counts": [
+    142220,
+    129667,
+    129514
+  ],
+  "paper_source": "arXiv:2610.28480v2, Table A.7",
+  "curve_bins": 100,
+  "curve_x": "collected real-simulation transitions / 1e9",
+  "end_metrics": "means over the last 10% of training-log rows",
+  "cross_dataset_ratios": [
+    {
+      "representation": "gencoord",
+      "scale": 1,
+      "Loss/state": 0.8995936183892732,
+      "Metrics/motion/error_body_pos": 4.3366266137693765
+    },
+    {
+      "representation": "gencoord",
+      "scale": 2,
+      "Loss/state": 0.9198636359618915,
+      "Metrics/motion/error_body_pos": 4.360195366381397
+    },
+    {
+      "representation": "maxcoord",
+      "scale": 1,
+      "Loss/state": 1.1427403398538862,
+      "Metrics/motion/error_body_pos": 4.642468256751647
+    },
+    {
+      "representation": "maxcoord",
+      "scale": 2,
+      "Loss/state": 1.3502718505072921,
+      "Metrics/motion/error_body_pos": 4.503200349164683
+    }
+  ]
+}
