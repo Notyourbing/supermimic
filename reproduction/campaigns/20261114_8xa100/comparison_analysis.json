@@ -1,0 +1,77 @@
+{
+  "source": "training_results.json; last 10% logged training metrics",
+  "paper_version": "arXiv:2610.28480v2",
+  "formal_benchmark_comparable": false,
+  "cross_dataset_pairs": [
+    {
+      "representation": "gencoord",
+      "scale": 1,
+      "bones_to_lafan_wall_ratio": 1.0197744722996966,
+      "extra_sampled_vram_gib": 13.6484375,
+      "wm_loss_change_percent": -10.040638161072678,
+      "body_position_error_ratio": 4.3366266137693765
+    },
+    {
+      "representation": "gencoord",
+      "scale": 2,
+      "bones_to_lafan_wall_ratio": 1.007830362924363,
+      "extra_sampled_vram_gib": 13.626953125,
+      "wm_loss_change_percent": -8.013636403810853,
+      "body_position_error_ratio": 4.360195366381397
+    },
+    {
+      "representation": "maxcoord",
+      "scale": 1,
+      "bones_to_lafan_wall_ratio": 1.031963057612961,
+      "extra_sampled_vram_gib": 13.68359375,
+      "wm_loss_change_percent": 14.274033985388623,
+      "body_position_error_ratio": 4.642468256751647
+    },
+    {
+      "representation": "maxcoord",
+      "scale": 2,
+      "bones_to_lafan_wall_ratio": 1.0304018622483346,
+      "extra_sampled_vram_gib": 13.49224853515625,
+      "wm_loss_change_percent": 35.027185050729216,
+      "body_position_error_ratio": 4.503200349164683
+    }
+  ],
+  "nominal_exposure_ratio_not_epochs": {
+    "definition": "collected transitions / reference library frame count; not measured per-motion visits",
+    "lafan1": 2971.210953438818,
+    "bones_unfiltered": 25.247249571119205,
+    "reference_frame_count_ratio": 117.68454005531125
+  },
+  "bones_maxcoord_x2_vs_x1_percent_changes": {
+    "Train/mean_reward": 11.672249771399823,
+    "Metrics/motion/error_body_pos": -3.7505684806742545,
+    "Metrics/motion/error_body_rot": 32.165836811025606
+  },
+  "representation_comparisons": [
+    {
+      "dataset": "lafan1",
+      "scale": 1,
+      "maxcoord_vs_gencoord_body_position_percent": -2.9063147107107445,
+      "maxcoord_vs_gencoord_body_orientation_percent": -12.859440068124183
+    },
+    {
+      "dataset": "lafan1",
+      "scale": 2,
+      "maxcoord_vs_gencoord_body_position_percent": -1.8095504749480629,
+      "maxcoord_vs_gencoord_body_orientation_percent": -0.09762933210374358
+    },
+    {
+      "dataset": "boneseed",
+      "scale": 1,
+      "maxcoord_vs_gencoord_body_position_percent": 3.9412409764201684,
+      "maxcoord_vs_gencoord_body_orientation_percent": -10.449479693701392
+    },
+    {
+      "dataset": "boneseed",
+      "scale": 2,
+      "maxcoord_vs_gencoord_body_position_percent": 1.410884015689584,
+      "maxcoord_vs_gencoord_body_orientation_percent": 27.8945707813373
+    }
+  ],
+  "interpretation": "descriptive observations under this protocol; not causal ablations or unseen-motion generalization evidence"
+}

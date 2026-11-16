@@ -1,5 +1,6 @@
 """Audit completed local runs and regenerate the evidence-backed RESULT.md."""
 
+import argparse
 import hashlib
 import json
 import math
@@ -212,6 +213,7 @@ def main():
         "formal_evaluation_available": False,
         "runs": result,
     }
+    write_comparison_analysis(report)
     (CAMPAIGN / "training_results.json").write_text(json.dumps(report, indent=2) + "\n")
     (CAMPAIGN / "checkpoint_manifest.json").write_text(
         json.dumps(checkpoints, indent=2) + "\n"
@@ -284,17 +286,93 @@ def main():
     )
 
 
+def write_comparison_analysis(report):
+    """Derived observations; no metric is relabeled as a paper benchmark score."""
+    runs = {r["name"]: r for r in report["runs"]}
+    pairs = []
+    for representation in ("gencoord", "maxcoord"):
+        for scale in (1, 2):
+            a = runs[f"lafan1_{representation}_x{scale}"]
+            b = runs[f"boneseed_{representation}_x{scale}"]
+            ma, mb = a["tail_means"], b["tail_means"]
+            pairs.append(
+                {
+                    "representation": representation,
+                    "scale": scale,
+                    "bones_to_lafan_wall_ratio": b["hours"] / a["hours"],
+                    "extra_sampled_vram_gib": b["hardware"]["nvml_sampled_peak_gib"]
+                    - a["hardware"]["nvml_sampled_peak_gib"],
+                    "wm_loss_change_percent": (mb["Loss/state"] / ma["Loss/state"] - 1)
+                    * 100,
+                    "body_position_error_ratio": mb["Metrics/motion/error_body_pos"]
+                    / ma["Metrics/motion/error_body_pos"],
+                }
+            )
+    a, b = runs["boneseed_maxcoord_x1"], runs["boneseed_maxcoord_x2"]
+    tradeoff = {
+        key: (b["tail_means"][key] / a["tail_means"][key] - 1) * 100
+        for key in (
+            "Train/mean_reward",
+            "Metrics/motion/error_body_pos",
+            "Metrics/motion/error_body_rot",
+        )
+    }
+    representations = []
+    for dataset in ("lafan1", "boneseed"):
+        for scale in (1, 2):
+            gen = runs[f"{dataset}_gencoord_x{scale}"]
+            maxcoord = runs[f"{dataset}_maxcoord_x{scale}"]
+            representations.append(
+                {
+                    "dataset": dataset,
+                    "scale": scale,
+                    "maxcoord_vs_gencoord_body_position_percent": (
+                        maxcoord["tail_means"]["Metrics/motion/error_body_pos"]
+                        / gen["tail_means"]["Metrics/motion/error_body_pos"]
+                        - 1
+                    )
+                    * 100,
+                    "maxcoord_vs_gencoord_body_orientation_percent": (
+                        maxcoord["tail_means"]["Metrics/motion/error_body_rot"]
+                        / gen["tail_means"]["Metrics/motion/error_body_rot"]
+                        - 1
+                    )
+                    * 100,
+                }
+            )
+    analysis = {
+        "source": "training_results.json; last 10% logged training metrics",
+        "paper_version": "arXiv:2610.28480v2",
+        "formal_benchmark_comparable": False,
+        "cross_dataset_pairs": pairs,
+        "nominal_exposure_ratio_not_epochs": {
+            "definition": "collected transitions / reference library frame count; not measured per-motion visits",
+            "lafan1": 1310720000 / 441140,
+            "bones_unfiltered": 1310720000 / 51915358,
+            "reference_frame_count_ratio": 51915358 / 441140,
+        },
+        "bones_maxcoord_x2_vs_x1_percent_changes": tradeoff,
+        "representation_comparisons": representations,
+        "interpretation": "descriptive observations under this protocol; not causal ablations or unseen-motion generalization evidence",
+    }
+    (CAMPAIGN / "comparison_analysis.json").write_text(
+        json.dumps(analysis, indent=2) + "\n"
+    )
+
+
 def write_markdown(report):
     runs = report["runs"]
     prefix = "reproduction/campaigns/20261114_8xa100"
     lines = [
-        "# 官方 SuperMimic 训练结果",
+        "# SuperMimic 官方开源实现的复现结果与扩展分析",
         "",
-        f"统计日期：{report['generated_utc']}。对应批次：`20261114_8xa100`。",
+        f"数据核验时间：{report['generated_utc']}；论述更新时间：{utc(datetime.now(UTC).timestamp())}。对应批次：`20261114_8xa100`。",
         "",
         "**八组训练均按预定预算完成，最终 WM、actor、critic 和恢复文件完整；日志中所有数值标量有限。** "
         f"八张 A100-80GB 合计占卡时长 **{report['total_gpu_hours']:.2f} GPU 小时**，并行墙钟 **{report['wall_hours']:.2f} 小时**。"
         "这是当前官方开源实现的训练结果；本批没有独立全库评测结果，不能将训练完成表述为复现了论文成功率。",
+        "",
+        "**摘要。** 本研究基于官方开源实现，在LAFAN1与未筛选BONES动作库上，对两种状态表示及两种采样规模进行八组对照。结果表明，在线世界模型与短时可微想象的训练闭环能够稳定运行；相同真实采样预算下，环境数与batch协同扩展将训练时间缩短约19%–21%，同时保持接近的LAFAN1末段训练指标。BONES结果进一步呈现预测损失、聚合回报与运动学跟踪误差之间的分离。本文据此提出关于数据驻留、单位数据曝光与多指标模型选择的补充经验观察，并与原文实验逐项对照。当前证据支持方法实现与部分工程趋势的复现；论文所述动作覆盖率、达到目标性能的计算优势及实机迁移仍需在对应协议下验证。",
         "",
         "## 1. 数据和实验协议",
         "",
@@ -306,7 +384,7 @@ def write_markdown(report):
         "- 两种规模每个采样循环的 learner 更新频率均约 0.4；实际更新次数分别为 **127,997 / 63,997**。x2 每次样本数增加而总更新数减少，因此属于规模对照，不能预先假定训练效果等价。",
         "- 八卡各训练一个独立模型；没有将八个进程作为单模型 DDP。训练因**达到预算**结束，没有使用验证集收敛判据自动终止。",
         "",
-        "## 2. 完成情况和实际耗时",
+        "## 2. 训练完整性与计算成本",
         "",
         "时间按各任务 `config.json:start_time` 到 `status.json:time` 计算，包含初始化、编译与最后保存，不含排队和先前准备。GPU 小时为各任务占卡时长之和，不是 GPU kernel 活跃时长。",
         "",
@@ -323,7 +401,7 @@ def write_markdown(report):
         "",
         "## 3. 训练末段指标",
         "",
-        "主表统计最后 **10% 采样预算**内各日志行的算术均值：x1 为最后 640 行，x2 为最后 320 行，每 50 循环一行。这是对训练过程日志的平滑汇总，不是动作平均、帧加权的独立测评，也不是置信区间。最终单行指标可在 [机器可读汇总]("
+        "主表统计最后 **10% 采样预算**内各日志行的算术均值：x1 为最后 640 行，x2 为最后 320 行，每 50 循环一行。该统计量反映训练末段表现，不具有逐动作独立评测、帧加权评测或置信区间的含义。最终单行指标可在 [机器可读汇总]("
         + prefix
         + "/training_results.json) 的 `last_logged` 中核查。",
         "",
@@ -369,7 +447,7 @@ def write_markdown(report):
         "",
         f"![Training curves]({prefix}/results_figures/training_curves.png)",
         "",
-        f"[矢量 PDF]({prefix}/results_figures/training_curves.pdf)。横轴统一为真实采样 transition 数，每条曲线按相同采样量分为 100 个区间并画区间均值；实线为 x1，虚线为 x2，蓝色为 GenCoord，橙色为 MaxCoord。上排为 LAFAN1，下排为 BONES；左列回报越高越好，右列对齐身体位置误差越低越好。没有用单次运行制造置信区间。曲线用于观察训练趋势，不能替代独立测评或证明收敛。",
+        f"[矢量 PDF]({prefix}/results_figures/training_curves.pdf)。横轴统一为真实采样 transition 数，每条曲线按相同采样量分为 100 个区间并画区间均值；实线为 x1，虚线为 x2，蓝色为 GenCoord，橙色为 MaxCoord。上排为 LAFAN1，下排为 BONES；左列回报越高越好，右列对齐身体位置误差越低越好。曲线未附置信区间。LAFAN1在训练初期表现为回报上升、位置误差下降，随后趋于平缓；BONES在初期波动后呈现不同配置的平台差异。由于重置分布随训练改变，曲线的非单调变化不能直接解释为模型遗忘，末段平台也不能单独证明完整动作覆盖已收敛。",
         "",
         "## 5. 全程 GPU 使用情况",
         "",
@@ -405,12 +483,25 @@ def write_markdown(report):
         "",
         "TensorBoard 本机地址为 `http://127.0.0.1:6006`；运行目录为 `reproduction/campaigns/20261114_8xa100`。",
         "",
-        "## 7. 尚不能据此下结论的部分",
-        "",
-        "目前没有本批最终模型的固定起点全动作评测、独立验证集成功率或 reference/策略同步视频。训练集自适应采样结果不能与论文的完整动作成功率直接对表，也不能据此宣布所有模型已严格收敛。下一步应对八个最终模型使用相同固定协议，从动作首帧评测、按动作统计失败率与误差，并检查 BONES 数据筛选协议；再基于测评选择最终模型和制作对照演示。",
     ]
+    lines += (
+        (REPO / "reproduction/reports/result_discussion.md").read_text().splitlines()
+    )
     (REPO / "RESULT.md").write_text("\n".join(lines) + "\n")
 
 
 if __name__ == "__main__":
-    main()
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(
+        "--report-only",
+        action="store_true",
+        help="Regenerate Markdown and derived comparisons from the audited summary; do not reload checkpoints or redraw figures.",
+    )
+    args = parser.parse_args()
+    if args.report_only:
+        summary = json.loads((CAMPAIGN / "training_results.json").read_text())
+        write_comparison_analysis(summary)
+        write_markdown(summary)
+        print(REPO / "RESULT.md")
+    else:
+        main()
