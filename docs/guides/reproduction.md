@@ -1,6 +1,6 @@
 # 官方 SuperMimic：复现与服务器迁移指南
 
-八组正式训练已经完成；结果见 [RESULT.md](../../RESULT.md)，下一阶段是 [完整动作测评](../../PLAN_12_16_0.md)。本指南说明环境与数据如何恢复，历史准备证据见 [准备报告](../archive/PREPARATION_REPORT.md)。
+当前报告与后续实验固定采用 GenCoord x2，分别研究 LAFAN1 与 BONES。结果见 [RESULT.md](../../RESULT.md)，下一阶段是 [完整动作测评](../../PLAN_12_16_0.md)。本指南说明环境与数据如何恢复，历史准备证据见 [准备报告](../archive/PREPARATION_REPORT.md)。
 
 ## 1. 安装固定环境
 
@@ -43,9 +43,6 @@ CUDA_VISIBLE_DEVICES='' bash reproduction/run_env.sh pytest -q tests
 CUDA_VISIBLE_DEVICES=0 bash reproduction/run_env.sh python scripts/validation/preflight.py \
   --name server2_gencoord_smoke --representation gencoord --iterations 48 \
   --motion-file "$REPO/reproduction/data/lafan1/npz/run1_subject5.npz"
-CUDA_VISIBLE_DEVICES=1 bash reproduction/run_env.sh python scripts/validation/preflight.py \
-  --name server2_maxcoord_smoke --representation maxcoord --iterations 48 \
-  --motion-file "$REPO/reproduction/data/lafan1/npz/run1_subject5.npz"
 CUDA_VISIBLE_DEVICES=0 bash reproduction/run_env.sh python scripts/validation/eval_smoke.py \
   --run-dir "$REPO/reproduction/smoke_tests/server2_gencoord_smoke" --num-envs 64 --steps 200 --render
 ```
@@ -61,7 +58,7 @@ CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 bash reproduction/run_env.sh \
 
 ## 4. 查看现有训练与恢复模型
 
-训练批次位于 [20261114_8xa100](../../reproduction/campaigns/20261114_8xa100/README.md)，八模型已经按预算完成。结果为 137.38 GPU 小时、19.80 小时并行墙钟；这些是本批实际成本，不能直接当作其他硬件的预算。
+训练批次位于 [20261114_8xa100](../../reproduction/campaigns/20261114_8xa100/README.md)。当前选用 `lafan1_gencoord_x2` 和 `boneseed_gencoord_x2`，两模型已经按预算完成，合计 30.03 GPU 小时；这些是原服务器的实际成本，不能直接当作其他硬件的预算。
 
 ```bash
 python3 scripts/monitoring/campaign_dashboard.py reproduction/campaigns/20261114_8xa100

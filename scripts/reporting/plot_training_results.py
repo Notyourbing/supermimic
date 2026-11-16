@@ -1,4 +1,4 @@
-"""Make publication-style figures from audited results and local training logs."""
+"""Generate the current GenCoord x2 report figures from audited local evidence."""
 
 import json
 import re
@@ -10,23 +10,20 @@ import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import numpy as np
-from matplotlib.patches import Patch
 
 REPO = Path(__file__).resolve().parents[2]
 CAMPAIGN = REPO / "reproduction/campaigns/20261114_8xa100"
-COLORS = {"gencoord": "#0072B2", "maxcoord": "#D55E00"}
-GROUPS = [
-    ("lafan1", "gencoord"),
-    ("lafan1", "maxcoord"),
-    ("boneseed", "gencoord"),
-    ("boneseed", "maxcoord"),
-]
-GROUP_LABELS = [
-    "LAFAN1\nGenCoord",
-    "LAFAN1\nMaxCoord",
-    "BONES\nGenCoord",
-    "BONES\nMaxCoord",
-]
+RUN_NAMES = ("lafan1_gencoord_x2", "boneseed_gencoord_x2")
+COLORS = ("#0072B2", "#D55E00")
+LABELS = ("LAFAN1", "BONES\n(unfiltered)")
+
+
+def selected_runs(report):
+    """Select only the two named models, independently of historical audit scope."""
+    runs = {r["name"]: r for r in report["runs"]}
+    selected = [runs[name] for name in RUN_NAMES]
+    assert all(r["representation"] == "gencoord" and r["scale"] == 2 for r in selected)
+    return selected
 
 
 def save(fig, directory, name):
@@ -40,64 +37,35 @@ def grid(ax):
     ax.grid(axis="y", alpha=0.22, linewidth=0.6)
 
 
-def scale_legend(ax, **kwargs):
-    ax.legend(
-        handles=[
-            Patch(facecolor="white", edgecolor="#555555", label="x1: standard"),
-            Patch(
-                facecolor="white",
-                edgecolor="#555555",
-                hatch="///",
-                label="x2: enlarged",
-            ),
-        ],
-        frameon=False,
-        **kwargs,
-    )
-
-
-def paired_bars(ax, runs, value, fmt=".2f", annotate_gpu=False):
-    for j, (dataset, representation) in enumerate(GROUPS):
-        for scale in (1, 2):
-            run = runs[f"{dataset}_{representation}_x{scale}"]
-            y = value(run)
-            x = j + (-0.19 if scale == 1 else 0.19)
-            ax.bar(
-                x,
-                y,
-                width=0.34,
-                color=COLORS[representation],
-                edgecolor="white",
-                hatch="" if scale == 1 else "///",
-                linewidth=0.6,
-            )
-            label = format(y, fmt)
-            if annotate_gpu:
-                label += f"\nG{run['gpu']}"
-            ax.annotate(
-                label,
-                (x, y),
-                xytext=(0, 4),
-                textcoords="offset points",
-                ha="center",
-                va="bottom",
-                fontsize=8,
-            )
-    ax.set_xticks(range(4), GROUP_LABELS)
+def bars(ax, values, fmt, ylim):
+    ax.bar([0, 1], values, color=COLORS, width=0.5)
+    ax.set_xticks([0, 1], LABELS)
+    ax.set_ylim(0, ylim)
+    for i, value in enumerate(values):
+        ax.annotate(
+            format(value, fmt),
+            (i, value),
+            xytext=(0, 5),
+            textcoords="offset points",
+            ha="center",
+            fontsize=10,
+        )
     grid(ax)
 
 
 def make_figures(report, histories=None):
     directory = REPO / "docs/figures/20261114_8xa100"
     directory.mkdir(parents=True, exist_ok=True)
-    runs = {r["name"]: r for r in report["runs"]}
+    runs = selected_runs(report)
     if histories is None:
         histories = {
-            name: [
+            r["name"]: [
                 json.loads(line)
-                for line in (CAMPAIGN / name / "metrics.jsonl").read_text().splitlines()
+                for line in (CAMPAIGN / r["name"] / "metrics.jsonl")
+                .read_text()
+                .splitlines()
             ]
-            for name in runs
+            for r in runs
         }
     plt.rcParams.update(
         {
@@ -182,179 +150,71 @@ def make_figures(report, histories=None):
     ax.grid(axis="x", alpha=0.22)
     save(fig, directory, "dataset_overview")
 
-    # Every curve uses 100 bins with identical widths in collected transitions.
-    fig, axes = plt.subplots(2, 2, figsize=(10, 6.4), constrained_layout=True)
-    for run in runs.values():
+    fig, axes = plt.subplots(2, 2, figsize=(9.5, 6), constrained_layout=True)
+    for i, run in enumerate(runs):
         rows = histories[run["name"]]
-        x = np.array([v["iteration"] * run["num_envs"] for v in rows]) / 1e9
-        bins = np.minimum((x / 1.31072 * 100).astype(int), 99)
-        for col, (key, factor) in enumerate(
-            [("Train/mean_reward", 1), ("Metrics/motion/error_body_pos", 100)]
-        ):
-            values = np.array([v[key] for v in rows]) * factor
-            unique = sorted(set(bins))
-            xs = [x[bins == b].mean() for b in unique]
-            ys = [values[bins == b].mean() for b in unique]
-            ax = axes[0 if run["dataset"] == "LAFAN1" else 1, col]
-            rep = "GenCoord" if run["representation"] == "gencoord" else "MaxCoord"
-            ax.plot(
-                xs,
-                ys,
-                color=COLORS[run["representation"]],
-                linestyle="-" if run["scale"] == 1 else "--",
-                linewidth=1.5,
-                label=f"{rep} x{run['scale']}",
-            )
-    for i, dataset in enumerate(["LAFAN1", "BONES (unfiltered)"]):
-        for col, metric in enumerate(
-            ["Training return (higher is better)", "Aligned body position error (cm)"]
-        ):
-            ax = axes[i, col]
-            ax.set_title(f"({chr(97 + 2 * i + col)}) {dataset}")
-            ax.set_xlabel("Collected transitions (billions)")
-            ax.set_ylabel(metric)
-            ax.set_xlim(0, 1.31072)
-            grid(ax)
-    axes[0, 0].legend(frameon=False, fontsize=8, ncol=2)
-    save(fig, directory, "training_curves")
-
-    # Separate dataset axes retain detail without implying equal error magnitudes.
-    fig, axes = plt.subplots(2, 2, figsize=(9.5, 6.3), constrained_layout=True)
-    for i, dataset in enumerate(["lafan1", "boneseed"]):
-        for j, (key, factor, label, fmt) in enumerate(
+        transitions = np.array([v["iteration"] * run["num_envs"] for v in rows])
+        bins = np.minimum((transitions / run["transitions"] * 100).astype(int), 99)
+        for col, (key, factor, label) in enumerate(
             [
+                ("Train/mean_reward", 1, "Training return"),
                 (
                     "Metrics/motion/error_body_pos",
                     100,
                     "Aligned body position error (cm)",
-                    ".2f",
-                ),
-                (
-                    "Metrics/motion/error_body_rot",
-                    1,
-                    "Body orientation error (rad)",
-                    ".3f",
                 ),
             ]
         ):
-            ax = axes[i, j]
-            heights = []
-            for p, rep in enumerate(["gencoord", "maxcoord"]):
-                for scale in (1, 2):
-                    run = runs[f"{dataset}_{rep}_x{scale}"]
-                    val = run["tail_means"][key] * factor
-                    heights.append(val)
-                    x = p + (-0.18 if scale == 1 else 0.18)
-                    ax.bar(
-                        x,
-                        val,
-                        width=0.32,
-                        color=COLORS[rep],
-                        edgecolor="white",
-                        hatch="" if scale == 1 else "///",
-                        linewidth=0.6,
-                    )
-                    ax.annotate(
-                        format(val, fmt),
-                        (x, val),
-                        xytext=(0, 4),
-                        textcoords="offset points",
-                        ha="center",
-                        fontsize=9,
-                    )
-            ax.set_ylim(0, max(heights) * 1.25)
-            ax.set_xticks([0, 1], ["GenCoord", "MaxCoord"])
+            values = np.array([v[key] for v in rows]) * factor
+            unique = sorted(set(bins))
+            x = [transitions[bins == b].mean() / 1e9 for b in unique]
+            y = [values[bins == b].mean() for b in unique]
+            ax = axes[i, col]
+            ax.plot(x, y, color=COLORS[i], linewidth=1.5)
+            ax.set_title(f"({chr(97 + 2 * i + col)}) {LABELS[i].replace(chr(10), ' ')}")
+            ax.set_xlabel("Collected transitions (billions)")
             ax.set_ylabel(label)
-            ax.set_title(
-                f"({chr(97 + 2 * i + j)}) {'LAFAN1' if i == 0 else 'BONES (unfiltered)'}"
-            )
+            ax.set_xlim(0, run["transitions"] / 1e9)
             grid(ax)
-    scale_legend(axes[0, 0], loc="upper right", fontsize=8, ncol=2)
-    save(fig, directory, "tracking_accuracy")
+    save(fig, directory, "training_curves")
 
-    fig, axes = plt.subplots(1, 2, figsize=(11, 4.1), constrained_layout=True)
-    paired_bars(axes[0], runs, lambda r: r["hours"])
-    axes[0].set_ylim(0, 25)
-    axes[0].set_ylabel("Wall-clock time (hours)")
-    axes[0].set_title("(a) Same budget: 1.311 billion transitions")
-    scale_legend(axes[0], loc="upper left", fontsize=8, ncol=2)
-    paired_bars(
-        axes[1], runs, lambda r: r["hardware"]["unshared_device_util_mean"], fmt=".1f"
+    fig, axes = plt.subplots(1, 3, figsize=(10.5, 3.6), constrained_layout=True)
+    bars(axes[0], [r["hours"] for r in runs], ".2f", 18)
+    axes[0].set_title("(a) Training time")
+    axes[0].set_ylabel("Wall-clock hours")
+    bars(
+        axes[1], [r["hardware"]["unshared_device_util_mean"] for r in runs], ".2f", 110
     )
-    axes[1].set_ylim(0, 110)
-    axes[1].set_ylabel("Mean GPU utilization (%)")
-    axes[1].set_title("(b) Steady training phase")
+    axes[1].set_title("(b) Mean GPU utilization")
+    axes[1].set_ylabel("Utilization (%)")
     axes[1].axhline(80, color="#555555", linestyle=":", linewidth=1)
-    axes[1].text(
-        3.45,
-        78,
-        "80% target",
-        va="top",
-        ha="right",
-        fontsize=8,
-        bbox={"facecolor": "white", "edgecolor": "none", "alpha": 0.9, "pad": 2},
-    )
-    save(fig, directory, "training_efficiency")
+    bars(axes[2], [r["hardware"]["nvml_sampled_peak_gib"] for r in runs], ".2f", 65)
+    axes[2].set_title("(c) Peak GPU memory")
+    axes[2].set_ylabel("Sampled peak (GiB)")
+    save(fig, directory, "resource_usage")
 
-    fig, ax = plt.subplots(figsize=(9, 4), constrained_layout=True)
-    paired_bars(
-        ax, runs, lambda r: r["hardware"]["nvml_sampled_peak_gib"], annotate_gpu=True
-    )
-    ax.set_ylim(0, 73)
-    ax.set_ylabel("Sampled peak GPU memory (GiB)")
-    ax.set_title("GPU memory during each model's training interval")
-    scale_legend(ax, loc="upper left", fontsize=9, ncol=2)
-    save(fig, directory, "gpu_memory")
-
-    # Ratios compare datasets within the SAME representation and scale.
-    fig, axes = plt.subplots(1, 2, figsize=(10, 3.9), constrained_layout=True)
-    ratios = []
-    for p, rep in enumerate(["gencoord", "maxcoord"]):
-        for scale in (1, 2):
-            a = runs[f"lafan1_{rep}_x{scale}"]["tail_means"]
-            b = runs[f"boneseed_{rep}_x{scale}"]["tail_means"]
-            ratio = {"representation": rep, "scale": scale}
-            for col, key in enumerate(["Loss/state", "Metrics/motion/error_body_pos"]):
-                y = b[key] / a[key]
-                ratio[key] = y
-                x = p + (-0.18 if scale == 1 else 0.18)
-                axes[col].bar(
-                    x,
-                    y,
-                    width=0.32,
-                    color=COLORS[rep],
-                    edgecolor="white",
-                    hatch="" if scale == 1 else "///",
-                    linewidth=0.6,
-                )
-                axes[col].annotate(
-                    f"{y:.2f}",
-                    (x, y),
-                    xytext=(0, 4),
-                    textcoords="offset points",
-                    ha="center",
-                    fontsize=9,
-                )
-            ratios.append(ratio)
-    for col, title in enumerate(
-        ["(a) World-model training loss", "(b) Aligned body position error"]
-    ):
-        ax = axes[col]
-        ax.set_xticks([0, 1], ["GenCoord", "MaxCoord"])
-        ax.set_title(title)
-        ax.set_ylabel("BONES / LAFAN1 ratio")
-        ax.axhline(1, color="#555555", linestyle=":", linewidth=1)
-        ax.set_ylim(0, 1.8 if col == 0 else 5.8)
-        grid(ax)
-    scale_legend(axes[0], loc="upper left", fontsize=8, ncol=2)
+    fig, axes = plt.subplots(1, 2, figsize=(8, 3.8), constrained_layout=True)
+    loss = [r["tail_means"]["Loss/state"] for r in runs]
+    error = [r["tail_means"]["Metrics/motion/error_body_pos"] * 100 for r in runs]
+    bars(axes[0], loss, ".6f", max(loss) * 1.25)
+    axes[0].set_title("(a) World-model training loss")
+    axes[0].set_ylabel("Weighted state-prediction loss")
+    bars(axes[1], error, ".3f", max(error) * 1.25)
+    axes[1].set_title("(b) Body position error")
+    axes[1].set_ylabel("Aligned error (cm)")
     save(fig, directory, "model_control_gap")
 
     (directory / "figure_data.json").write_text(
         json.dumps(
             {
+                "scope": "GenCoord x2 only",
+                "run_names": list(RUN_NAMES),
                 "sources": [
-                    "../../../reproduction/campaigns/20261114_8xa100/training_results.json",
-                    "../../../reproduction/campaigns/20261114_8xa100/*/metrics.jsonl",
+                    "../../../reproduction/campaigns/20261114_8xa100/gencoord_x2_results.json",
+                    *[
+                        f"../../../reproduction/campaigns/20261114_8xa100/{name}/metrics.jsonl"
+                        for name in RUN_NAMES
+                    ],
                     "../../../reproduction/data/lafan1/manifest_converted.json",
                 ],
                 "dataset_categories": categories,
@@ -363,7 +223,15 @@ def make_figures(report, histories=None):
                 "curve_bins": 100,
                 "curve_x": "collected real-simulation transitions / 1e9",
                 "end_metrics": "means over the last 10% of training-log rows",
-                "cross_dataset_ratios": ratios,
+                "world_model_losses": loss,
+                "body_position_errors_cm": error,
+                "gpu_hours": [r["hours"] for r in runs],
+                "gpu_util_means": [
+                    r["hardware"]["unshared_device_util_mean"] for r in runs
+                ],
+                "sampled_peak_gib": [
+                    r["hardware"]["nvml_sampled_peak_gib"] for r in runs
+                ],
             },
             indent=2,
         )

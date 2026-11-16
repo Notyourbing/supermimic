@@ -6,7 +6,7 @@ SuperMimic trains a humanoid whole-body motion tracker with one differentiable w
 
 ## 本 fork 的复现入口
 
-八组 A100 训练已经完成；下一阶段为论文定义的完整动作测评。
+当前实验路线固定为 **GenCoord x2**，保留 LAFAN1 与 BONES 两个已训练模型作为后续测评对象。下一阶段为论文定义的完整动作测评；历史训练记录仍保留在批次目录中。
 
 | 要做的事 | 入口 |
 |---|---|

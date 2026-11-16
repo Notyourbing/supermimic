@@ -1,7 +1,13 @@
 {
+  "scope": "GenCoord x2 only",
+  "run_names": [
+    "lafan1_gencoord_x2",
+    "boneseed_gencoord_x2"
+  ],
   "sources": [
-    "../../../reproduction/campaigns/20261114_8xa100/training_results.json",
-    "../../../reproduction/campaigns/20261114_8xa100/*/metrics.jsonl",
+    "../../../reproduction/campaigns/20261114_8xa100/gencoord_x2_results.json",
+    "../../../reproduction/campaigns/20261114_8xa100/lafan1_gencoord_x2/metrics.jsonl",
+    "../../../reproduction/campaigns/20261114_8xa100/boneseed_gencoord_x2/metrics.jsonl",
     "../../../reproduction/data/lafan1/manifest_converted.json"
   ],
   "dataset_categories": {
@@ -47,30 +53,24 @@
   "curve_bins": 100,
   "curve_x": "collected real-simulation transitions / 1e9",
   "end_metrics": "means over the last 10% of training-log rows",
-  "cross_dataset_ratios": [
-    {
-      "representation": "gencoord",
-      "scale": 1,
-      "Loss/state": 0.8995936183892732,
-      "Metrics/motion/error_body_pos": 4.3366266137693765
-    },
-    {
-      "representation": "gencoord",
-      "scale": 2,
-      "Loss/state": 0.9198636359618915,
-      "Metrics/motion/error_body_pos": 4.360195366381397
-    },
-    {
-      "representation": "maxcoord",
-      "scale": 1,
-      "Loss/state": 1.1427403398538862,
-      "Metrics/motion/error_body_pos": 4.642468256751647
-    },
-    {
-      "representation": "maxcoord",
-      "scale": 2,
-      "Loss/state": 1.3502718505072921,
-      "Metrics/motion/error_body_pos": 4.503200349164683
-    }
+  "world_model_losses": [
+    0.0052811361791100355,
+    0.004857925127726048
+  ],
+  "body_position_errors_cm": [
+    3.0746968474704772,
+    13.406278947368264
+  ],
+  "gpu_hours": [
+    14.956538540124892,
+    15.073653664986292
+  ],
+  "gpu_util_means": [
+    95.26733386405853,
+    95.350823741819
+  ],
+  "sampled_peak_gib": [
+    39.0985107421875,
+    52.7254638671875
   ]
 }

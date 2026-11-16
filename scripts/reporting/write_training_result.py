@@ -9,7 +9,7 @@ from datetime import UTC, datetime
 from pathlib import Path
 
 import torch
-from plot_training_results import make_figures
+from plot_training_results import make_figures, selected_runs
 
 REPO = Path(__file__).resolve().parents[2]
 CAMPAIGN = REPO / "reproduction/campaigns/20261114_8xa100"
@@ -209,7 +209,7 @@ def main():
         "formal_evaluation_available": False,
         "runs": result,
     }
-    write_comparison_analysis(report)
+    write_selected_analysis(report)
     (CAMPAIGN / "training_results.json").write_text(json.dumps(report, indent=2) + "\n")
     (CAMPAIGN / "checkpoint_manifest.json").write_text(
         json.dumps(checkpoints, indent=2) + "\n"
@@ -229,115 +229,99 @@ def main():
     )
 
 
-def write_comparison_analysis(report):
-    """Derived observations; no metric is relabeled as a paper benchmark score."""
-    runs = {r["name"]: r for r in report["runs"]}
-    pairs = []
-    for representation in ("gencoord", "maxcoord"):
-        for scale in (1, 2):
-            a = runs[f"lafan1_{representation}_x{scale}"]
-            b = runs[f"boneseed_{representation}_x{scale}"]
-            ma, mb = a["tail_means"], b["tail_means"]
-            pairs.append(
-                {
-                    "representation": representation,
-                    "scale": scale,
-                    "bones_to_lafan_wall_ratio": b["hours"] / a["hours"],
-                    "extra_sampled_vram_gib": b["hardware"]["nvml_sampled_peak_gib"]
-                    - a["hardware"]["nvml_sampled_peak_gib"],
-                    "wm_loss_change_percent": (mb["Loss/state"] / ma["Loss/state"] - 1)
-                    * 100,
-                    "body_position_error_ratio": mb["Metrics/motion/error_body_pos"]
-                    / ma["Metrics/motion/error_body_pos"],
-                }
-            )
-    a, b = runs["boneseed_maxcoord_x1"], runs["boneseed_maxcoord_x2"]
-    tradeoff = {
-        key: (b["tail_means"][key] / a["tail_means"][key] - 1) * 100
-        for key in (
-            "Train/mean_reward",
-            "Metrics/motion/error_body_pos",
-            "Metrics/motion/error_body_rot",
-        )
-    }
-    representations = []
-    for dataset in ("lafan1", "boneseed"):
-        for scale in (1, 2):
-            gen = runs[f"{dataset}_gencoord_x{scale}"]
-            maxcoord = runs[f"{dataset}_maxcoord_x{scale}"]
-            representations.append(
-                {
-                    "dataset": dataset,
-                    "scale": scale,
-                    "maxcoord_vs_gencoord_body_position_percent": (
-                        maxcoord["tail_means"]["Metrics/motion/error_body_pos"]
-                        / gen["tail_means"]["Metrics/motion/error_body_pos"]
-                        - 1
-                    )
-                    * 100,
-                    "maxcoord_vs_gencoord_body_orientation_percent": (
-                        maxcoord["tail_means"]["Metrics/motion/error_body_rot"]
-                        / gen["tail_means"]["Metrics/motion/error_body_rot"]
-                        - 1
-                    )
-                    * 100,
-                }
-            )
-    analysis = {
-        "source": "training_results.json; last 10% logged training metrics",
-        "paper_version": "arXiv:2610.28480v2",
-        "formal_benchmark_comparable": False,
-        "cross_dataset_pairs": pairs,
-        "nominal_exposure_ratio_not_epochs": {
-            "definition": "collected transitions / reference library frame count; not measured per-motion visits",
-            "lafan1": 1310720000 / 441140,
-            "bones_unfiltered": 1310720000 / 51915358,
-            "reference_frame_count_ratio": 51915358 / 441140,
+def write_selected_analysis(report):
+    """Publish only the selected runs; retain historical audit files unchanged."""
+    runs = selected_runs(report)
+    a, b = runs
+    configurations = []
+    for r in runs:
+        cfg = json.loads((CAMPAIGN / r["name"] / "config.json").read_text())
+        runner = cfg["runner_cfg"]
+        configuration = {
+            "representation": runner["representation"],
+            "num_envs": r["num_envs"],
+            "wm_batch_size": runner["wm"]["batch_size"],
+            "wm_batches": runner["wm"]["num_batches"],
+            "wm_window": runner["wm"]["horizon"],
+            "policy_batch_size": runner["policy"]["batch_size"],
+            "policy_horizon": runner["policy"]["horizon"],
+            "history_length": runner["history_length"],
+            "learning_rate": runner["policy"]["lr"],
+        }
+        configurations.append(configuration)
+    assert configurations[0] == configurations[1]
+    assert configurations[0]["num_envs"] == 8192
+    assert configurations[0]["wm_batch_size"] == 4096
+    assert configurations[0]["policy_batch_size"] == 8192
+    fields = (
+        "name",
+        "gpu",
+        "dataset",
+        "representation",
+        "scale",
+        "num_envs",
+        "iterations",
+        "transitions",
+        "updates",
+        "start",
+        "finish",
+        "hours",
+        "training_commit",
+        "tail_count",
+        "tail_means",
+        "hardware",
+    )
+    result = {
+        "scope": "GenCoord x2; LAFAN1 and unfiltered BONES",
+        "source": "training_results.json and per-run config.json",
+        "audit_utc": report["generated_utc"],
+        "formal_evaluation_available": False,
+        "configuration": configurations[0],
+        "total_gpu_hours": sum(r["hours"] for r in runs),
+        "wall_hours": (max(r["finish"] for r in runs) - min(r["start"] for r in runs))
+        / 3600,
+        "runs": [{k: r[k] for k in fields} for r in runs],
+        "bones_to_lafan": {
+            "reference_frame_ratio": 51915358 / 441140,
+            "wall_ratio": b["hours"] / a["hours"],
+            "extra_peak_gib": b["hardware"]["nvml_sampled_peak_gib"]
+            - a["hardware"]["nvml_sampled_peak_gib"],
+            "world_model_loss_ratio": b["tail_means"]["Loss/state"]
+            / a["tail_means"]["Loss/state"],
+            "body_position_error_ratio": b["tail_means"][
+                "Metrics/motion/error_body_pos"
+            ]
+            / a["tail_means"]["Metrics/motion/error_body_pos"],
         },
-        "bones_maxcoord_x2_vs_x1_percent_changes": tradeoff,
-        "representation_comparisons": representations,
-        "interpretation": "descriptive observations under this protocol; not causal ablations or unseen-motion generalization evidence",
     }
-    (CAMPAIGN / "comparison_analysis.json").write_text(
-        json.dumps(analysis, indent=2) + "\n"
+    (CAMPAIGN / "gencoord_x2_results.json").write_text(
+        json.dumps(result, indent=2) + "\n"
     )
 
 
 def write_markdown(report):
-    """Render the readable report template; numerical tables use audited values."""
-    runs = sorted(report["runs"], key=lambda r: r["gpu"])
-    purposes = {
-        0: "建立小型动作库的广义坐标基准",
-        1: "与 GPU 0 对照，检验最大坐标表示",
-        2: "检验广义坐标在大型动作库上的表现",
-        3: "与 GPU 2 对照，检验大型动作库上的表示差异",
-        4: "与 GPU 0 对照，检验扩大规模后的速度与精度",
-        5: "与 GPU 1 对照，检验扩大规模后的速度与精度",
-        6: "与 GPU 2 对照，检验大型动作库的规模收益",
-        7: "与 GPU 3 对照，检验大型动作库的规模收益",
-    }
+    """Render the current two-model report from its shared selection rule."""
+    runs = selected_runs(report)
     gpu_table = [
-        "| GPU | 数据集 | 世界模型表示 | 训练规模 | 实验目的 | 耗时 / h |",
-        "|---:|---|---|---|---|---:|",
+        "| 原训练 GPU | 数据集 | 任务目录 | 耗时 / h |",
+        "|---:|---|---|---:|",
     ]
     metrics_table = [
-        "| GPU | 数据集 | 配置 | 训练回报 ↑ | 身体位置误差 / cm ↓ | 身体姿态误差 / rad ↓ |",
-        "|---:|---|---|---:|---:|---:|",
+        "| 数据集 | 训练回报 ↑ | 身体位置误差 / cm ↓ | 身体姿态误差 / rad ↓ |",
+        "|---|---:|---:|---:|",
     ]
     for r in runs:
         dataset = "LAFAN1" if r["dataset"] == "LAFAN1" else "BONES（未筛选）"
-        rep = "GenCoord" if r["representation"] == "gencoord" else "MaxCoord"
         gpu_table.append(
-            f"| {r['gpu']} | {dataset} | {rep} | x{r['scale']} | {purposes[r['gpu']]} | {r['hours']:.2f} |"
+            f"| {r['gpu']} | {dataset} | `{r['name']}` | {r['hours']:.2f} |"
         )
         m = r["tail_means"]
         metrics_table.append(
-            f"| {r['gpu']} | {dataset} | {rep} x{r['scale']} | {m['Train/mean_reward']:.3f} | "
+            f"| {dataset} | {m['Train/mean_reward']:.3f} | "
             f"{m['Metrics/motion/error_body_pos'] * 100:.3f} | {m['Metrics/motion/error_body_rot']:.4f} |"
         )
     values = {
-        "WALL_HOURS": f"{report['wall_hours']:.2f}",
-        "GPU_HOURS": f"{report['total_gpu_hours']:.2f}",
+        "GPU_HOURS": f"{sum(r['hours'] for r in runs):.2f}",
         "AUDIT_TIME": report["generated_utc"],
         "GPU_TABLE": "\n".join(gpu_table),
         "METRICS_TABLE": "\n".join(metrics_table),
@@ -365,7 +349,7 @@ if __name__ == "__main__":
     args = parser.parse_args()
     if args.report_only or args.refresh_report:
         summary = json.loads((CAMPAIGN / "training_results.json").read_text())
-        write_comparison_analysis(summary)
+        write_selected_analysis(summary)
         if args.refresh_report:
             make_figures(summary)
         write_markdown(summary)
