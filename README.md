@@ -4,9 +4,20 @@
 
 SuperMimic trains a humanoid whole-body motion tracker with one differentiable world model, built on [mjlab](https://github.com/mujocolab/mjlab).
 
-## 本 fork 的复现与迁移
+## 本 fork 的复现入口
 
-八卡八组正式训练已完成，结果、训练曲线、实际工时及模型位置见 [RESULT.md](RESULT.md)。环境安装、数据准备与迁移入口见 [reproduction/README.md](reproduction/README.md)，迁移时避免旧锁文件与当前配套 mjlab 的依赖差异。
+八组 A100 训练已经完成；下一阶段为论文定义的完整动作测评。
+
+| 要做的事 | 入口 |
+|---|---|
+| 阅读训练结果和图表 | [RESULT.md](RESULT.md) |
+| 查看下一阶段测评计划 | [PLAN_12_16_0.md](PLAN_12_16_0.md) |
+| 安装环境、准备数据或迁移服务器 | [复现指南](docs/guides/reproduction.md) |
+| 了解目录与产物位置 | [项目结构](docs/PROJECT_STRUCTURE.md) |
+| 查找可执行脚本 | [脚本索引](scripts/README.md) |
+| 查看八卡训练配置、日志和权重 | [训练批次](reproduction/campaigns/20261114_8xa100/README.md) |
+
+`src/` 是上游算法实现，`scripts/` 是按用途分类的复现工具，`docs/` 保存文档与图表，`reproduction/` 保存环境入口、数据清单和实验产物。本 fork 的环境请使用复现指南中的固定依赖安装流程；下方保留上游的使用说明。
 
 ## Setup
 

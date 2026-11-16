@@ -1,8 +1,8 @@
 {
   "sources": [
-    "../training_results.json",
-    "../*/metrics.jsonl",
-    "../../../data/lafan1/manifest_converted.json"
+    "../../../reproduction/campaigns/20261114_8xa100/training_results.json",
+    "../../../reproduction/campaigns/20261114_8xa100/*/metrics.jsonl",
+    "../../../reproduction/data/lafan1/manifest_converted.json"
   ],
   "dataset_categories": {
     "dance": {

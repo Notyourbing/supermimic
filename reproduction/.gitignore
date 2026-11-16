@@ -33,3 +33,18 @@ campaigns/**/probe_completion.json
 campaigns/**/status.json
 # Cancelled duplicate of the successful exclusive benchmark; retained locally.
 results/allocated_20261114_queue_1794624829_2_*/
+# Canonical smoke-test directory (results/ is a compatibility symlink).
+smoke_tests/**/*.pt
+smoke_tests/**/*.onnx
+smoke_tests/**/*.mp4
+smoke_tests/**/final/
+smoke_tests/allocated_20261114_queue_1794624829_2_*/
+# Large evaluation artifacts remain local; compact summaries can be versioned.
+evaluations/**/*.pt
+evaluations/**/*.npy
+evaluations/**/*.npz
+evaluations/**/*.mp4
+evaluations/**/*.parquet
+evaluations/**/tensorboard/
+evaluations/**/trajectories/
+evaluations/**/*.tmp

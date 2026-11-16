@@ -33,9 +33,9 @@ SuperMimic 的目标是让 **Unitree G1 人形机器人跟踪给定的全身参�
 
 原始 LAFAN1 为 30 Hz，BONES 为 120 Hz；两者均通过官方加载器转换至 50 Hz，并计算根部及关节速度。BONES 转换还统一了长度、角度和旋转约定。训练加载的数据包含根部位置、姿态、速度以及关节位置、速度；它们提供模仿目标，世界模型的动力学监督则来自策略在仿真中实际采集的状态转移。
 
-![图1：LAFAN1动作构成与BONES筛选规模](reproduction/campaigns/20261114_8xa100/results_figures/dataset_overview.png)
+![图1：LAFAN1动作构成与BONES筛选规模](docs/figures/20261114_8xa100/dataset_overview.png)
 
-**图 1｜数据集构成。** 左图按动作名称归类展示 LAFAN1 的参考时长，括号内为片段数量；右图展示 BONES 原始集合与论文两阶段筛选后的动作数。右图灰色和绿色柱为论文记载的集合规模。[矢量 PDF](reproduction/campaigns/20261114_8xa100/results_figures/dataset_overview.pdf)
+**图 1｜数据集构成。** 左图按动作名称归类展示 LAFAN1 的参考时长，括号内为片段数量；右图展示 BONES 原始集合与论文两阶段筛选后的动作数。右图灰色和绿色柱为论文记载的集合规模。[矢量 PDF](docs/figures/20261114_8xa100/dataset_overview.pdf)
 
 **分析。** LAFAN1 中行走占约 48.3 min，为总时长的 32.8%，舞蹈约占 17.3%；因此，整体训练指标会受到动作构成影响，不能等同于各类动作表现一致。BONES 的名称筛选去除了 12,553 条动作，之后的可行性筛选又去除 153 条。原始集合中的这些额外片段可能增加模仿难度，但当前结果尚不能量化筛选对误差的独立贡献。
 
@@ -72,9 +72,9 @@ GPU 0 与 1、2 与 3 分别构成两个数据集上的标准规模表示对照�
 
 本节使用两个主要指标：**训练回报**反映奖励函数综合评价，数值越大越好；**身体位置误差**反映机器人与参考动作之间的局部几何差异，数值越小越好。位置误差在参考根部水平位置和朝向对齐后计算，因此表示身体构型的模仿精度，不包含全部全局轨迹偏移。身体姿态误差则是各跟踪刚体的平均旋转角距离，单位为 rad。
 
-![图2：两个数据集的训练回报与位置误差曲线](reproduction/campaigns/20261114_8xa100/results_figures/training_curves.png)
+![图2：两个数据集的训练回报与位置误差曲线](docs/figures/20261114_8xa100/training_curves.png)
 
-**图 2｜相同采样预算下的训练过程。** 上排为 LAFAN1，下排为未筛选 BONES；左列为训练回报，右列为身体位置误差。蓝色表示 GenCoord，橙色表示 MaxCoord；实线为 x1，虚线为 x2。横轴为累计采集的真实状态转移数，每条曲线使用 100 个等宽采样区间的均值。[矢量 PDF](reproduction/campaigns/20261114_8xa100/results_figures/training_curves.pdf)
+**图 2｜相同采样预算下的训练过程。** 上排为 LAFAN1，下排为未筛选 BONES；左列为训练回报，右列为身体位置误差。蓝色表示 GenCoord，橙色表示 MaxCoord；实线为 x1，虚线为 x2。横轴为累计采集的真实状态转移数，每条曲线使用 100 个等宽采样区间的均值。[矢量 PDF](docs/figures/20261114_8xa100/training_curves.pdf)
 
 **分析。** LAFAN1 四组实验均呈现回报上升、位置误差下降并逐渐平缓的趋势，说明两种表示和两种规模均能学得有效的动作跟踪策略。末段曲线较为接近，扩大规模没有造成明显的训练指标损失。BONES 的位置误差整体更高，不同配置的回报也有更明显分化，表明相同采样预算在大型动作库上形成了不同的优化结果。
 
@@ -88,9 +88,9 @@ GPU 0 与 1、2 与 3 分别构成两个数据集上的标准规模表示对照�
 
 表 4 显示，LAFAN1 各配置的位置误差均接近 3 cm，回报约为 44；BONES 的位置误差在 13–14 cm，回报约为 19–22。两个数据集的动作分布不同，因此上述差距应解释为当前训练配置下的任务表现差异，不能仅归因于数据量。
 
-![图3：训练末段身体位置和姿态误差](reproduction/campaigns/20261114_8xa100/results_figures/tracking_accuracy.png)
+![图3：训练末段身体位置和姿态误差](docs/figures/20261114_8xa100/tracking_accuracy.png)
 
-**图 3｜位置与姿态精度的配置对照。** 实心柱为 x1，斜线柱为 x2，数值越小越好。上下两排分别对应 LAFAN1 和 BONES，纵轴范围随数据集调整，比较时应以标注数值为准。[矢量 PDF](reproduction/campaigns/20261114_8xa100/results_figures/tracking_accuracy.pdf)
+**图 3｜位置与姿态精度的配置对照。** 实心柱为 x1，斜线柱为 x2，数值越小越好。上下两排分别对应 LAFAN1 和 BONES，纵轴范围随数据集调整，比较时应以标注数值为准。[矢量 PDF](docs/figures/20261114_8xa100/tracking_accuracy.pdf)
 
 **分析。** LAFAN1 上，MaxCoord x2 的位置误差最低，为 3.019 cm，但四组之间的最大差距仅约 0.115 cm；姿态误差则由 GenCoord x1 的 0.0920 rad 降至其余配置约 0.081 rad。就这些训练指标而言，放大规模可以维持较接近的跟踪质量。
 
@@ -100,9 +100,9 @@ BONES 上的排序更依赖评价指标。GenCoord x2 的位置误差最低，�
 
 ### 4.1 扩大单卡规模能带来多少收益
 
-![图4：训练耗时与GPU利用率](reproduction/campaigns/20261114_8xa100/results_figures/training_efficiency.png)
+![图4：训练耗时与GPU利用率](docs/figures/20261114_8xa100/training_efficiency.png)
 
-**图 4｜固定采样预算下的训练效率。** 左图为单模型完成全部预算的实际时间；右图为稳定训练阶段的平均 GPU-Util，虚线标出 80% 目标。每组中实心柱为 x1，斜线柱为 x2。[矢量 PDF](reproduction/campaigns/20261114_8xa100/results_figures/training_efficiency.pdf)
+**图 4｜固定采样预算下的训练效率。** 左图为单模型完成全部预算的实际时间；右图为稳定训练阶段的平均 GPU-Util，虚线标出 80% 目标。每组中实心柱为 x1，斜线柱为 x2。[矢量 PDF](docs/figures/20261114_8xa100/training_efficiency.pdf)
 
 **分析。** 四组配对实验均获得一致的时间收益：x1 耗时 18.55–19.80 h，x2 缩短至 14.96–15.69 h，节省约 19%–21%。相同采样预算下，有效吞吐提高约 24%–26%。同时，稳定阶段的 GPU-Util 从约 92% 提高至约 95%，说明联合扩大环境数和 batch 能使这套实现更充分地使用 A100。
 
@@ -110,9 +110,9 @@ BONES 上的排序更依赖评价指标。GenCoord x2 的位置误差最低，�
 
 ### 4.2 显存增加在什么地方
 
-![图5：八组实验的显存占用](reproduction/campaigns/20261114_8xa100/results_figures/gpu_memory.png)
+![图5：八组实验的显存占用](docs/figures/20261114_8xa100/gpu_memory.png)
 
-**图 5｜各模型训练期间的显存采样峰值。** 柱顶给出 GiB 数值及 GPU 编号；实心柱为 x1，斜线柱为 x2。数据仅统计各自训练窗口。[矢量 PDF](reproduction/campaigns/20261114_8xa100/results_figures/gpu_memory.pdf)
+**图 5｜各模型训练期间的显存采样峰值。** 柱顶给出 GiB 数值及 GPU 编号；实心柱为 x1，斜线柱为 x2。数据仅统计各自训练窗口。[矢量 PDF](docs/figures/20261114_8xa100/gpu_memory.pdf)
 
 **分析。** x1 占用约 20.6–36.8 GiB，x2 增至 39.1–57.6 GiB。扩大环境数会增加仿真状态和 replay buffer，扩大 batch 会增加训练中间张量与 CUDA Graph 所需的缓存，因此更高吞吐伴随更大的显存需求。
 
@@ -150,9 +150,9 @@ BONES 上的排序更依赖评价指标。GenCoord x2 的位置误差最低，�
 
 ## 6. 补充发现：预测准确性与控制质量并不等价
 
-![图6：跨数据集的世界模型损失与跟踪误差变化](reproduction/campaigns/20261114_8xa100/results_figures/model_control_gap.png)
+![图6：跨数据集的世界模型损失与跟踪误差变化](docs/figures/20261114_8xa100/model_control_gap.png)
 
-**图 6｜切换至大型动作库后，模型损失与控制误差的变化。** 每根柱均在相同表示、相同训练规模下计算 BONES/LAFAN1 比值。左图为世界模型训练损失，右图为身体位置误差；比值 1 表示两数据集相同。该图比较每种表示内部的相对变化，不比较 GenCoord 与 MaxCoord 损失的绝对大小。[矢量 PDF](reproduction/campaigns/20261114_8xa100/results_figures/model_control_gap.pdf)
+**图 6｜切换至大型动作库后，模型损失与控制误差的变化。** 每根柱均在相同表示、相同训练规模下计算 BONES/LAFAN1 比值。左图为世界模型训练损失，右图为身体位置误差；比值 1 表示两数据集相同。该图比较每种表示内部的相对变化，不比较 GenCoord 与 MaxCoord 损失的绝对大小。[矢量 PDF](docs/figures/20261114_8xa100/model_control_gap.pdf)
 
 **分析。** GenCoord 在 BONES 上的世界模型损失比 LAFAN1 低约 8%–10%，但身体位置误差约为其 4.34–4.36 倍；MaxCoord 的模型损失增加约 14%–35%，而位置误差增加至 4.50–4.64 倍。因此，短时动力学预测损失较低，并不充分保证长时间动作模仿精度较高。
 
@@ -168,10 +168,10 @@ BONES 上的排序更依赖评价指标。GenCoord x2 的位置误差最低，�
 
 所有最终世界模型、策略网络和价值网络均已保存，并完成权重加载及数值有限性检查。实验产物位于 `reproduction/campaigns/20261114_8xa100/`：任务目录名见[任务配置](reproduction/campaigns/20261114_8xa100/training_jobs.json)，最终权重可通过各任务的 `latest/` 访问；原始训练日志、TensorBoard 数据及恢复文件保留在本机。TensorBoard 地址为 `http://127.0.0.1:6006`。
 
-数据与图表来源：[训练汇总](reproduction/campaigns/20261114_8xa100/training_results.json)、[派生比较](reproduction/campaigns/20261114_8xa100/comparison_analysis.json)、[图表数据](reproduction/campaigns/20261114_8xa100/results_figures/figure_data.json)、[权重核验清单](reproduction/campaigns/20261114_8xa100/checkpoint_manifest.json)。数据核验时间：{{AUDIT_TIME}}。仅从已核验统计和训练日志重新绘图、生成本报告，可运行：
+数据与图表来源：[训练汇总](reproduction/campaigns/20261114_8xa100/training_results.json)、[派生比较](reproduction/campaigns/20261114_8xa100/comparison_analysis.json)、[图表数据](docs/figures/20261114_8xa100/figure_data.json)、[权重核验清单](reproduction/campaigns/20261114_8xa100/checkpoint_manifest.json)。数据核验时间：{{AUDIT_TIME}}。仅从已核验统计和训练日志重新绘图、生成本报告，可运行：
 
 ```bash
-bash reproduction/run_env.sh python reproduction/scripts/write_training_result.py --refresh-report
+bash reproduction/run_env.sh python scripts/reporting/write_training_result.py --refresh-report
 ```
 
 对照文献：Qiayuan Liao 等，*SuperMimic: Scaling Humanoid Whole-Body Control with One Differentiable World Model*，arXiv:2610.28480v2。[论文 PDF](https://arxiv.org/pdf/2610.28480v2)；[版本与页码记录](reproduction/campaigns/20261114_8xa100/paper_comparison_sources.json)。

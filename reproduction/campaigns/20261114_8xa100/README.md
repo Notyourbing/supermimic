@@ -1,65 +1,49 @@
-# 官方 SuperMimic：8×A100 本机复现（2026-11-14）
+# 20261114：八卡正式训练批次
 
-**当前状态：八个正式任务均已按预算完成，最后一个于 2026-11-14 22:42:45 UTC 结束。** 2026-11-16 核查：实际总工时 137.38 GPU 小时，并行墙钟 19.80 小时。结果、全程利用率、训练曲线和最终权重位置见 [RESULT.md](../../../RESULT.md)。以下保留启动时的配置与估时，固定协议全库测评仍待完成。
+**状态：八组训练均已完成。** 单批并行墙钟 19.80 h，总计 137.38 GPU 小时。完整结果与图表见 [RESULT.md](../../../RESULT.md)，下一阶段见 [动作测评计划](../../../PLAN_12_16_0.md)。
 
-首轮曾与其他用户作业竞争，原始 `exclusive_20261114_*` 名称只是当时的计划命名，不是独占证据。正确的独占证据是 `allocated_20261114_queue_1794624587_1_*`，八组均退出 0、模型更新和两套 CUDA Graph 验证通过。资源审计见 `exclusive_resource_audit.json`，完整通过清单见 `validated_probe_results.json`。没有终止其他用户任务。
+## 模型与路径
 
-`queue_campaign.py` 可用于八卡资源门控与短测。它在连续空闲后运行，全部短测及恢复验证通过才会进入正式训练。当前正式任务已经启动，不要重复运行队列或启动脚本。
+| GPU | 模型目录 | 数据 | 表示 | 规模 | 最终快照 |
+|---:|---|---|---|---|---|
+| 0 | `lafan1_gencoord_x1` | LAFAN1 | GenCoord | x1 | `00320000` |
+| 1 | `lafan1_maxcoord_x1` | LAFAN1 | MaxCoord | x1 | `00320000` |
+| 2 | `boneseed_gencoord_x1` | BONES 原始 | GenCoord | x1 | `00320000` |
+| 3 | `boneseed_maxcoord_x1` | BONES 原始 | MaxCoord | x1 | `00320000` |
+| 4 | `lafan1_gencoord_x2` | LAFAN1 | GenCoord | x2 | `00160000` |
+| 5 | `lafan1_maxcoord_x2` | LAFAN1 | MaxCoord | x2 | `00160000` |
+| 6 | `boneseed_gencoord_x2` | BONES 原始 | GenCoord | x2 | `00160000` |
+| 7 | `boneseed_maxcoord_x2` | BONES 原始 | MaxCoord | x2 | `00160000` |
 
-本批运行针对当前官方开源实现，固定训练种子 42、proprio 观测和 10 帧历史。正式封装来自提交 `ffd271d`，准备基线是 `b1da9b1`（上游算法来源 `abc124c`），mjlab 固定 `dd51a9f`。原生 learner、优化器、物理参数、窗口和 reward 保持当前实现。训练封装新增本地观测与恢复功能，没有把独立任务称为多卡同步训练。
+每个模型是独立单卡训练。x1 为 4,096 环境、WM batch 2,048、policy batch 4,096；x2 同时翻倍。两种规模均采集 1,310,720,000 条状态转移。
 
-## 正式实验分配
+最终权重在 `<模型目录>/latest/`，实际目标为 `checkpoints/<最终快照>/`，包含 `world_model.pt`、`actor.pt`、`critic.pt`。`resume.pt` 为完整训练恢复文件。大文件只保留本机，Git 中主要保存配置和统计。
 
-| GPU | 数据 | 表示 | 环境数 | WM batch | Policy batch | 采样循环预算 |
-|---|---|---|---:|---:|---:|---:|
-| 0 | LAFAN1 | GenCoord | 4096 | 2048 | 4096 | 320000 |
-| 1 | LAFAN1 | MaxCoord | 4096 | 2048 | 4096 | 320000 |
-| 2 | BONES unfiltered | GenCoord | 4096 | 2048 | 4096 | 320000 |
-| 3 | BONES unfiltered | MaxCoord | 4096 | 2048 | 4096 | 320000 |
-| 4 | LAFAN1 | GenCoord | 8192 | 4096 | 8192 | 160000 |
-| 5 | LAFAN1 | MaxCoord | 8192 | 4096 | 8192 | 160000 |
-| 6 | BONES unfiltered | GenCoord | 8192 | 4096 | 8192 | 160000 |
-| 7 | BONES unfiltered | MaxCoord | 8192 | 4096 | 8192 | 160000 |
+## 文件索引
 
-这是四组默认基线与四组采样规模对照，每组独占一张卡。每个正式任务预算均为 1,310,720,000 条真实环境 transition。WM minibatch 数 10、horizon 8、policy horizon 32、replay ratio 16，两个规模的 learner 更新频率均为每采样循环 0.4 次。放大组的总优化器更新次数约减半、每次样本数翻倍，因此它是训练规模消融，效果等价性必须靠最终评测判定。短测只筛选吞吐、显存、数值与 CUDA Graph 正常性，不能证明收敛质量。
+| 文件 | 用途 |
+|---|---|
+| [training_jobs.json](training_jobs.json) | 原始命令、GPU 分工与数据路径，保留历史记录 |
+| [training_results.json](training_results.json) | 已核验训练统计、末段指标与资源占用 |
+| [checkpoint_manifest.json](checkpoint_manifest.json) | 最终权重清单、SHA256 及恢复文件核验范围 |
+| [comparison_analysis.json](comparison_analysis.json) | 规模与表示对照的派生统计 |
+| [validated_probe_results.json](validated_probe_results.json) | 已确认独占的八组短测通过记录 |
+| [benchmark.json](benchmark.json)、[BENCHMARK.md](BENCHMARK.md) | 正式启动前的性能预测，区别于最终实际耗时 |
+| [paper_comparison_sources.json](paper_comparison_sources.json) | 论文版本、页码与证据来源 |
+| [报告图表](../../../docs/figures/20261114_8xa100/) | PNG、矢量 PDF 和绘图数据索引 |
 
-以上任务已启动。恢复验证已经通过：保存后从 40 循环恢复到 80，更新数 13→29、两模型继续更新、两套图重捕获成功、TensorBoard 记录到 80。完整恢复文件约 4.1 GB（默认 LAFAN 配置）。
+原始日志与 TensorBoard 事件位于每个模型目录；`hardware.jsonl` 保存硬件采样。统计资源使用时按模型自身运行窗口截取，不能把结束后的其他作业算入本项目。
 
-GPU 使用率是 NVML 的时间占用比例，不等于 Tensor Core 算力利用率。用 transition/s、更新数、显存和最终效果共同判断效率。预热、编译和 checkpoint IO 单列，不计入稳定吞吐估算。
-
-## 数据与协议
-
-实际数据位于 `/home/zhuobing/projects/supermimic/official_reproduction/data`。LAFAN1 共 40 条、441140 帧、2.45 小时；BONES 当前完整公开授权归档共 142220 条、51915358 帧、287.63 小时，已校验转换后的 packed 数据以及归档 SHA256。BONES 的 `packed_unfiltered` **不等于**论文筛选后的 129514 条动作，当前不能声称复现论文数据协议。当前源码的 Muon/fused Adam、恒定学习率也与论文 Adam/余弦配置存在差异。本批首先复现官方发布实现，320000 是显式采样循环预算，不宣称与论文迭代数完全等价。
-
-## 查看运行
+## 查看与恢复
 
 ```bash
-cd /home/zhuobing/projects/supermimic/official_ws/supermimic
+# 在仓库根目录执行
+python3 scripts/monitoring/campaign_dashboard.py reproduction/campaigns/20261114_8xa100
 tmux attach -t supermimic
 ```
 
-默认 `progress` 窗口显示每卡任务、准确的采样循环数、learner 更新数、进度、移动吞吐与 ETA；`gpu` 看显卡；`train0` 至 `train7` 为正式训练日志；`tensorboard` 为服务窗口。`Ctrl-b w` 选择窗口，`Ctrl-b d` 脱离并保留任务。
+TensorBoard 地址为 `http://127.0.0.1:6006`。原服务与 tmux 仍使用本批次路径，目录整理没有移动模型、日志或恢复文件。
 
-TensorBoard 本机地址 `http://127.0.0.1:6006`，需要远程查看时在自己电脑建立 SSH 转发：
+继续训练时使用 `training_jobs.json` 中对应模型的原始命令，明确追加 `--resume <模型目录>/resume.pt`。数据路径与配置需要匹配；恢复会重置物理 episode，并非逐比特仿真恢复。当前批次已完成，不要重复运行八卡启动队列。
 
-```bash
-ssh -L 6006:127.0.0.1:6006 USER@SERVER
-```
-
-然后浏览器打开相同地址。事件包括原生 loss/reward/episode 指标及 GPU 使用率、显存和功耗。硬件采样每 2 秒保存，训练标量每 50 个采样循环保存。
-
-## 持久化与恢复
-
-每个任务独立目录保存 `config.json`（所有超参数、数据路径、提交号）、`train.log`、`metrics.jsonl`、`status.json`、`tensorboard/`。每 5000 循环保存带步数的 WM/actor/critic，`latest` 指向最近完整权重。每 10000 循环原子替换 `resume.pt`，包含模型、normalizer、全部优化器、当前 replay buffer、采样估计、计数和 RNG。整个训练数据集保留，replay 保存当前环形窗口；不会保存每一条历史 transition 的无限轨迹。
-
-恢复时使用 `training_jobs.json` 中原命令，追加 `--resume <任务目录>/resume.pt`。配置和数据路径必须匹配，可调大 `--iterations`。恢复会重置物理环境 episode，并在 replay 边界添加 truncated，避免跨重启拼接轨迹；这属于统计连续训练，不是物理状态逐 bit 恢复。SIGTERM/SIGINT 请求会在当前更新完成后保存恢复文件并退出；SIGKILL/机器宕机只能使用上次完成的恢复文件。不要通过重新运行八卡启动脚本重复创建任务。
-
-所有大权重、replay、TensorBoard 事件、日志都保留本机，不推入 Git。源代码和小型实验清单可以迁移；权重和数据需要另外复制。
-
-## 时间估计与结果
-
-`benchmark.json` 与 `BENCHMARK.md` 保存本次独占卡短测统计。初步工时按排除前 5 次 learner 更新与末尾清理的稳定循环时间计算，增加 20% 余量；正式阶段 `status.json` 持续滚动更新 ETA。预计 GPU 小时为每个任务卡上时长之和，并行墙钟时间取最长任务，二者不能混用。编译新 shape 可能额外需要数分钟。
-
-默认规模单组约 18.7–19.6 小时，放大规模单组约 14.8–15.4 小时。总工时约 136.5 GPU 小时；加 20% 余量约 163.8 GPU 小时，并行墙钟预算约 23.5 小时。放大规模 throughput 提升约 26%–27%，optimizer 更新数减半，不预先声称效果一致。GPU-Util 不等于 Tensor Core 算力利用率。
-
-本次有效独占短测证据在 `reproduction/results/allocated_20261114_queue_1794624587_1_*`；首轮竞争证据另保留。旧准备报告中的 50 多小时预测是在其他用户任务共用 GPU 下测得，不适用于这次独占运行。最终效果尚未测得；所有跑完后的模型仍需固定评测协议与 reference 对照视频验证。
+本目录原有的四个 Python 文件是兼容链接，代码规范位置为 [scripts/training/](../../../scripts/README.md)。这些调度脚本专用于该历史批次。原启动过程、资源竞争记录与时间预测保存在 [历史批次说明](../../../docs/archive/TRAINING_CAMPAIGN_20261114.md)。
