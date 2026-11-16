@@ -1,6 +1,6 @@
 # 官方 SuperMimic：复现与服务器迁移指南
 
-当前报告与后续实验固定采用 GenCoord x2，分别研究 LAFAN1 与 BONES。结果见 [RESULT.md](../../RESULT.md)，下一阶段是 [完整动作测评](../../PLAN_12_16_0.md)。本指南说明环境与数据如何恢复，历史准备证据见 [准备报告](../archive/PREPARATION_REPORT.md)。
+当前报告与后续实验固定采用 GenCoord x2。结果见 [RESULT.md](../../RESULT.md)，下一阶段按优先级完成 [BONES 筛选、单卡重训与完整动作测评](../../PLAN_12_16_0.md)。筛选后训练从头初始化；旧 BONES 与 LAFAN1 模型用于推理测评。本指南说明环境与数据如何恢复，历史准备证据见 [准备报告](../archive/PREPARATION_REPORT.md)。
 
 ## 1. 安装固定环境
 

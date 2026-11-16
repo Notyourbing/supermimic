@@ -6,12 +6,12 @@ SuperMimic trains a humanoid whole-body motion tracker with one differentiable w
 
 ## 本 fork 的复现入口
 
-当前实验路线固定为 **GenCoord x2**，保留 LAFAN1 与 BONES 两个已训练模型作为后续测评对象。下一阶段为论文定义的完整动作测评；历史训练记录仍保留在批次目录中。
+当前实验路线固定为 **GenCoord x2**。下一阶段先筛选 BONES 并在单卡上从头重训，再将新旧模型放到同一筛选集上比较；已有 LAFAN1 模型用于补齐论文指标。任务按优先级执行，详见下方计划。
 
 | 要做的事 | 入口 |
 |---|---|
 | 阅读训练结果和图表 | [RESULT.md](RESULT.md) |
-| 查看下一阶段测评计划 | [PLAN_12_16_0.md](PLAN_12_16_0.md) |
+| 查看筛选、单卡重训与测评计划 | [PLAN_12_16_0.md](PLAN_12_16_0.md) |
 | 安装环境、准备数据或迁移服务器 | [复现指南](docs/guides/reproduction.md) |
 | 了解目录与产物位置 | [项目结构](docs/PROJECT_STRUCTURE.md) |
 | 查找可执行脚本 | [脚本索引](scripts/README.md) |

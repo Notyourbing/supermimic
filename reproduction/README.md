@@ -11,6 +11,6 @@
 | `campaigns/` | 正式训练批次、模型、恢复文件与日志 |
 | `evaluations/` | 完整动作测评输出 |
 
-当前选用的两个 GenCoord x2 模型已完成训练：[结果报告](../RESULT.md)、[历史训练批次](campaigns/20261114_8xa100/README.md)。下一步为 [完整动作测评](../PLAN_12_16_0.md)。
+已有两个 GenCoord x2 模型的训练结果见 [结果报告](../RESULT.md) 与 [历史训练批次](campaigns/20261114_8xa100/README.md)。下一步先筛选 BONES 并单卡从头重训，再复用旧模型完成对照与 LAFAN1 核验；任务顺序和预算见 [实验计划](../PLAN_12_16_0.md)。
 
 `scripts/`、`results/`、`reports/` 等旧路径为兼容入口，规范位置见项目结构说明。数据本体、大模型、日志和视频不会通过 Git 分发。

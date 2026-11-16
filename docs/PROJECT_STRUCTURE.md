@@ -6,7 +6,7 @@
 supermimic/
 ├── README.md                       # 项目与常用入口
 ├── RESULT.md                       # 当前训练结果报告
-├── PLAN_12_16_0.md                  # 下一阶段动作测评计划
+├── PLAN_12_16_0.md                  # BONES 筛选、单卡重训与测评计划
 ├── src/supermimic/                 # 官方算法、模型、环境和原生 CLI
 ├── tests/                          # 算法与组件测试
 ├── scripts/                        # 本 fork 的复现工具
