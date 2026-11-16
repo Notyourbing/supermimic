@@ -18,6 +18,7 @@ supermimic/
 │   ├── reporting/                  # 统计、绘图和 Markdown 报告生成
 │   └── evaluation/                 # 完整动作测评工具的预留位置
 ├── docs/
+│   ├── EXPERIMENT_CONFIG.md        # 固定超参数、工程设置与历史标识映射
 │   ├── guides/                     # 当前复现与迁移指南
 │   ├── archive/                    # 已完成阶段的历史文档
 │   ├── figures/20261114_8xa100/     # 当前报告图表：PNG / PDF / 数据索引
@@ -29,12 +30,15 @@ supermimic/
 │   ├── setup/                      # 依赖约束、版本和安装审计
 │   ├── data/                       # 数据准备默认目录；Git 中主要为清单
 │   ├── smoke_tests/                # 短测、性能探测及其历史证据
+│   ├── experiments/               # 按数据集命名的当前模型入口与统计
 │   ├── campaigns/                  # 正式训练，每个批次一个目录
 │   └── evaluations/                # 正式动作测评的结果目录
 └── pyproject.toml / uv.lock         # 上游包配置；本机恢复使用固定依赖流程
 ```
 
 ## 查找一组正式训练产物
+
+当前模型从 `reproduction/experiments/lafan1/` 和 `reproduction/experiments/bones_unfiltered/` 访问，筛选后训练使用 `reproduction/experiments/bones_filtered/`。固定参数不再编码进日常实验名称；历史映射集中在 [EXPERIMENT_CONFIG.md](EXPERIMENT_CONFIG.md)。
 
 `reproduction/campaigns/20261114_8xa100/` 的八个模型目录保持原路径。每个目录包含配置、训练日志、标量、TensorBoard 事件和模型快照：
 
@@ -80,4 +84,4 @@ supermimic/
 
 ## 后续文件放置规则
 
-新工具放入 `scripts/` 下对应用途目录；完整动作评测工具放入 `scripts/evaluation/`，输出放入 `reproduction/evaluations/<计划或批次>/<协议版本>/`。实验配置与小型统计可以进入 Git，权重、恢复文件、数据本体、逐帧轨迹、视频和运行日志留在本机。新的报告图表放入 `docs/figures/<批次>/`，不混入算法源码。
+新工具放入 `scripts/` 下对应用途目录；完整动作评测工具放入 `scripts/evaluation/`，输出放入 `reproduction/evaluations/<计划或批次>/<协议版本>/`。实验配置与小型统计可以进入 Git，权重、恢复文件、数据本体、逐帧轨迹、视频和运行日志留在本机。新训练采用数据集与实验目的命名，不在目录名中拼接固定超参数。新的报告图表放入 `docs/figures/<批次>/`，不混入算法源码。

@@ -1,6 +1,6 @@
 # 官方 SuperMimic：复现与服务器迁移指南
 
-当前报告与后续实验固定采用 GenCoord x2。结果见 [RESULT.md](../../RESULT.md)，下一阶段按优先级完成 [BONES 筛选、单卡重训与完整动作测评](../../PLAN_12_16_0.md)。筛选后训练从头初始化；旧 BONES 与 LAFAN1 模型用于推理测评。本指南说明环境与数据如何恢复，历史准备证据见 [准备报告](../archive/PREPARATION_REPORT.md)。
+当前模型与后续实验使用统一配置，详见[固定配置说明](../EXPERIMENT_CONFIG.md)。结果见 [RESULT.md](../../RESULT.md)，下一阶段按优先级完成 [BONES 筛选、单卡重训与完整动作测评](../../PLAN_12_16_0.md)。筛选后训练从头初始化；旧 BONES 与 LAFAN1 模型用于推理测评。本指南说明环境与数据如何恢复，历史准备证据见 [准备报告](../archive/PREPARATION_REPORT.md)。
 
 ## 1. 安装固定环境
 
@@ -41,10 +41,10 @@ LAFAN1 使用 G1 重定向的 40 条动作；BONES 使用原始 142,220 条动�
 ```bash
 CUDA_VISIBLE_DEVICES='' bash reproduction/run_env.sh pytest -q tests
 CUDA_VISIBLE_DEVICES=0 bash reproduction/run_env.sh python scripts/validation/preflight.py \
-  --name server2_gencoord_smoke --representation gencoord --iterations 48 \
+  --name server2_smoke --iterations 48 \
   --motion-file "$REPO/reproduction/data/lafan1/npz/run1_subject5.npz"
 CUDA_VISIBLE_DEVICES=0 bash reproduction/run_env.sh python scripts/validation/eval_smoke.py \
-  --run-dir "$REPO/reproduction/smoke_tests/server2_gencoord_smoke" --num-envs 64 --steps 200 --render
+  --run-dir "$REPO/reproduction/smoke_tests/server2_smoke" --num-envs 64 --steps 200 --render
 ```
 
 短测输出位于 `reproduction/smoke_tests/<名称>/`。为新服务器选择新的名称，避免覆盖历史结果。需要通信验证且八卡可用时，再运行：
@@ -58,7 +58,7 @@ CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 bash reproduction/run_env.sh \
 
 ## 4. 查看现有训练与恢复模型
 
-训练批次位于 [20261114_8xa100](../../reproduction/campaigns/20261114_8xa100/README.md)。当前选用 `lafan1_gencoord_x2` 和 `boneseed_gencoord_x2`，两模型已经按预算完成，合计 30.03 GPU 小时；这些是原服务器的实际成本，不能直接当作其他硬件的预算。
+训练批次位于 [20261114_8xa100](../../reproduction/campaigns/20261114_8xa100/README.md)。当前模型通过 [LAFAN1](../../reproduction/experiments/lafan1/)和[未筛选 BONES](../../reproduction/experiments/bones_unfiltered/)入口访问，两模型已经按预算完成，合计 30.03 GPU 小时；这些是原服务器的实际成本，不能直接当作其他硬件的预算。
 
 ```bash
 python3 scripts/monitoring/campaign_dashboard.py reproduction/campaigns/20261114_8xa100

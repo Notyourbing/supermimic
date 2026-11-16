@@ -1,6 +1,6 @@
 # 复现脚本索引
 
-以下命令从仓库根目录执行，统一使用 `bash reproduction/run_env.sh` 进入固定环境。`src/supermimic/scripts/` 是上游原生 CLI，本目录是复现辅助工具。
+以下命令从仓库根目录执行，统一使用 `bash reproduction/run_env.sh` 进入固定环境。`src/supermimic/scripts/` 是上游原生 CLI，本目录是复现辅助工具。固定超参数与工程设置见 [配置说明](../docs/EXPERIMENT_CONFIG.md)，当前模型通过 [实验入口](../reproduction/experiments/README.md)访问。
 
 | 目录 | 主要脚本 | 用途 |
 |---|---|---|

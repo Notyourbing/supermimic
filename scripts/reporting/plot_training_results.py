@@ -1,4 +1,4 @@
-"""Generate the current GenCoord x2 report figures from audited local evidence."""
+"""Generate dataset-level report figures from audited local evidence."""
 
 import json
 import re
@@ -13,16 +13,19 @@ import numpy as np
 
 REPO = Path(__file__).resolve().parents[2]
 CAMPAIGN = REPO / "reproduction/campaigns/20261114_8xa100"
-RUN_NAMES = ("lafan1_gencoord_x2", "boneseed_gencoord_x2")
+EXPERIMENTS = REPO / "reproduction/experiments"
+RUN_NAMES = ("lafan1", "bones_unfiltered")
 COLORS = ("#0072B2", "#D55E00")
 LABELS = ("LAFAN1", "BONES\n(unfiltered)")
 
 
 def selected_runs(report):
     """Select only the two named models, independently of historical audit scope."""
-    runs = {r["name"]: r for r in report["runs"]}
-    selected = [runs[name] for name in RUN_NAMES]
-    assert all(r["representation"] == "gencoord" and r["scale"] == 2 for r in selected)
+    runs = {(CAMPAIGN / r["name"]).resolve(): r for r in report["runs"]}
+    selected = []
+    for name in RUN_NAMES:
+        source = runs[(EXPERIMENTS / name).resolve(strict=True)]
+        selected.append({**source, "source_name": source["name"], "name": name})
     return selected
 
 
@@ -61,12 +64,15 @@ def make_figures(report, histories=None):
         histories = {
             r["name"]: [
                 json.loads(line)
-                for line in (CAMPAIGN / r["name"] / "metrics.jsonl")
+                for line in (EXPERIMENTS / r["name"] / "metrics.jsonl")
                 .read_text()
                 .splitlines()
             ]
             for r in runs
         }
+    else:
+        # Full historical audits index histories by their immutable original IDs.
+        histories = {r["name"]: histories[r["source_name"]] for r in runs}
     plt.rcParams.update(
         {
             "font.family": "DejaVu Serif",
@@ -207,12 +213,12 @@ def make_figures(report, histories=None):
     (directory / "figure_data.json").write_text(
         json.dumps(
             {
-                "scope": "GenCoord x2 only",
+                "scope": "LAFAN1 and unfiltered BONES",
                 "run_names": list(RUN_NAMES),
                 "sources": [
-                    "../../../reproduction/campaigns/20261114_8xa100/gencoord_x2_results.json",
+                    "../../../reproduction/experiments/training_results.json",
                     *[
-                        f"../../../reproduction/campaigns/20261114_8xa100/{name}/metrics.jsonl"
+                        f"../../../reproduction/experiments/{name}/metrics.jsonl"
                         for name in RUN_NAMES
                     ],
                     "../../../reproduction/data/lafan1/manifest_converted.json",

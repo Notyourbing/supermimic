@@ -48,3 +48,13 @@ evaluations/**/*.parquet
 evaluations/**/tensorboard/
 evaluations/**/trajectories/
 evaluations/**/*.tmp
+# Current experiment directories use dataset names; large artifacts stay local.
+experiments/**/checkpoints/
+experiments/**/resume.pt
+experiments/**/resume.tmp
+experiments/**/latest
+experiments/**/tensorboard/
+experiments/**/metrics.jsonl
+experiments/**/status.json
+experiments/**/hardware.jsonl
+experiments/**/.checkpoint.lock

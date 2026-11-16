@@ -9,7 +9,7 @@ from datetime import UTC, datetime
 from pathlib import Path
 
 import torch
-from plot_training_results import make_figures, selected_runs
+from plot_training_results import EXPERIMENTS, make_figures, selected_runs
 
 REPO = Path(__file__).resolve().parents[2]
 CAMPAIGN = REPO / "reproduction/campaigns/20261114_8xa100"
@@ -235,7 +235,7 @@ def write_selected_analysis(report):
     a, b = runs
     configurations = []
     for r in runs:
-        cfg = json.loads((CAMPAIGN / r["name"] / "config.json").read_text())
+        cfg = json.loads((EXPERIMENTS / r["name"] / "config.json").read_text())
         runner = cfg["runner_cfg"]
         configuration = {
             "representation": runner["representation"],
@@ -250,16 +250,10 @@ def write_selected_analysis(report):
         }
         configurations.append(configuration)
     assert configurations[0] == configurations[1]
-    assert configurations[0]["num_envs"] == 8192
-    assert configurations[0]["wm_batch_size"] == 4096
-    assert configurations[0]["policy_batch_size"] == 8192
     fields = (
         "name",
         "gpu",
         "dataset",
-        "representation",
-        "scale",
-        "num_envs",
         "iterations",
         "transitions",
         "updates",
@@ -272,11 +266,11 @@ def write_selected_analysis(report):
         "hardware",
     )
     result = {
-        "scope": "GenCoord x2; LAFAN1 and unfiltered BONES",
-        "source": "training_results.json and per-run config.json",
+        "scope": "LAFAN1 and unfiltered BONES",
+        "source": "../campaigns/20261114_8xa100/training_results.json",
         "audit_utc": report["generated_utc"],
         "formal_evaluation_available": False,
-        "configuration": configurations[0],
+        "configuration_reference": "../../docs/EXPERIMENT_CONFIG.md",
         "total_gpu_hours": sum(r["hours"] for r in runs),
         "wall_hours": (max(r["finish"] for r in runs) - min(r["start"] for r in runs))
         / 3600,
@@ -294,7 +288,7 @@ def write_selected_analysis(report):
             / a["tail_means"]["Metrics/motion/error_body_pos"],
         },
     }
-    (CAMPAIGN / "gencoord_x2_results.json").write_text(
+    (EXPERIMENTS / "training_results.json").write_text(
         json.dumps(result, indent=2) + "\n"
     )
 
@@ -303,7 +297,7 @@ def write_markdown(report):
     """Render the current two-model report from its shared selection rule."""
     runs = selected_runs(report)
     gpu_table = [
-        "| 原训练 GPU | 数据集 | 任务目录 | 耗时 / h |",
+        "| 原训练 GPU | 数据集 | 实验入口 | 耗时 / h |",
         "|---:|---|---|---:|",
     ]
     metrics_table = [
@@ -313,7 +307,8 @@ def write_markdown(report):
     for r in runs:
         dataset = "LAFAN1" if r["dataset"] == "LAFAN1" else "BONES（未筛选）"
         gpu_table.append(
-            f"| {r['gpu']} | {dataset} | `{r['name']}` | {r['hours']:.2f} |"
+            f"| {r['gpu']} | {dataset} | "
+            f"[{r['name']}](reproduction/experiments/{r['name']}/) | {r['hours']:.2f} |"
         )
         m = r["tail_means"]
         metrics_table.append(

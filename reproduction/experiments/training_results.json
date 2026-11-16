@@ -1,29 +1,16 @@
 {
-  "scope": "GenCoord x2; LAFAN1 and unfiltered BONES",
-  "source": "training_results.json and per-run config.json",
+  "scope": "LAFAN1 and unfiltered BONES",
+  "source": "../campaigns/20261114_8xa100/training_results.json",
   "audit_utc": "2026-11-16 02:19:21 UTC",
   "formal_evaluation_available": false,
-  "configuration": {
-    "representation": "gencoord",
-    "num_envs": 8192,
-    "wm_batch_size": 4096,
-    "wm_batches": 10,
-    "wm_window": 8,
-    "policy_batch_size": 8192,
-    "policy_horizon": 32,
-    "history_length": 10,
-    "learning_rate": 0.0002
-  },
+  "configuration_reference": "../../docs/EXPERIMENT_CONFIG.md",
   "total_gpu_hours": 30.030192205111184,
   "wall_hours": 15.07375947786702,
   "runs": [
     {
-      "name": "lafan1_gencoord_x2",
+      "name": "lafan1",
       "gpu": 4,
       "dataset": "LAFAN1",
-      "representation": "gencoord",
-      "scale": 2,
-      "num_envs": 8192,
       "iterations": 160000,
       "transitions": 1310720000,
       "updates": 63997,
@@ -84,12 +71,9 @@
       }
     },
     {
-      "name": "boneseed_gencoord_x2",
+      "name": "bones_unfiltered",
       "gpu": 6,
       "dataset": "BONES unfiltered",
-      "representation": "gencoord",
-      "scale": 2,
-      "num_envs": 8192,
       "iterations": 160000,
       "transitions": 1310720000,
       "updates": 63997,

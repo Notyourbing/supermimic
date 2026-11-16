@@ -6,16 +6,18 @@ SuperMimic trains a humanoid whole-body motion tracker with one differentiable w
 
 ## 本 fork 的复现入口
 
-当前实验路线固定为 **GenCoord x2**。下一阶段先筛选 BONES 并在单卡上从头重训，再将新旧模型放到同一筛选集上比较；已有 LAFAN1 模型用于补齐论文指标。任务按优先级执行，详见下方计划。
+本项目复现 SuperMimic 的 G1 动作模仿方法。下一阶段先筛选 BONES 并在单卡上从头重训，再将新旧模型放到同一筛选集上比较；已有 LAFAN1 模型用于补齐论文指标。任务按优先级执行，详见下方计划。
 
 | 要做的事 | 入口 |
 |---|---|
 | 阅读训练结果和图表 | [RESULT.md](RESULT.md) |
+| 查看固定超参数与实现设置 | [配置说明](docs/EXPERIMENT_CONFIG.md) |
+| 查找当前模型与训练统计 | [实验入口](reproduction/experiments/README.md) |
 | 查看筛选、单卡重训与测评计划 | [PLAN_12_16_0.md](PLAN_12_16_0.md) |
 | 安装环境、准备数据或迁移服务器 | [复现指南](docs/guides/reproduction.md) |
 | 了解目录与产物位置 | [项目结构](docs/PROJECT_STRUCTURE.md) |
 | 查找可执行脚本 | [脚本索引](scripts/README.md) |
-| 查看八卡训练配置、日志和权重 | [训练批次](reproduction/campaigns/20261114_8xa100/README.md) |
+| 查阅历史训练批次 | [训练批次](reproduction/campaigns/20261114_8xa100/README.md) |
 
 `src/` 是上游算法实现，`scripts/` 是按用途分类的复现工具，`docs/` 保存文档与图表，`reproduction/` 保存环境入口、数据清单和实验产物。本 fork 的环境请使用复现指南中的固定依赖安装流程；下方保留上游的使用说明。
 
@@ -38,10 +40,7 @@ cd supermimic
 
 ## Usage
 
-Available task IDs:
-
-- `SuperMimic-GenCoord-G1` — generalized coordinates representation
-- `SuperMimic-MaxCoord-G1` — maximal coordinates representation
+The task ID and fixed implementation settings used in this reproduction are documented in [EXPERIMENT_CONFIG.md](docs/EXPERIMENT_CONFIG.md).
 
 Train a world model and policy:
 

@@ -1,13 +1,13 @@
 {
-  "scope": "GenCoord x2 only",
+  "scope": "LAFAN1 and unfiltered BONES",
   "run_names": [
-    "lafan1_gencoord_x2",
-    "boneseed_gencoord_x2"
+    "lafan1",
+    "bones_unfiltered"
   ],
   "sources": [
-    "../../../reproduction/campaigns/20261114_8xa100/gencoord_x2_results.json",
-    "../../../reproduction/campaigns/20261114_8xa100/lafan1_gencoord_x2/metrics.jsonl",
-    "../../../reproduction/campaigns/20261114_8xa100/boneseed_gencoord_x2/metrics.jsonl",
+    "../../../reproduction/experiments/training_results.json",
+    "../../../reproduction/experiments/lafan1/metrics.jsonl",
+    "../../../reproduction/experiments/bones_unfiltered/metrics.jsonl",
     "../../../reproduction/data/lafan1/manifest_converted.json"
   ],
   "dataset_categories": {
