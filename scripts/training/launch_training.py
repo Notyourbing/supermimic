@@ -2,6 +2,7 @@
 
 import json
 import os
+import shlex
 import subprocess
 import sys
 from pathlib import Path
@@ -35,10 +36,8 @@ for gpu in range(8):
     if summary["status"] != "passed" or not all(summary["parameters_changed"].values()):
         raise SystemExit(f"Failed probe: {probe}")
     name = f"{data}_{rep}_x{scale}"
-    packed = (
-        "/home/zhuobing/projects/supermimic/official_reproduction/data/"
-        + data
-        + ("/packed" if data == "lafan1" else "/packed_unfiltered")
+    packed = f"reproduction/data/{data}/" + (
+        "packed" if data == "lafan1" else "packed_unfiltered"
     )
     iterations = 320000 // scale
     cmd = [
@@ -94,7 +93,12 @@ for gpu in range(8):
             "pid": proc.pid,
             "iterations": iterations,
             "num_envs": 4096 * scale,
-            "command": cmd,
+            "command": [
+                str(Path(arg).relative_to(root))
+                if Path(arg).is_absolute() and Path(arg).is_relative_to(root)
+                else arg
+                for arg in cmd
+            ],
             "motion_file": packed,
         }
     )
@@ -106,7 +110,7 @@ for gpu in range(8):
             "supermimic",
             "-n",
             f"train{gpu}",
-            f"tail -F {out / name / 'train.log'}",
+            shlex.join(["tail", "-F", str(out / name / "train.log")]),
         ],
         check=True,
     )

@@ -14,6 +14,10 @@ import urllib.request
 from pathlib import Path
 
 from huggingface_hub import get_hf_file_metadata, hf_hub_url
+from supermimic.utils.reproduction_paths import (
+    data_root,
+    portable_path,
+)
 
 ROOT = Path(__file__).resolve().parents[2] / "reproduction"
 CHUNK = 4 * 1024 * 1024
@@ -22,7 +26,7 @@ CHUNK = 4 * 1024 * 1024
 def main():
     source = json.loads((ROOT / "setup/bones_access.json").read_text())
     assert source["access_verified"]
-    out = ROOT / "data/boneseed/raw"
+    out = data_root() / "boneseed/raw"
     out.mkdir(parents=True, exist_ok=True)
     final = out / "g1.tar.gz"
     partial = out / "g1.tar.gz.partial"
@@ -145,7 +149,7 @@ def main():
     partial.replace(final)
     result = {
         "status": "verified",
-        "path": str(final),
+        "path": portable_path(final),
         "bytes": size,
         "sha256": actual,
         "revision": source["revision"],

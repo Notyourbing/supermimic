@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 set -euo pipefail
-prep_dir="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
+source "$(dirname -- "${BASH_SOURCE[0]}")/paths.sh"
 run=(bash "$prep_dir/run_env.sh")
 case "${1:-}" in
   lafan)
     "${run[@]}" python "$prep_dir/../scripts/data/download_lafan.py"
     CUDA_VISIBLE_DEVICES='' "${run[@]}" python "$prep_dir/../scripts/data/convert_lafan.py"
     CUDA_VISIBLE_DEVICES='' "${run[@]}" python -m mjlab.scripts.pack_motions \
-      --input "$prep_dir/data/lafan1/npz/*.npz" --output "$prep_dir/data/lafan1/packed" --workers 8
+      --input "$data_dir/lafan1/npz/*.npz" --output "$data_dir/lafan1/packed" --workers 8
     ;;
   bones)
     "${run[@]}" python "$prep_dir/../scripts/data/check_bones_access.py"

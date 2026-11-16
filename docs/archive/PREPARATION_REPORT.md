@@ -10,7 +10,7 @@
 
 | 项目 | 本机配置 |
 |---|---|
-| Conda 环境 | `/home/zhuobing/miniconda3/envs/supermimic-official` |
+| Conda 环境 | `$HOME/miniconda3/envs/supermimic-official` |
 | Python | 3.13.18 |
 | PyTorch / CUDA | 2.14.1+cu130 / 13.0 |
 | MuJoCo / MuJoCo Warp | 3.16.0 / 3.16.0 |
@@ -26,7 +26,7 @@ SuperMimic 自带旧锁文件与当前配套 mjlab 的依赖不一致，因此�
 无需重复安装，运行现有环境：
 
 ```bash
-bash /home/zhuobing/projects/supermimic/official_reproduction/run_env.sh python --version
+bash reproduction/run_env.sh python --version
 ```
 
 日志使用离线 W&B，本地检查点、ONNX 和评测脚本不需要 W&B 登录。上游云端 artifact 清理因没有 API key 会输出警告，本地保存与重新加载已独立验证。

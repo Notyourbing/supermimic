@@ -1,10 +1,7 @@
 #!/usr/bin/env bash
 # Install only; never launches training or downloads gated motion data.
 set -euo pipefail
-prep_dir="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
-repo_dir="$(dirname -- "$prep_dir")"
-prefix="${SUPERMIMIC_ENV_PREFIX:-${HOME}/miniconda3/envs/supermimic-official}"
-dependency="${SUPERMIMIC_MJLAB_DIR:-$(dirname -- "$repo_dir")/mjlab_research}"
+source "$(dirname -- "${BASH_SOURCE[0]}")/paths.sh"
 revision=dd51a9fcc98791a2f0b018b3c7f71a3eefd5ecdd
 offline=()
 conda_flags=()

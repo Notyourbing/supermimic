@@ -27,6 +27,12 @@ from supermimic.runners.run_config import load_runner_cfg  # noqa: E402
 from supermimic.runners.supermimic_runner import build_actor, build_world_model  # noqa: E402
 from supermimic.scripts.train_utils import create_env, setup_device  # noqa: E402
 from supermimic.tasks.task_spec import build_actor_obs_td  # noqa: E402
+from supermimic.utils.reproduction_paths import (  # noqa: E402
+    legacy_motion_reference,
+    portable_path,
+    repo_path,
+    resolve_motion_path,
+)
 
 
 def main():
@@ -38,6 +44,7 @@ def main():
     p.add_argument("--motion-file")
     p.add_argument("--output-name")
     args = p.parse_args()
+    args.run_dir = repo_path(args.run_dir)
     if not 40 <= args.steps <= 1000:
         p.error("Evaluation preparation checks must be 40–1000 steps.")
     torch.set_num_threads(4)
@@ -46,7 +53,14 @@ def main():
     config = json.loads((args.run_dir / "config.json").read_text())
     cfg = load_runner_cfg(config)
     env_cfg = load_env_cfg(config["task_id"], play=False)
-    motion_file = args.motion_file or config["args"]["motion_file"]
+    motion_file = str(
+        resolve_motion_path(
+            args.motion_file
+            if args.motion_file
+            else legacy_motion_reference(config["args"]["motion_file"])
+        )
+    )
+    env_cfg.sim.nan_guard.output_dir = str(repo_path("reproduction/runtime/nan_dumps"))
     env_cfg.commands["motion"].motion_file = motion_file
     env_cfg.commands["motion"].sampling_mode = "start"
     env = create_env(env_cfg, args.num_envs, device)
@@ -129,7 +143,7 @@ def main():
         "status": "passed",
         "preparation_only": True,
         "task": config["task_id"],
-        "motion_file": motion_file,
+        "motion_file": portable_path(motion_file),
         "cuda_visible_devices": os.environ.get("CUDA_VISIBLE_DEVICES"),
         "num_envs": args.num_envs,
         "steps": args.steps,

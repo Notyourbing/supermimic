@@ -95,8 +95,8 @@
     }
   },
   "args": {
-    "out": "/home/zhuobing/projects/supermimic/official_ws/supermimic/reproduction/campaigns/20261114_8xa100/boneseed_maxcoord_x1",
-    "motion_file": "/home/zhuobing/projects/supermimic/official_reproduction/data/boneseed/packed_unfiltered",
+    "out": "reproduction/campaigns/20261114_8xa100/boneseed_maxcoord_x1",
+    "motion_file": "reproduction/data/boneseed/packed_unfiltered",
     "representation": "maxcoord",
     "num_envs": 4096,
     "wm_batch": 2048,

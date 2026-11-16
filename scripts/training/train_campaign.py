@@ -30,12 +30,19 @@ from supermimic.runners.supermimic_runner import (
     SuperMimicRunnerCfg,
 )
 from supermimic.scripts.train_utils import create_env, setup_device
+from supermimic.utils.reproduction_paths import (
+    REPO_ROOT,
+    portable_tree,
+    repo_path,
+    resolve_motion_path,
+    same_motion_source,
+)
 from torch.utils.tensorboard import SummaryWriter
 
 
 def atomic_json(path, value):
     tmp = path.with_suffix(".tmp")
-    tmp.write_text(json.dumps(value, indent=2, default=str) + "\n")
+    tmp.write_text(json.dumps(portable_tree(value), indent=2, default=str) + "\n")
     tmp.replace(path)
 
 
@@ -133,8 +140,8 @@ class CampaignRunner(SuperMimicRunner):
         # Validate training-relevant shapes/settings; only budget/name/log cadence
         # may change on continuation.
         old_cfg, new_cfg = (
-            dict(old["runner_cfg"]),
-            dict(self.saved_config["runner_cfg"]),
+            portable_tree(old["runner_cfg"]),
+            portable_tree(self.saved_config["runner_cfg"]),
         )
         for key in ("max_iterations", "run_name", "log_interval", "save_interval"):
             old_cfg.pop(key, None)
@@ -144,7 +151,9 @@ class CampaignRunner(SuperMimicRunner):
             or old["args"]["num_envs"] != self.saved_config["args"]["num_envs"]
         ):
             raise ValueError("Resume configuration mismatch")
-        if old["args"]["motion_file"] != self.saved_config["args"]["motion_file"]:
+        if not same_motion_source(
+            old["args"]["motion_file"], self.saved_config["args"]["motion_file"]
+        ):
             raise ValueError("Resume dataset mismatch")
         self._wm.load_bundle(state["world_model"])
         self.policy_learner.actor.load_state_dict(state["actor"])
@@ -336,6 +345,10 @@ def main():
     p.add_argument("--log-interval", type=int, default=50)
     p.add_argument("--resume", type=Path)
     args = p.parse_args()
+    args.out = repo_path(args.out)
+    args.motion_file = str(resolve_motion_path(args.motion_file))
+    if args.resume is not None:
+        args.resume = repo_path(args.resume)
     if args.resume_interval % args.save_interval:
         p.error("resume-interval must be a multiple of save-interval")
     args.out.mkdir(parents=True, exist_ok=True)
@@ -362,12 +375,13 @@ def main():
         "runner_cfg": dataclasses.asdict(cfg),
         "args": vars(args),
         "git_commit": subprocess.check_output(
-            ["git", "rev-parse", "HEAD"], text=True
+            ["git", "rev-parse", "HEAD"], text=True, cwd=REPO_ROOT
         ).strip(),
         "torch": torch.__version__,
         "start_time": time.time(),
         "protocol": "current official source; BONES unfiltered where applicable; no paper-equivalence claim",
     }
+    config = portable_tree(config)
     atomic_json(
         args.out / ("config_resume.json" if args.resume else "config.json"), config
     )
@@ -385,6 +399,7 @@ def main():
     )
     env_cfg = load_env_cfg(task_id, play=False)
     env_cfg.seed = 42
+    env_cfg.sim.nan_guard.output_dir = str(repo_path("reproduction/runtime/nan_dumps"))
     env_cfg.commands["motion"].motion_file = args.motion_file
     env_cfg.commands["motion"].sampling_mode = "external"
     env_cfg.scene.num_envs = args.num_envs

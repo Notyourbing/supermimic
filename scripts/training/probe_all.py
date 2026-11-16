@@ -15,10 +15,8 @@ for gpu in range(8):
     rep = "gencoord" if gpu % 2 == 0 else "maxcoord"
     scale = 1 if gpu < 4 else 2
     name = f"allocated_20261114_{args.tag}_{data}_{rep}_x{scale}"
-    packed = (
-        "/home/zhuobing/projects/supermimic/official_reproduction/data/"
-        + data
-        + ("/packed" if data == "lafan1" else "/packed_unfiltered")
+    packed = f"reproduction/data/{data}/" + (
+        "packed" if data == "lafan1" else "packed_unfiltered"
     )
     cmd = [
         "taskset",

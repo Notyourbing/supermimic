@@ -1,0 +1,252 @@
+{
+  "scope": "Repository-tracked configurations and manifests; path values only",
+  "path_base": "repository root",
+  "data_prefix": "reproduction/data",
+  "external_data_variable": "SUPERMIMIC_DATA_DIR",
+  "converted_file_count": 46,
+  "converted_path_fields": 140,
+  "converted_files": [
+    {
+      "file": "reproduction/campaigns/20261114_8xa100/boneseed_gencoord_x1/config.json",
+      "path_fields": 2,
+      "previous_sha256": "ba5ed585e7be07994af8368874b18ff885c09798bf903f14ff438bb1b096d34d"
+    },
+    {
+      "file": "reproduction/campaigns/20261114_8xa100/boneseed_gencoord_x1/env_config.json",
+      "path_fields": 2,
+      "previous_sha256": "06a2e6825a1923362da743a216bf0e2fe78e14ccba423ae28d08cf4329744fcb"
+    },
+    {
+      "file": "reproduction/campaigns/20261114_8xa100/boneseed_gencoord_x2/config.json",
+      "path_fields": 2,
+      "previous_sha256": "3c039c9492da3e7f0db8d6d0fb9640732e7dceb927359601c8e5655371948198"
+    },
+    {
+      "file": "reproduction/campaigns/20261114_8xa100/boneseed_gencoord_x2/env_config.json",
+      "path_fields": 2,
+      "previous_sha256": "d20bc19ceb69ef95746d5e0c21949d4102bad2f934aad2f79cd98ed448252023"
+    },
+    {
+      "file": "reproduction/campaigns/20261114_8xa100/boneseed_maxcoord_x1/config.json",
+      "path_fields": 2,
+      "previous_sha256": "98b167fdb537951de1152932a4bed0a2712920e0965acec0609bda9ad5bb9854"
+    },
+    {
+      "file": "reproduction/campaigns/20261114_8xa100/boneseed_maxcoord_x1/env_config.json",
+      "path_fields": 2,
+      "previous_sha256": "ffff00977f6d8a538d9758156d56a76443eeeacc5a46779d72de1bf60ccf6377"
+    },
+    {
+      "file": "reproduction/campaigns/20261114_8xa100/boneseed_maxcoord_x2/config.json",
+      "path_fields": 2,
+      "previous_sha256": "2fe7aaa21a0347ac543acb96a0444de8f645c14978d452c76108a0fe0bdb2bf1"
+    },
+    {
+      "file": "reproduction/campaigns/20261114_8xa100/boneseed_maxcoord_x2/env_config.json",
+      "path_fields": 2,
+      "previous_sha256": "34d112be61db2a19c8937663dea716d6d691cedad650d77299ec7acbc113c8ee"
+    },
+    {
+      "file": "reproduction/campaigns/20261114_8xa100/lafan1_gencoord_x1/config.json",
+      "path_fields": 2,
+      "previous_sha256": "9d480261ea263e3e9abc4e4ba0a5b1b186ac7fc44b39a2cce59a9c3240d41804"
+    },
+    {
+      "file": "reproduction/campaigns/20261114_8xa100/lafan1_gencoord_x1/env_config.json",
+      "path_fields": 2,
+      "previous_sha256": "a3c334b31612864b58b0a4d89f7fd67553f126536e01c0bd83fd2838b35fa2fb"
+    },
+    {
+      "file": "reproduction/campaigns/20261114_8xa100/lafan1_gencoord_x2/config.json",
+      "path_fields": 2,
+      "previous_sha256": "5778721ab317427e6282b0761dcaccb4243d94debccfdfbf3c0288444d14f353"
+    },
+    {
+      "file": "reproduction/campaigns/20261114_8xa100/lafan1_gencoord_x2/env_config.json",
+      "path_fields": 2,
+      "previous_sha256": "17e4b5cb707d31831f8ed1f2853775d0e3f9c1aedf270be959e8efe87febf7c1"
+    },
+    {
+      "file": "reproduction/campaigns/20261114_8xa100/lafan1_maxcoord_x1/config.json",
+      "path_fields": 2,
+      "previous_sha256": "9581981a54f2dff41ed1da11ae022ef4ca989696d85fe582cc85c951f4bfca46"
+    },
+    {
+      "file": "reproduction/campaigns/20261114_8xa100/lafan1_maxcoord_x1/env_config.json",
+      "path_fields": 2,
+      "previous_sha256": "96bb5c3e36e6043de087d2d3c41efb098799ffe02bddbaf9663b406baa352544"
+    },
+    {
+      "file": "reproduction/campaigns/20261114_8xa100/lafan1_maxcoord_x2/config.json",
+      "path_fields": 2,
+      "previous_sha256": "0130dad01b4b681e1c66b6209ab4ec8a3faff178ef713eaeaeed2295d3234d6d"
+    },
+    {
+      "file": "reproduction/campaigns/20261114_8xa100/lafan1_maxcoord_x2/env_config.json",
+      "path_fields": 2,
+      "previous_sha256": "a9467e773132adeb31e7fb15e167eb0013ada45a9e8181e17e1dc969f44a63b6"
+    },
+    {
+      "file": "reproduction/campaigns/20261114_8xa100/training_jobs.json",
+      "path_fields": 40,
+      "previous_sha256": "908dd39f2678a905ff3799b76dd8c048299ea56dc00623270fc6bc9da43df637"
+    },
+    {
+      "file": "reproduction/data/boneseed/conversion_summary.json",
+      "path_fields": 1,
+      "previous_sha256": "caa6d64c8da36f39d23372d2a0063ca2182daa55faf75a78ee3c0500b3b01064"
+    },
+    {
+      "file": "reproduction/data/boneseed/raw/verified.json",
+      "path_fields": 1,
+      "previous_sha256": "93309a4b3250a59082491447bd9b3640efebdf5b47a91b5e96fe6147a8cc860d"
+    },
+    {
+      "file": "reproduction/data/lafan1/manifest_raw.json",
+      "path_fields": 40,
+      "previous_sha256": "925f59a195211f26c98e1b5cb1d0420b81aabe6dd39612921c9d94e71a1914a6"
+    },
+    {
+      "file": "reproduction/smoke_tests/allocated_20261114_queue_1794624587_1_boneseed_gencoord_x1/config.json",
+      "path_fields": 1,
+      "previous_sha256": "696e1afee99c494ef9db9fc8d4b47ff6ec40532c59db96f5da97b27c8a818d2a"
+    },
+    {
+      "file": "reproduction/smoke_tests/allocated_20261114_queue_1794624587_1_boneseed_gencoord_x2/config.json",
+      "path_fields": 1,
+      "previous_sha256": "7702cae0aa6600a80a183f44749904a1ccb0fbeb08af0a02c9affc496477a1e6"
+    },
+    {
+      "file": "reproduction/smoke_tests/allocated_20261114_queue_1794624587_1_boneseed_maxcoord_x1/config.json",
+      "path_fields": 1,
+      "previous_sha256": "d83188cf3d87796956eaa892759f340c2720b656cb67b3fc220b1f44d67b46ff"
+    },
+    {
+      "file": "reproduction/smoke_tests/allocated_20261114_queue_1794624587_1_boneseed_maxcoord_x2/config.json",
+      "path_fields": 1,
+      "previous_sha256": "edb4d13a23d871772ed1121df4a2bcd868800734d6fb65522fa19d8488337174"
+    },
+    {
+      "file": "reproduction/smoke_tests/allocated_20261114_queue_1794624587_1_lafan1_gencoord_x1/config.json",
+      "path_fields": 1,
+      "previous_sha256": "bfadb7ee033f4bb614a7837cee4c5d795f6c119b396ca86a6e8d0b55c671fcb0"
+    },
+    {
+      "file": "reproduction/smoke_tests/allocated_20261114_queue_1794624587_1_lafan1_gencoord_x2/config.json",
+      "path_fields": 1,
+      "previous_sha256": "9d95ad9bbb20475035fe10cdb9d83ca30eaac360952f9ce76ace9fbf7fad3254"
+    },
+    {
+      "file": "reproduction/smoke_tests/allocated_20261114_queue_1794624587_1_lafan1_maxcoord_x1/config.json",
+      "path_fields": 1,
+      "previous_sha256": "e52251ce66a7af40da223e8bbb5857e9b9bb39745d7964e14f15eef2db12e61c"
+    },
+    {
+      "file": "reproduction/smoke_tests/allocated_20261114_queue_1794624587_1_lafan1_maxcoord_x2/config.json",
+      "path_fields": 1,
+      "previous_sha256": "0e9cf7653bfdbc41c7dbb06280769612ba425f69303c3f926f3dc228fc338171"
+    },
+    {
+      "file": "reproduction/smoke_tests/benchmark_bones_gencoord/config.json",
+      "path_fields": 1,
+      "previous_sha256": "d9688ffea0f99c631790ec902dd09ae94a606c0130b87504390a40badc056e72"
+    },
+    {
+      "file": "reproduction/smoke_tests/benchmark_cached_gencoord/config.json",
+      "path_fields": 1,
+      "previous_sha256": "d32591aa22a1015fcf9f2dcf44612956ca2177244fb874df3f6564a38734c3ba"
+    },
+    {
+      "file": "reproduction/smoke_tests/benchmark_default_gencoord/config.json",
+      "path_fields": 1,
+      "previous_sha256": "ee3072a4b4d3279285eeab875853e5f2c67c7e920be592323e1ab4e1d23f662c"
+    },
+    {
+      "file": "reproduction/smoke_tests/benchmark_default_maxcoord/config.json",
+      "path_fields": 1,
+      "previous_sha256": "2459e0c806ad8dd15d2bb40cb90d444783c2a1e38880cda1330af01275b1f8fa"
+    },
+    {
+      "file": "reproduction/smoke_tests/benchmark_largebatch_gencoord/config.json",
+      "path_fields": 1,
+      "previous_sha256": "51435d24a3cd2e9eb28824393e6c87810ab259044f25f9e6f53cdc111f6eb9f2"
+    },
+    {
+      "file": "reproduction/smoke_tests/benchmark_samegpu_largebatch/config.json",
+      "path_fields": 1,
+      "previous_sha256": "b29db47d3322feb11bb212192271334fc6905b4a11507e03fe5c4154f19445ab"
+    },
+    {
+      "file": "reproduction/smoke_tests/exclusive_20261114_boneseed_gencoord_x1/config.json",
+      "path_fields": 1,
+      "previous_sha256": "475a5d89188d46341308407511c31ec1f62c7ddc2e49ecf752f241f3a95fa457"
+    },
+    {
+      "file": "reproduction/smoke_tests/exclusive_20261114_boneseed_gencoord_x2/config.json",
+      "path_fields": 1,
+      "previous_sha256": "3614482dd3db3875781052937dd0c0c9faa3d49feecd81a6ce79dc8c7c33a5ff"
+    },
+    {
+      "file": "reproduction/smoke_tests/exclusive_20261114_boneseed_maxcoord_x1/config.json",
+      "path_fields": 1,
+      "previous_sha256": "1b571e553d7ebf5fc5f65bf32ea29bf993aa19a9cf605a61e99d72401e9420ac"
+    },
+    {
+      "file": "reproduction/smoke_tests/exclusive_20261114_boneseed_maxcoord_x2/config.json",
+      "path_fields": 1,
+      "previous_sha256": "24af090d064deca8bcd95227053be241423a75a2db6c9548cba2d9db6b621620"
+    },
+    {
+      "file": "reproduction/smoke_tests/exclusive_20261114_lafan1_gencoord_x1/config.json",
+      "path_fields": 1,
+      "previous_sha256": "245bb4a8281878dad45403d3ad79a5f82efaa03a038a58b97d7fe63fa398de16"
+    },
+    {
+      "file": "reproduction/smoke_tests/exclusive_20261114_lafan1_gencoord_x2/config.json",
+      "path_fields": 1,
+      "previous_sha256": "4dbbde7cb42bbdf5cdd727ce8307a43aab947aaa97eb66de06ffd04bc8ba4fbe"
+    },
+    {
+      "file": "reproduction/smoke_tests/exclusive_20261114_lafan1_maxcoord_x1/config.json",
+      "path_fields": 1,
+      "previous_sha256": "cda8dd7216e24acc4cf13703ddc57418005955c542614ceea76ff2b3a478aaf9"
+    },
+    {
+      "file": "reproduction/smoke_tests/exclusive_20261114_lafan1_maxcoord_x2/config.json",
+      "path_fields": 1,
+      "previous_sha256": "9d0536e6f380cb93c88b4bd4a51b92d61ca80a7855eacff0a797fb59f41927c0"
+    },
+    {
+      "file": "reproduction/smoke_tests/smoke_gencoord/config.json",
+      "path_fields": 1,
+      "previous_sha256": "5ffae28676242bff40153a824398256e8ba0b8d1d1ee6458d28ab0b15e79f0b0"
+    },
+    {
+      "file": "reproduction/smoke_tests/smoke_gencoord/eval_bones_format_64.json",
+      "path_fields": 1,
+      "previous_sha256": "a55d92d611518b23a94c3b870b595c4885d48eacf0a3568eff66d4e304b60c88"
+    },
+    {
+      "file": "reproduction/smoke_tests/smoke_gencoord/eval_bones_full_64.json",
+      "path_fields": 1,
+      "previous_sha256": "7f483d14fc01416dd04bafa50aaf9c5d1edce13938a8c95c3e5e548faa8d4ab7"
+    },
+    {
+      "file": "reproduction/smoke_tests/smoke_maxcoord/config.json",
+      "path_fields": 1,
+      "previous_sha256": "7f0b648a98bef0c5b1759deb6295a665b56ae6368ac08e2e17868dc060f83f1d"
+    }
+  ],
+  "binary_checkpoints_rewritten": false,
+  "legacy_resume_handling": "Normalize known data-layout prefixes before comparing full dataset references",
+  "validation": {
+    "targeted_tests_passed": 17,
+    "relocated_checkout_with_spaces": true,
+    "entrypoints_run_from_outside_checkout": true,
+    "external_data_mapping": true,
+    "legacy_resume_metadata_checked": true,
+    "unchanged_model_and_resume_files": 194,
+    "report_output_identical_after_relocation": true,
+    "gpu_training_or_evaluation_started": false
+  }
+}

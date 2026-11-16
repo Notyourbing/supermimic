@@ -95,8 +95,8 @@
     }
   },
   "args": {
-    "out": "/home/zhuobing/projects/supermimic/official_ws/supermimic/reproduction/campaigns/20261114_8xa100/lafan1_maxcoord_x2",
-    "motion_file": "/home/zhuobing/projects/supermimic/official_reproduction/data/lafan1/packed",
+    "out": "reproduction/campaigns/20261114_8xa100/lafan1_maxcoord_x2",
+    "motion_file": "reproduction/data/lafan1/packed",
     "representation": "maxcoord",
     "num_envs": 8192,
     "wm_batch": 4096,

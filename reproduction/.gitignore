@@ -1,4 +1,6 @@
 __pycache__/
+local_paths.sh
+runtime/
 .ruff_cache/
 logs/
 wandb/

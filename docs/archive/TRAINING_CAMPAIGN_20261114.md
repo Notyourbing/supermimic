@@ -31,12 +31,12 @@ GPU 使用率是 NVML 的时间占用比例，不等于 Tensor Core 算力利用
 
 ## 数据与协议
 
-实际数据位于 `/home/zhuobing/projects/supermimic/official_reproduction/data`。LAFAN1 共 40 条、441140 帧、2.45 小时；BONES 当前完整公开授权归档共 142220 条、51915358 帧、287.63 小时，已校验转换后的 packed 数据以及归档 SHA256。BONES 的 `packed_unfiltered` **不等于**论文筛选后的 129514 条动作，当前不能声称复现论文数据协议。当前源码的 Muon/fused Adam、恒定学习率也与论文 Adam/余弦配置存在差异。本批首先复现官方发布实现，320000 是显式采样循环预算，不宣称与论文迭代数完全等价。
+实际数据位于 `reproduction/data（可由 SUPERMIMIC_DATA_DIR 指向外部存储）`。LAFAN1 共 40 条、441140 帧、2.45 小时；BONES 当前完整公开授权归档共 142220 条、51915358 帧、287.63 小时，已校验转换后的 packed 数据以及归档 SHA256。BONES 的 `packed_unfiltered` **不等于**论文筛选后的 129514 条动作，当前不能声称复现论文数据协议。当前源码的 Muon/fused Adam、恒定学习率也与论文 Adam/余弦配置存在差异。本批首先复现官方发布实现，320000 是显式采样循环预算，不宣称与论文迭代数完全等价。
 
 ## 查看运行
 
 ```bash
-cd /home/zhuobing/projects/supermimic/official_ws/supermimic
+# 从仓库根目录运行以下命令
 tmux attach -t supermimic
 ```
 

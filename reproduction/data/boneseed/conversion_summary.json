@@ -2,7 +2,7 @@
   "status": "passed",
   "filtered": false,
   "conversion_version": "bones-cm-deg-extrinsic-xyz-v1",
-  "archive": "/home/zhuobing/projects/supermimic/official_reproduction/data/boneseed/raw/g1.tar.gz",
+  "archive": "reproduction/data/boneseed/raw/g1.tar.gz",
   "count": 142220,
   "frames": 51915358,
   "seconds": 1035462.76,

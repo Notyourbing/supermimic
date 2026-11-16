@@ -7,16 +7,19 @@ from pathlib import Path
 import numpy as np
 import torch
 from mjlab.scripts.csv_to_npz import MotionLoader
+from supermimic.utils.reproduction_paths import (
+    data_root,
+)
 
 ROOT = Path(__file__).resolve().parents[2] / "reproduction"
 
 
 def main():
     torch.set_num_threads(4)
-    out = ROOT / "data/lafan1/npz"
+    out = data_root() / "lafan1/npz"
     out.mkdir(parents=True, exist_ok=True)
     rows = []
-    for path in sorted((ROOT / "data/lafan1/csv").glob("*.csv")):
+    for path in sorted((data_root() / "lafan1/csv").glob("*.csv")):
         target = out / (path.stem + ".npz")
         motion = MotionLoader(str(path), input_fps=30.0, output_fps=50.0, device="cpu")
         arrays = motion.arrays()
@@ -47,7 +50,7 @@ def main():
         "seconds": sum(r["seconds"] for r in rows),
         "clips": rows,
     }
-    (ROOT / "data/lafan1/manifest_converted.json").write_text(
+    (data_root() / "lafan1/manifest_converted.json").write_text(
         json.dumps(manifest, indent=2) + "\n"
     )
     print(json.dumps({k: v for k, v in manifest.items() if k != "clips"}), flush=True)

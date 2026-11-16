@@ -20,6 +20,11 @@ import numpy as np
 import torch
 from mjlab.scripts.csv_to_npz import JOINT_NAMES, MotionLoader
 from scipy.spatial.transform import Rotation
+from supermimic.utils.reproduction_paths import (
+    data_root,
+    portable_path,
+    resolve_motion_path,
+)
 
 ROOT = Path(__file__).resolve().parents[2] / "reproduction"
 VERSION = "bones-cm-deg-extrinsic-xyz-v1"
@@ -74,7 +79,7 @@ def worker(task):
             ):
                 return {
                     "source": name,
-                    "output": str(target),
+                    "output": portable_path(target),
                     "frames": len(old["joint_pos"]),
                     "source_sha256": source_sha,
                     "cached": True,
@@ -95,7 +100,7 @@ def worker(task):
     temp.replace(target)
     return {
         "source": name,
-        "output": str(target),
+        "output": portable_path(target),
         "frames": len(arrays["joint_pos"]),
         "source_sha256": source_sha,
         "cached": False,
@@ -104,11 +109,15 @@ def worker(task):
 
 def main():
     p = argparse.ArgumentParser(description=__doc__)
-    p.add_argument("--archive", type=Path, default=ROOT / "data/boneseed/raw/g1.tar.gz")
-    p.add_argument("--output", type=Path, default=ROOT / "data/boneseed/npz")
+    p.add_argument(
+        "--archive", type=Path, default=data_root() / "boneseed/raw/g1.tar.gz"
+    )
+    p.add_argument("--output", type=Path, default=data_root() / "boneseed/npz")
     p.add_argument("--workers", type=int, default=24)
     p.add_argument("--limit", type=int, default=0)
     args = p.parse_args()
+    args.archive = resolve_motion_path(args.archive)
+    args.output = resolve_motion_path(args.output)
     args.output.mkdir(parents=True, exist_ok=True)
     result_name = "conversion_smoke" if args.limit else "conversion_full_unfiltered"
     manifest_path = args.output.parent / (result_name + ".json")
@@ -159,7 +168,7 @@ def main():
         "status": "passed" if not errors else "failed",
         "filtered": False,
         "conversion_version": VERSION,
-        "archive": str(args.archive),
+        "archive": portable_path(args.archive),
         "count": len(rows),
         "frames": frames,
         "seconds": (frames - len(rows)) / 50.0,

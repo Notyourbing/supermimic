@@ -25,6 +25,7 @@ from supermimic.scripts.viewers import (
   SuperMimicViserViewer,
   create_wm_vis_model,
 )
+from supermimic.utils.reproduction_paths import resolve_motion_path
 from supermimic.utils.wandb_artifacts import (
   download_artifact_cached,
   download_model_dir,
@@ -63,7 +64,7 @@ def play(task_id: str, cfg: PlayConfig) -> None:
   assert isinstance(command_term, MotionCommandCfg)
   motion_names: list[str] = []
   if cfg.motion_file is not None:
-    expanded = os.path.expanduser(cfg.motion_file)
+    expanded = str(resolve_motion_path(cfg.motion_file))
     if any(c in expanded for c in "*?[]"):
       files = sorted(glob.glob(expanded))
     else:

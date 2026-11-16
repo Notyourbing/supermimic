@@ -2,7 +2,7 @@
 
 本文集中记录复现所用的固定超参数、工程设置和历史标识映射。正文只按 **LAFAN1、未筛选 BONES、筛选后 BONES** 区分实验；这些配置不是实验名称，也不是本阶段主动改变的变量。科学问题、数据筛选与测评协议见 [PLAN_12_16_0.md](../PLAN_12_16_0.md)，训练观察见 [RESULT.md](../RESULT.md)。
 
-第 1–3 节记录已完成实验的实际配置；第 4 节为下一阶段待实施的工程参数。原始 `config.json` 与 `env_config.json` 是执行记录，本文是其阅读入口，不是训练器自动加载的配置文件。
+第 1–3 节记录已完成实验的实际配置；第 4 节为下一阶段待实施的工程参数。`config.json` 与 `env_config.json` 保留执行参数（路径已规范化为仓库相对形式），本文是其阅读入口，不是训练器自动加载的配置文件。
 
 ## 1. 状态表示与网络
 
@@ -90,7 +90,7 @@
 | [`reproduction/experiments/bones_unfiltered/`](../reproduction/experiments/bones_unfiltered/) | `20261114_8xa100/boneseed_gencoord_x2/` | 已有未筛选 BONES 模型 |
 | `reproduction/experiments/bones_filtered/` | 尚未建立 | 筛选后从头训练的新模型 |
 
-前两个入口是仓库内相对符号链接，不复制权重、不改变历史配置和日志。Git 只分发配置与小型统计，模型、原始数据、日志及视频需随服务器迁移单独复制。完整归档仍位于 `reproduction/campaigns/`，其中其他模型不参与当前报告和下一阶段主对照。
+前两个入口是仓库内相对符号链接，不复制权重。历史配置中的路径已规范化为仓库相对路径，数值超参数与训练日志不变。Git 只分发配置与小型统计，模型、原始数据、日志及视频需随服务器迁移单独复制。完整归档仍位于 `reproduction/campaigns/`，其中其他模型不参与当前报告和下一阶段主对照。
 
 每组已完成训练的最终快照为 `checkpoints/00160000/`。快照包括 `actor.pt`、`world_model.pt`、`critic.pt`；`resume.pt` 另存优化器、replay 和采样状态。正式测评加载同一快照的 actor、世界模型 bundle 及原配置，仅使用策略与物理仿真；不执行想象 rollout 或梯度更新。实际选中的最佳模型由后续 `selected_models.json` 记录，不默认把最终快照当作最佳模型。
 
@@ -103,3 +103,5 @@ bash reproduction/run_env.sh python scripts/reporting/write_training_result.py -
 ```
 
 只更新报告正文和派生统计时使用 `--report-only`。这两个入口不启动训练，也不修改模型权重。
+
+路径以仓库根目录为基准；外部数据通过 `SUPERMIMIC_DATA_DIR` 映射，环境与依赖由 `SUPERMIMIC_ENV_PREFIX`、`SUPERMIMIC_MJLAB_DIR` 指定。迁移步骤及本机覆盖文件见[复现指南](guides/reproduction.md)。旧恢复文件内嵌路径由加载器兼容，无需改写模型张量。

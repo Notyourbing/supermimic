@@ -24,6 +24,11 @@ from mjlab.tasks.registry import load_env_cfg  # noqa: E402
 from mjlab.utils.random import seed_rng  # noqa: E402
 from supermimic.runners.supermimic_runner import SuperMimicRunner, SuperMimicRunnerCfg  # noqa: E402
 from supermimic.scripts.train_utils import create_env, setup_device  # noqa: E402
+from supermimic.utils.reproduction_paths import (  # noqa: E402
+    portable_tree,
+    repo_path,
+    resolve_motion_path,
+)
 
 ROOT = Path(__file__).resolve().parents[2] / "reproduction"
 
@@ -31,7 +36,7 @@ ROOT = Path(__file__).resolve().parents[2] / "reproduction"
 def atomic_json(path, value):
     path.parent.mkdir(parents=True, exist_ok=True)
     temp = path.with_suffix(".tmp")
-    temp.write_text(json.dumps(value, indent=2, default=str) + "\n")
+    temp.write_text(json.dumps(portable_tree(value), indent=2, default=str) + "\n")
     temp.replace(path)
 
 
@@ -49,9 +54,10 @@ def main():
     p.add_argument("--buffer-size", type=int, default=1000)
     p.add_argument("--history", type=int, default=10)
     p.add_argument(
-        "--motion-file", default=str(ROOT / "data/lafan1/npz/run1_subject5.npz")
+        "--motion-file", default="reproduction/data/lafan1/npz/run1_subject5.npz"
     )
     args = p.parse_args()
+    args.motion_file = str(resolve_motion_path(args.motion_file))
     if not 16 <= args.iterations <= 160:
         p.error("Only bounded 16–160 iteration preparation probes are allowed.")
     torch.set_num_threads(4)
@@ -86,6 +92,7 @@ def main():
     started = time.perf_counter()
     env_cfg = load_env_cfg(task_id, play=False)
     env_cfg.seed = 42
+    env_cfg.sim.nan_guard.output_dir = str(repo_path("reproduction/runtime/nan_dumps"))
     env_cfg.commands["motion"].motion_file = args.motion_file
     env_cfg.commands["motion"].sampling_mode = "external"
     env = create_env(env_cfg, args.num_envs, device)

@@ -25,6 +25,8 @@ supermimic/
 │   └── templates/                  # 报告生成模板
 ├── reproduction/
 │   ├── run_env.sh                  # 在固定 Conda 环境中执行命令
+│   ├── paths.sh                    # 运行环境、依赖和数据路径的共同入口
+│   ├── local_paths.example.sh       # 可选本机设置模板
 │   ├── bootstrap.sh                # 环境安装
 │   ├── prepare_data.sh             # 数据流水线入口
 │   ├── setup/                      # 依赖约束、版本和安装审计
@@ -55,7 +57,7 @@ supermimic/
 └── resume.pt
 ```
 
-正式训练目录约 110 GB，包含完整恢复文件与历史快照。目录整理没有移动这些模型，也没有修改记录中的历史命令、数据路径及训练参数。TensorBoard 和 tmux 继续访问原训练路径。
+正式训练目录约 110 GB，包含完整恢复文件与历史快照。模型权重和数值训练参数保持原样；可执行配置、清单与命令中的路径已统一规范化为仓库相对路径。TensorBoard 和 tmux 继续访问原训练路径。
 
 ## 旧路径如何兼容
 
@@ -80,7 +82,7 @@ supermimic/
 | `SuperMimic.pdf` | 原论文 |
 | `Dex-Supermimic/`、`Dex-Supermimic-reproduction/`、旧 `reproduction/` | 早期灵巧手实验及文档，属于另一项复现 |
 
-工作区根目录为 `/home/zhuobing/projects/supermimic`。数据与依赖保留原位置，因为模型配置和 editable 安装引用这些路径。新服务器通过 [复现指南](guides/reproduction.md) 安装并设置自己的数据路径；不要将仓库内的验证清单误认为已经包含数据本体。
+仓库位置由入口脚本自动推导，不依赖原服务器的用户名或目录。数据与依赖通过 `SUPERMIMIC_DATA_DIR`、`SUPERMIMIC_MJLAB_DIR` 设置；本机覆盖保存在不进入 Git 的 `reproduction/local_paths.sh`。新服务器通过 [复现指南](guides/reproduction.md) 重新建立 editable 安装并设置自己的存储位置；仓库内验证清单不包含数据本体。
 
 ## 后续文件放置规则
 

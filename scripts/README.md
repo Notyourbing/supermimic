@@ -6,7 +6,7 @@
 |---|---|---|
 | `data/` | `check_bones_access.py`、`download_*.py`、`convert_*.py`、`finalize_bones.py` | 数据下载、格式转换与验证；通常使用 `prepare_data.sh` 串联 |
 | `setup/` | `fetch_wheels.py` | 原服务器安装传输诊断辅助工具；普通安装用 `bootstrap.sh` |
-| `validation/` | `preflight.py`、`eval_smoke.py`、`nccl_smoke.py` | 有限步学习、模型加载/回放、GPU 通信验证 |
+| `validation/` | `check_paths.py`、`preflight.py`、`eval_smoke.py`、`nccl_smoke.py` | 路径可移植性、有限步学习、模型加载/回放与 GPU 通信验证 |
 | `training/` | `train_campaign.py` | 可恢复的单模型正式训练 |
 | `training/` | `probe_all.py`、`queue_campaign.py`、`launch_training.py`、`summarize_benchmark.py` | **20261114 批次专用**的八卡调度与短测汇总；不是通用新实验启动入口 |
 | `monitoring/` | `campaign_dashboard.py`、`capture_process_util.py`、`gpu_availability.py` | 进度、显存、GPU 使用率及资源检查 |

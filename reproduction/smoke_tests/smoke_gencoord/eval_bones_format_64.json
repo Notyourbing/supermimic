@@ -2,7 +2,7 @@
   "status": "passed",
   "preparation_only": true,
   "task": "SuperMimic-GenCoord-G1",
-  "motion_file": "/home/zhuobing/projects/supermimic/official_reproduction/data/boneseed/smoke_packed",
+  "motion_file": "reproduction/data/boneseed/smoke_packed",
   "cuda_visible_devices": "4",
   "num_envs": 64,
   "steps": 200,

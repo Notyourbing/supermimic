@@ -103,6 +103,6 @@
     "policy_batch": 4096,
     "buffer_size": 1000,
     "history": 10,
-    "motion_file": "/home/zhuobing/projects/supermimic/official_reproduction/data/lafan1/packed"
+    "motion_file": "reproduction/data/lafan1/packed"
   }
 }

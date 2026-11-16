@@ -975,7 +975,7 @@
     "nan_guard": {
       "enabled": false,
       "buffer_size": 100,
-      "output_dir": "/tmp/mjlab/nan_dumps",
+      "output_dir": "reproduction/runtime/nan_dumps",
       "max_envs_to_dump": 5
     }
   },
@@ -1169,7 +1169,7 @@
         1000000000.0
       ],
       "debug_vis": true,
-      "motion_file": "/home/zhuobing/projects/supermimic/official_reproduction/data/lafan1/packed",
+      "motion_file": "reproduction/data/lafan1/packed",
       "anchor_body_name": "pelvis",
       "body_names": [
         "pelvis",

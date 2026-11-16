@@ -9,16 +9,15 @@
 ```bash
 git clone https://github.com/Notyourbing/supermimic.git
 cd supermimic
-export REPO="$PWD"
 export SUPERMIMIC_ENV_PREFIX="$HOME/miniconda3/envs/supermimic-official"
-export SUPERMIMIC_MJLAB_DIR="$(dirname "$REPO")/mjlab_research"
+export SUPERMIMIC_MJLAB_DIR="../mjlab_research"
 bash reproduction/bootstrap.sh
 bash reproduction/run_env.sh python -c 'import torch,mujoco; print(torch.__version__,torch.version.cuda,torch.cuda.is_available(),mujoco.__version__)'
 ```
 
 先在本机安装 Miniconda，再运行上述流程。`bootstrap.sh` 安装环境与两个 editable 包，不启动训练。配套 mjlab 固定到 `dd51a9fcc98791a2f0b018b3c7f71a3eefd5ecdd`；`mjviser` 固定为 0.0.16。不要直接用默认 `uv sync` 覆盖环境，上游旧锁文件与当前配套依赖不一致。
 
-运行任何复现脚本均使用 `bash reproduction/run_env.sh ...`。该入口保留线程设置、EGL 和离线 W&B 配置。离线安装还需要自行复制 wheel 与依赖源码，见 [setup/](../../reproduction/setup/README.md)。
+运行任何复现脚本均使用 `bash reproduction/run_env.sh ...`。该入口自动进入当前仓库根目录，保留线程设置、EGL 和离线 W&B 配置，并优先导入当前检出目录的源码。离线安装还需要自行复制 wheel 与依赖源码，见 [setup/](../../reproduction/setup/README.md)。
 
 ## 2. 恢复数据
 
@@ -32,7 +31,21 @@ Hugging Face 登录在本机终端进行；BONES 需要该账户已有数据访�
 
 LAFAN1 使用 G1 重定向的 40 条动作；BONES 使用原始 142,220 条动作。数据流水线统一原始单位与旋转约定，通过官方加载器重采样到 50 Hz，并保存来源、摘要和转换校验。BONES 原始集合不同于论文筛选后的 129,514 条集合。
 
-**当前服务器例外：** 已有训练使用的完整数据位于 `/home/zhuobing/projects/supermimic/official_reproduction/data/`，仓库内 `reproduction/data/` 主要保存验证清单。目录整理保留了这个实际数据位置。迁移时需要额外复制或重新下载数据，Git 克隆不包含数据本体；新任务通过 `--motion-file` 指定自己的 packed 目录。
+### 路径约定与外部数据盘
+
+所有保存到配置和清单的相对路径均以**当前仓库根目录**为基准。数据统一记录为 `reproduction/data/...`；运行时可用 `SUPERMIMIC_DATA_DIR` 将这个逻辑前缀映射到另一个数据盘。下载、转换、打包、训练和回放共享同一设置，无需逐个修改历史配置。
+
+```bash
+# 可选：数据实际保存在与仓库相邻的 motion_data 目录。
+export SUPERMIMIC_DATA_DIR="../motion_data"
+bash reproduction/run_env.sh python scripts/validation/check_paths.py
+# 数据复制或准备完成后，再检查当前模型的数据能否找到。
+bash reproduction/run_env.sh python scripts/validation/check_paths.py --check-data
+```
+
+也可复制 `reproduction/local_paths.example.sh` 为 `reproduction/local_paths.sh`，填写本机的数据、Conda 环境与 mjlab 位置。该文件不进入 Git；三个变量中的相对路径均以仓库为基准，环境变量可覆盖示例中的默认值。Conda 默认从当前用户的 `$HOME/miniconda3/envs/supermimic-official` 查找，mjlab 默认位于 `../mjlab_research`。
+
+当前服务器通过这份本地设置访问已有数据，数据本体未搬动。新服务器仍需复制或重新下载数据、模型及日志，Git 克隆只包含代码与小型配置。迁移时应重新填写本机设置，保留仓库内部的相对符号链接。显式传入绝对路径仍受支持，但不会写死到源码中；可移植的配置优先使用上述逻辑数据前缀。
 
 ## 3. 在新服务器验证
 
@@ -42,9 +55,9 @@ LAFAN1 使用 G1 重定向的 40 条动作；BONES 使用原始 142,220 条动�
 CUDA_VISIBLE_DEVICES='' bash reproduction/run_env.sh pytest -q tests
 CUDA_VISIBLE_DEVICES=0 bash reproduction/run_env.sh python scripts/validation/preflight.py \
   --name server2_smoke --iterations 48 \
-  --motion-file "$REPO/reproduction/data/lafan1/npz/run1_subject5.npz"
+  --motion-file reproduction/data/lafan1/npz/run1_subject5.npz
 CUDA_VISIBLE_DEVICES=0 bash reproduction/run_env.sh python scripts/validation/eval_smoke.py \
-  --run-dir "$REPO/reproduction/smoke_tests/server2_smoke" --num-envs 64 --steps 200 --render
+  --run-dir reproduction/smoke_tests/server2_smoke --num-envs 64 --steps 200 --render
 ```
 
 短测输出位于 `reproduction/smoke_tests/<名称>/`。为新服务器选择新的名称，避免覆盖历史结果。需要通信验证且八卡可用时，再运行：
@@ -72,7 +85,7 @@ bash reproduction/run_env.sh tensorboard \
   --logdir reproduction/campaigns/20261114_8xa100 --host 127.0.0.1 --port 6006
 ```
 
-每个模型的 `latest/` 指向最终权重，`resume.pt` 保存训练恢复状态。继续训练使用批次中 `training_jobs.json` 对应命令并明确指定 `--resume`；恢复必须匹配原任务配置和数据路径。恢复会重置物理 episode，并非逐比特恢复仿真。不要再次启动已完成批次的八卡队列。
+每个模型的 `latest/` 指向最终权重，`resume.pt` 保存训练恢复状态。继续训练使用批次中 `training_jobs.json` 对应命令并明确指定 `--resume`；恢复必须匹配原任务配置和同一数据集；路径会先规范化，允许迁移服务器目录，但仍拒绝把未筛选数据恢复到筛选数据。旧二进制恢复文件无需重新保存。恢复会重置物理 episode，并非逐比特恢复仿真。不要再次启动已完成批次的八卡队列。
 
 ## 5. 修改和重建报告
 

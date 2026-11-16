@@ -103,6 +103,6 @@
     "policy_batch": 8192,
     "buffer_size": 1000,
     "history": 10,
-    "motion_file": "/home/zhuobing/projects/supermimic/official_reproduction/data/boneseed/packed_unfiltered"
+    "motion_file": "reproduction/data/boneseed/packed_unfiltered"
   }
 }

@@ -7,9 +7,12 @@ import time
 from pathlib import Path
 
 import numpy as np
+from supermimic.utils.reproduction_paths import (
+    data_root,
+)
 
 ROOT = Path(__file__).resolve().parents[2] / "reproduction"
-source_manifest = ROOT / "data/boneseed/conversion_full_unfiltered.json"
+source_manifest = data_root() / "boneseed/conversion_full_unfiltered.json"
 deadline = time.monotonic() + 3600
 while not source_manifest.exists():
     if time.monotonic() > deadline:
@@ -18,7 +21,7 @@ while not source_manifest.exists():
 source = json.loads(source_manifest.read_text())
 if source["status"] != "passed" or source["errors"]:
     raise ValueError("Conversion has errors; refusing to package incomplete data")
-output = ROOT / "data/boneseed/packed_unfiltered"
+output = data_root() / "boneseed/packed_unfiltered"
 command = [
     "bash",
     str(ROOT / "run_env.sh"),
@@ -26,7 +29,7 @@ command = [
     "-m",
     "mjlab.scripts.pack_motions",
     "--input",
-    str(ROOT / "data/boneseed/npz/*/*.npz"),
+    str(data_root() / "boneseed/npz/*/*.npz"),
     "--output",
     str(output),
     "--workers",

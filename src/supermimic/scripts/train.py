@@ -2,7 +2,6 @@
 
 from __future__ import annotations
 
-import os
 from dataclasses import dataclass
 
 import mjlab.tasks  # noqa: F401
@@ -17,6 +16,7 @@ from supermimic.scripts.train_utils import (
   download_registry_motions,
   setup_device,
 )
+from supermimic.utils.reproduction_paths import resolve_motion_path
 
 
 @dataclass
@@ -62,10 +62,12 @@ def main() -> None:
     # Local motions handed straight to MotionLoader (globs/concatenates).
     if "," in args.motion_file:
       args.env.commands["motion"].motion_file = [
-        os.path.expanduser(p.strip()) for p in args.motion_file.split(",")
+        str(resolve_motion_path(p.strip())) for p in args.motion_file.split(",")
       ]
     else:
-      args.env.commands["motion"].motion_file = os.path.expanduser(args.motion_file)
+      args.env.commands["motion"].motion_file = str(
+        resolve_motion_path(args.motion_file)
+      )
     args.registry_name = None  # avoid linking a stale registry artifact for lineage
     print(f"[INFO] Using local motion file: {args.motion_file}")
   else:

@@ -7,12 +7,17 @@ import time
 import urllib.request
 from pathlib import Path
 
+from supermimic.utils.reproduction_paths import (
+    data_root,
+    portable_path,
+)
+
 ROOT = Path(__file__).resolve().parents[2] / "reproduction"
 REPO = "lvhaidong/LAFAN1_Retargeting_Dataset"
 
 
 def download(entry):
-    path = ROOT / "data/lafan1/csv" / Path(entry["path"]).name
+    path = data_root() / "lafan1/csv" / Path(entry["path"]).name
     path.parent.mkdir(parents=True, exist_ok=True)
     url = f"https://huggingface.co/datasets/{REPO}/resolve/main/{entry['path']}"
     for attempt in range(4):
@@ -29,7 +34,10 @@ def download(entry):
             temp.write_bytes(data)
             temp.replace(path)
             result = dict(
-                entry, local=str(path), sha256=hashlib.sha256(data).hexdigest(), url=url
+                entry,
+                local=portable_path(path),
+                sha256=hashlib.sha256(data).hexdigest(),
+                url=url,
             )
             print(f"verified {path.name}: {len(data)} bytes", flush=True)
             return result
@@ -50,7 +58,7 @@ def main():
         "count": len(files),
         "files": files,
     }
-    (ROOT / "data/lafan1/manifest_raw.json").write_text(
+    (data_root() / "lafan1/manifest_raw.json").write_text(
         json.dumps(manifest, indent=2) + "\n"
     )
     print(f"All {len(files)} clips verified.", flush=True)

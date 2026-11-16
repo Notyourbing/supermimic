@@ -10,14 +10,14 @@
       "-c",
       "0-7",
       "bash",
-      "/home/zhuobing/projects/supermimic/official_ws/supermimic/reproduction/run_env.sh",
+      "reproduction/run_env.sh",
       "python",
       "-u",
-      "/home/zhuobing/projects/supermimic/official_ws/supermimic/reproduction/scripts/train_campaign.py",
+      "reproduction/scripts/train_campaign.py",
       "--out",
-      "/home/zhuobing/projects/supermimic/official_ws/supermimic/reproduction/campaigns/20261114_8xa100/lafan1_gencoord_x1",
+      "reproduction/campaigns/20261114_8xa100/lafan1_gencoord_x1",
       "--motion-file",
-      "/home/zhuobing/projects/supermimic/official_reproduction/data/lafan1/packed",
+      "reproduction/data/lafan1/packed",
       "--iterations",
       "320000",
       "--num-envs",
@@ -35,7 +35,7 @@
       "--log-interval",
       "50"
     ],
-    "motion_file": "/home/zhuobing/projects/supermimic/official_reproduction/data/lafan1/packed"
+    "motion_file": "reproduction/data/lafan1/packed"
   },
   {
     "gpu": 1,
@@ -48,14 +48,14 @@
       "-c",
       "8-15",
       "bash",
-      "/home/zhuobing/projects/supermimic/official_ws/supermimic/reproduction/run_env.sh",
+      "reproduction/run_env.sh",
       "python",
       "-u",
-      "/home/zhuobing/projects/supermimic/official_ws/supermimic/reproduction/scripts/train_campaign.py",
+      "reproduction/scripts/train_campaign.py",
       "--out",
-      "/home/zhuobing/projects/supermimic/official_ws/supermimic/reproduction/campaigns/20261114_8xa100/lafan1_maxcoord_x1",
+      "reproduction/campaigns/20261114_8xa100/lafan1_maxcoord_x1",
       "--motion-file",
-      "/home/zhuobing/projects/supermimic/official_reproduction/data/lafan1/packed",
+      "reproduction/data/lafan1/packed",
       "--iterations",
       "320000",
       "--num-envs",
@@ -73,7 +73,7 @@
       "--log-interval",
       "50"
     ],
-    "motion_file": "/home/zhuobing/projects/supermimic/official_reproduction/data/lafan1/packed"
+    "motion_file": "reproduction/data/lafan1/packed"
   },
   {
     "gpu": 2,
@@ -86,14 +86,14 @@
       "-c",
       "16-23",
       "bash",
-      "/home/zhuobing/projects/supermimic/official_ws/supermimic/reproduction/run_env.sh",
+      "reproduction/run_env.sh",
       "python",
       "-u",
-      "/home/zhuobing/projects/supermimic/official_ws/supermimic/reproduction/scripts/train_campaign.py",
+      "reproduction/scripts/train_campaign.py",
       "--out",
-      "/home/zhuobing/projects/supermimic/official_ws/supermimic/reproduction/campaigns/20261114_8xa100/boneseed_gencoord_x1",
+      "reproduction/campaigns/20261114_8xa100/boneseed_gencoord_x1",
       "--motion-file",
-      "/home/zhuobing/projects/supermimic/official_reproduction/data/boneseed/packed_unfiltered",
+      "reproduction/data/boneseed/packed_unfiltered",
       "--iterations",
       "320000",
       "--num-envs",
@@ -111,7 +111,7 @@
       "--log-interval",
       "50"
     ],
-    "motion_file": "/home/zhuobing/projects/supermimic/official_reproduction/data/boneseed/packed_unfiltered"
+    "motion_file": "reproduction/data/boneseed/packed_unfiltered"
   },
   {
     "gpu": 3,
@@ -124,14 +124,14 @@
       "-c",
       "24-31",
       "bash",
-      "/home/zhuobing/projects/supermimic/official_ws/supermimic/reproduction/run_env.sh",
+      "reproduction/run_env.sh",
       "python",
       "-u",
-      "/home/zhuobing/projects/supermimic/official_ws/supermimic/reproduction/scripts/train_campaign.py",
+      "reproduction/scripts/train_campaign.py",
       "--out",
-      "/home/zhuobing/projects/supermimic/official_ws/supermimic/reproduction/campaigns/20261114_8xa100/boneseed_maxcoord_x1",
+      "reproduction/campaigns/20261114_8xa100/boneseed_maxcoord_x1",
       "--motion-file",
-      "/home/zhuobing/projects/supermimic/official_reproduction/data/boneseed/packed_unfiltered",
+      "reproduction/data/boneseed/packed_unfiltered",
       "--iterations",
       "320000",
       "--num-envs",
@@ -149,7 +149,7 @@
       "--log-interval",
       "50"
     ],
-    "motion_file": "/home/zhuobing/projects/supermimic/official_reproduction/data/boneseed/packed_unfiltered"
+    "motion_file": "reproduction/data/boneseed/packed_unfiltered"
   },
   {
     "gpu": 4,
@@ -162,14 +162,14 @@
       "-c",
       "32-39",
       "bash",
-      "/home/zhuobing/projects/supermimic/official_ws/supermimic/reproduction/run_env.sh",
+      "reproduction/run_env.sh",
       "python",
       "-u",
-      "/home/zhuobing/projects/supermimic/official_ws/supermimic/reproduction/scripts/train_campaign.py",
+      "reproduction/scripts/train_campaign.py",
       "--out",
-      "/home/zhuobing/projects/supermimic/official_ws/supermimic/reproduction/campaigns/20261114_8xa100/lafan1_gencoord_x2",
+      "reproduction/campaigns/20261114_8xa100/lafan1_gencoord_x2",
       "--motion-file",
-      "/home/zhuobing/projects/supermimic/official_reproduction/data/lafan1/packed",
+      "reproduction/data/lafan1/packed",
       "--iterations",
       "160000",
       "--num-envs",
@@ -187,7 +187,7 @@
       "--log-interval",
       "50"
     ],
-    "motion_file": "/home/zhuobing/projects/supermimic/official_reproduction/data/lafan1/packed"
+    "motion_file": "reproduction/data/lafan1/packed"
   },
   {
     "gpu": 5,
@@ -200,14 +200,14 @@
       "-c",
       "40-47",
       "bash",
-      "/home/zhuobing/projects/supermimic/official_ws/supermimic/reproduction/run_env.sh",
+      "reproduction/run_env.sh",
       "python",
       "-u",
-      "/home/zhuobing/projects/supermimic/official_ws/supermimic/reproduction/scripts/train_campaign.py",
+      "reproduction/scripts/train_campaign.py",
       "--out",
-      "/home/zhuobing/projects/supermimic/official_ws/supermimic/reproduction/campaigns/20261114_8xa100/lafan1_maxcoord_x2",
+      "reproduction/campaigns/20261114_8xa100/lafan1_maxcoord_x2",
       "--motion-file",
-      "/home/zhuobing/projects/supermimic/official_reproduction/data/lafan1/packed",
+      "reproduction/data/lafan1/packed",
       "--iterations",
       "160000",
       "--num-envs",
@@ -225,7 +225,7 @@
       "--log-interval",
       "50"
     ],
-    "motion_file": "/home/zhuobing/projects/supermimic/official_reproduction/data/lafan1/packed"
+    "motion_file": "reproduction/data/lafan1/packed"
   },
   {
     "gpu": 6,
@@ -238,14 +238,14 @@
       "-c",
       "48-55",
       "bash",
-      "/home/zhuobing/projects/supermimic/official_ws/supermimic/reproduction/run_env.sh",
+      "reproduction/run_env.sh",
       "python",
       "-u",
-      "/home/zhuobing/projects/supermimic/official_ws/supermimic/reproduction/scripts/train_campaign.py",
+      "reproduction/scripts/train_campaign.py",
       "--out",
-      "/home/zhuobing/projects/supermimic/official_ws/supermimic/reproduction/campaigns/20261114_8xa100/boneseed_gencoord_x2",
+      "reproduction/campaigns/20261114_8xa100/boneseed_gencoord_x2",
       "--motion-file",
-      "/home/zhuobing/projects/supermimic/official_reproduction/data/boneseed/packed_unfiltered",
+      "reproduction/data/boneseed/packed_unfiltered",
       "--iterations",
       "160000",
       "--num-envs",
@@ -263,7 +263,7 @@
       "--log-interval",
       "50"
     ],
-    "motion_file": "/home/zhuobing/projects/supermimic/official_reproduction/data/boneseed/packed_unfiltered"
+    "motion_file": "reproduction/data/boneseed/packed_unfiltered"
   },
   {
     "gpu": 7,
@@ -276,14 +276,14 @@
       "-c",
       "56-63",
       "bash",
-      "/home/zhuobing/projects/supermimic/official_ws/supermimic/reproduction/run_env.sh",
+      "reproduction/run_env.sh",
       "python",
       "-u",
-      "/home/zhuobing/projects/supermimic/official_ws/supermimic/reproduction/scripts/train_campaign.py",
+      "reproduction/scripts/train_campaign.py",
       "--out",
-      "/home/zhuobing/projects/supermimic/official_ws/supermimic/reproduction/campaigns/20261114_8xa100/boneseed_maxcoord_x2",
+      "reproduction/campaigns/20261114_8xa100/boneseed_maxcoord_x2",
       "--motion-file",
-      "/home/zhuobing/projects/supermimic/official_reproduction/data/boneseed/packed_unfiltered",
+      "reproduction/data/boneseed/packed_unfiltered",
       "--iterations",
       "160000",
       "--num-envs",
@@ -301,6 +301,6 @@
       "--log-interval",
       "50"
     ],
-    "motion_file": "/home/zhuobing/projects/supermimic/official_reproduction/data/boneseed/packed_unfiltered"
+    "motion_file": "reproduction/data/boneseed/packed_unfiltered"
   }
 ]
