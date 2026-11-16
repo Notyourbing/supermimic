@@ -6,7 +6,7 @@ SuperMimic trains a humanoid whole-body motion tracker with one differentiable w
 
 ## 本 fork 的复现与迁移
 
-环境安装、完整数据准备、原服务器测试记录和下一步计划见 [reproduction/README.md](reproduction/README.md)。正式训练尚未启动。迁移时优先使用该入口，避免旧锁文件与当前配套 mjlab 的依赖差异。
+八卡八组正式训练已完成，结果、训练曲线、实际工时及模型位置见 [RESULT.md](RESULT.md)。环境安装、数据准备与迁移入口见 [reproduction/README.md](reproduction/README.md)，迁移时避免旧锁文件与当前配套 mjlab 的依赖差异。
 
 ## Setup
 

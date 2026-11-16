@@ -1,0 +1,322 @@
+[
+  {
+    "name": "lafan1_gencoord_x1",
+    "snapshot_count": 64,
+    "files": {
+      "world_model": {
+        "path": "reproduction/campaigns/20261114_8xa100/lafan1_gencoord_x1/checkpoints/00320000/world_model.pt",
+        "bytes": 34989653,
+        "sha256": "3af72ae6dd721dce8ccc168a24cc6ba4f802a030a96d10c9139bf2579d9e07f6",
+        "tensor_count": 26,
+        "finite": true
+      },
+      "actor": {
+        "path": "reproduction/campaigns/20261114_8xa100/lafan1_gencoord_x1/checkpoints/00320000/actor.pt",
+        "bytes": 46437069,
+        "sha256": "716617cae0ef41e1b56e2c6f1cd2a7cee843378f5cb5c4f51cdc8d53eed51612",
+        "tensor_count": 66,
+        "finite": true
+      },
+      "critic": {
+        "path": "reproduction/campaigns/20261114_8xa100/lafan1_gencoord_x1/checkpoints/00320000/critic.pt",
+        "bytes": 929013,
+        "sha256": "814f5e339604d6d3c4e0e0b60b79d4fd117b1e15bbb190fde8aacb99a334577b",
+        "tensor_count": 10,
+        "finite": true
+      },
+      "resume": {
+        "path": "reproduction/campaigns/20261114_8xa100/lafan1_gencoord_x1/resume.pt",
+        "bytes": 4388706893,
+        "step": 320000,
+        "updates": 127997,
+        "replay_size": 1000,
+        "optimizer_groups": [
+          "wm",
+          "actor",
+          "critic"
+        ],
+        "scope": "metadata checked using mmap; replay contents not rescanned"
+      }
+    }
+  },
+  {
+    "name": "lafan1_maxcoord_x1",
+    "snapshot_count": 64,
+    "files": {
+      "world_model": {
+        "path": "reproduction/campaigns/20261114_8xa100/lafan1_maxcoord_x1/checkpoints/00320000/world_model.pt",
+        "bytes": 36589013,
+        "sha256": "f9f62d958b038f65165c578bac62529864f6e7f2e3f034096c1807c03cbabcbf",
+        "tensor_count": 26,
+        "finite": true
+      },
+      "actor": {
+        "path": "reproduction/campaigns/20261114_8xa100/lafan1_maxcoord_x1/checkpoints/00320000/actor.pt",
+        "bytes": 46437069,
+        "sha256": "f7e66d3f4a8ed980b337c0585a91ed47f1574b84d8427099895dee1d860f273a",
+        "tensor_count": 66,
+        "finite": true
+      },
+      "critic": {
+        "path": "reproduction/campaigns/20261114_8xa100/lafan1_maxcoord_x1/checkpoints/00320000/critic.pt",
+        "bytes": 1078517,
+        "sha256": "f2fb822c2e0cd700f81f62ef94f21453fc1a83b43940386cd77893396af2c1e0",
+        "tensor_count": 10,
+        "finite": true
+      },
+      "resume": {
+        "path": "reproduction/campaigns/20261114_8xa100/lafan1_maxcoord_x1/resume.pt",
+        "bytes": 6212574041,
+        "step": 320000,
+        "updates": 127997,
+        "replay_size": 1000,
+        "optimizer_groups": [
+          "wm",
+          "actor",
+          "critic"
+        ],
+        "scope": "metadata checked using mmap; replay contents not rescanned"
+      }
+    }
+  },
+  {
+    "name": "boneseed_gencoord_x1",
+    "snapshot_count": 64,
+    "files": {
+      "world_model": {
+        "path": "reproduction/campaigns/20261114_8xa100/boneseed_gencoord_x1/checkpoints/00320000/world_model.pt",
+        "bytes": 34989653,
+        "sha256": "272cf1e05c303b47330db39fd21a600393960a6812cfe90ea1cb6b8d0d99ec29",
+        "tensor_count": 26,
+        "finite": true
+      },
+      "actor": {
+        "path": "reproduction/campaigns/20261114_8xa100/boneseed_gencoord_x1/checkpoints/00320000/actor.pt",
+        "bytes": 46437069,
+        "sha256": "ec15c5968e429fc8f4eb715b74f3f52a7dd897a7db3f34f9e8b64c11160d372e",
+        "tensor_count": 66,
+        "finite": true
+      },
+      "critic": {
+        "path": "reproduction/campaigns/20261114_8xa100/boneseed_gencoord_x1/checkpoints/00320000/critic.pt",
+        "bytes": 929013,
+        "sha256": "423918088a5d743a3d99ace6dd68a149d52538193336f5bfa60d14fbeb2bfac2",
+        "tensor_count": 10,
+        "finite": true
+      },
+      "resume": {
+        "path": "reproduction/campaigns/20261114_8xa100/boneseed_gencoord_x1/resume.pt",
+        "bytes": 4471065677,
+        "step": 320000,
+        "updates": 127997,
+        "replay_size": 1000,
+        "optimizer_groups": [
+          "wm",
+          "actor",
+          "critic"
+        ],
+        "scope": "metadata checked using mmap; replay contents not rescanned"
+      }
+    }
+  },
+  {
+    "name": "boneseed_maxcoord_x1",
+    "snapshot_count": 64,
+    "files": {
+      "world_model": {
+        "path": "reproduction/campaigns/20261114_8xa100/boneseed_maxcoord_x1/checkpoints/00320000/world_model.pt",
+        "bytes": 36589013,
+        "sha256": "bc53303461a03abda17210219b6eafd2a88a5ea193e1c77e3626429e92cb0e29",
+        "tensor_count": 26,
+        "finite": true
+      },
+      "actor": {
+        "path": "reproduction/campaigns/20261114_8xa100/boneseed_maxcoord_x1/checkpoints/00320000/actor.pt",
+        "bytes": 46437069,
+        "sha256": "4b45dd89972e7a71947c14f2529c757766d106f388678fc8be2928907893a017",
+        "tensor_count": 66,
+        "finite": true
+      },
+      "critic": {
+        "path": "reproduction/campaigns/20261114_8xa100/boneseed_maxcoord_x1/checkpoints/00320000/critic.pt",
+        "bytes": 1078517,
+        "sha256": "ad2f8437418e4b90702f81ad675d8d445fb9dc51e950c7c5d710e302231307ef",
+        "tensor_count": 10,
+        "finite": true
+      },
+      "resume": {
+        "path": "reproduction/campaigns/20261114_8xa100/boneseed_maxcoord_x1/resume.pt",
+        "bytes": 6294932825,
+        "step": 320000,
+        "updates": 127997,
+        "replay_size": 1000,
+        "optimizer_groups": [
+          "wm",
+          "actor",
+          "critic"
+        ],
+        "scope": "metadata checked using mmap; replay contents not rescanned"
+      }
+    }
+  },
+  {
+    "name": "lafan1_gencoord_x2",
+    "snapshot_count": 32,
+    "files": {
+      "world_model": {
+        "path": "reproduction/campaigns/20261114_8xa100/lafan1_gencoord_x2/checkpoints/00160000/world_model.pt",
+        "bytes": 34989653,
+        "sha256": "dcb89ef865a325653a6bc810cbf752a151c8ed727583b2e13df7fee6ee36ab02",
+        "tensor_count": 26,
+        "finite": true
+      },
+      "actor": {
+        "path": "reproduction/campaigns/20261114_8xa100/lafan1_gencoord_x2/checkpoints/00160000/actor.pt",
+        "bytes": 46437069,
+        "sha256": "9ef83510ce9242ae1be226fbbf0781399cde362ef19301be1daa43a68c049524",
+        "tensor_count": 66,
+        "finite": true
+      },
+      "critic": {
+        "path": "reproduction/campaigns/20261114_8xa100/lafan1_gencoord_x2/checkpoints/00160000/critic.pt",
+        "bytes": 929013,
+        "sha256": "c5500107c9979e7de86be79b01bdcf3a6718b04a987b4f765bac86dd3456943d",
+        "tensor_count": 10,
+        "finite": true
+      },
+      "resume": {
+        "path": "reproduction/campaigns/20261114_8xa100/lafan1_gencoord_x2/resume.pt",
+        "bytes": 8607586889,
+        "step": 160000,
+        "updates": 63997,
+        "replay_size": 1000,
+        "optimizer_groups": [
+          "wm",
+          "actor",
+          "critic"
+        ],
+        "scope": "metadata checked using mmap; replay contents not rescanned"
+      }
+    }
+  },
+  {
+    "name": "lafan1_maxcoord_x2",
+    "snapshot_count": 32,
+    "files": {
+      "world_model": {
+        "path": "reproduction/campaigns/20261114_8xa100/lafan1_maxcoord_x2/checkpoints/00160000/world_model.pt",
+        "bytes": 36589013,
+        "sha256": "9ecfa029fa9ccde47aee67bb9c369f7a862a87dd90ee4a4665a611a98c3c571b",
+        "tensor_count": 26,
+        "finite": true
+      },
+      "actor": {
+        "path": "reproduction/campaigns/20261114_8xa100/lafan1_maxcoord_x2/checkpoints/00160000/actor.pt",
+        "bytes": 46437069,
+        "sha256": "9e610250e538e3d3088425042226ffbd76180f1f3d3fc725adfbde1a01ff1321",
+        "tensor_count": 66,
+        "finite": true
+      },
+      "critic": {
+        "path": "reproduction/campaigns/20261114_8xa100/lafan1_maxcoord_x2/checkpoints/00160000/critic.pt",
+        "bytes": 1078517,
+        "sha256": "64734a803b654e1b1e781e619e931c613b8c09fbb58d1b737bd69280ed118631",
+        "tensor_count": 10,
+        "finite": true
+      },
+      "resume": {
+        "path": "reproduction/campaigns/20261114_8xa100/lafan1_maxcoord_x2/resume.pt",
+        "bytes": 12250078133,
+        "step": 160000,
+        "updates": 63997,
+        "replay_size": 1000,
+        "optimizer_groups": [
+          "wm",
+          "actor",
+          "critic"
+        ],
+        "scope": "metadata checked using mmap; replay contents not rescanned"
+      }
+    }
+  },
+  {
+    "name": "boneseed_gencoord_x2",
+    "snapshot_count": 32,
+    "files": {
+      "world_model": {
+        "path": "reproduction/campaigns/20261114_8xa100/boneseed_gencoord_x2/checkpoints/00160000/world_model.pt",
+        "bytes": 34989653,
+        "sha256": "4716ef5501670fef8fbead17e56ce8b5c0f38bf0dc9ac08e2a6c79e8b71a1882",
+        "tensor_count": 26,
+        "finite": true
+      },
+      "actor": {
+        "path": "reproduction/campaigns/20261114_8xa100/boneseed_gencoord_x2/checkpoints/00160000/actor.pt",
+        "bytes": 46437069,
+        "sha256": "a07e578dce7ad008fd1706ca432e73e5fb9097242ebbb8e4989b1dfea88e0e36",
+        "tensor_count": 66,
+        "finite": true
+      },
+      "critic": {
+        "path": "reproduction/campaigns/20261114_8xa100/boneseed_gencoord_x2/checkpoints/00160000/critic.pt",
+        "bytes": 929013,
+        "sha256": "00b5b5bfee54d66dc74bc457d47f705bfede7fa29cc1e64187179562ffb36246",
+        "tensor_count": 10,
+        "finite": true
+      },
+      "resume": {
+        "path": "reproduction/campaigns/20261114_8xa100/boneseed_gencoord_x2/resume.pt",
+        "bytes": 8689945737,
+        "step": 160000,
+        "updates": 63997,
+        "replay_size": 1000,
+        "optimizer_groups": [
+          "wm",
+          "actor",
+          "critic"
+        ],
+        "scope": "metadata checked using mmap; replay contents not rescanned"
+      }
+    }
+  },
+  {
+    "name": "boneseed_maxcoord_x2",
+    "snapshot_count": 32,
+    "files": {
+      "world_model": {
+        "path": "reproduction/campaigns/20261114_8xa100/boneseed_maxcoord_x2/checkpoints/00160000/world_model.pt",
+        "bytes": 36589013,
+        "sha256": "304c6452c69cf63fc6557efdb4eee82281e1cee44f1e0430561b5a40b7138769",
+        "tensor_count": 26,
+        "finite": true
+      },
+      "actor": {
+        "path": "reproduction/campaigns/20261114_8xa100/boneseed_maxcoord_x2/checkpoints/00160000/actor.pt",
+        "bytes": 46437069,
+        "sha256": "a0e8fd886097dfc113874ba257dd983f2c30180306f8b1cd5d3fa9212167e8cc",
+        "tensor_count": 66,
+        "finite": true
+      },
+      "critic": {
+        "path": "reproduction/campaigns/20261114_8xa100/boneseed_maxcoord_x2/checkpoints/00160000/critic.pt",
+        "bytes": 1078517,
+        "sha256": "ba9c7fb12ef3c5e58d8a746a000defdb5a556ee46601c6364d40fb73e78ba068",
+        "tensor_count": 10,
+        "finite": true
+      },
+      "resume": {
+        "path": "reproduction/campaigns/20261114_8xa100/boneseed_maxcoord_x2/resume.pt",
+        "bytes": 12332436917,
+        "step": 160000,
+        "updates": 63997,
+        "replay_size": 1000,
+        "optimizer_groups": [
+          "wm",
+          "actor",
+          "critic"
+        ],
+        "scope": "metadata checked using mmap; replay contents not rescanned"
+      }
+    }
+  }
+]
